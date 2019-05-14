@@ -14,6 +14,10 @@ namespace HaberinOlsun.BLL
         {
             return datacontext.Haberler.ToList();
         }
+        public static Haberler haberdetay(int id)
+        {
+            return datacontext.Haberler.FirstOrDefault(x => x.HaberID == id);
+        }
 
     }
 }

@@ -9,6 +9,10 @@ namespace HaberinOlsun.PublicUI1.Controllers
     public class GundemController : Controller
     {
         // GET: Gundem
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult Gundem()
         {
             return View();
