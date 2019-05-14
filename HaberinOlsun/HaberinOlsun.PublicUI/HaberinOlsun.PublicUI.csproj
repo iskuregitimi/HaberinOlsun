@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -185,6 +191,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HaberinOlsun.BLL\HaberinOlsun.BLL.csproj">
+      <Project>{c17cab32-d230-4527-bc30-60a05fb5656e}</Project>
+      <Name>HaberinOlsun.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaberinOlsun.DAL\HaberinOlsun.DAL.csproj">
+      <Project>{22c1bc05-55bf-4049-94db-18e8961c7e04}</Project>
+      <Name>HaberinOlsun.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaberinOlsun.Entity\HaberinOlsun.Entity.csproj">
+      <Project>{c5692e68-de4f-4687-ae8e-c6637ad7b69d}</Project>
+      <Name>HaberinOlsun.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
