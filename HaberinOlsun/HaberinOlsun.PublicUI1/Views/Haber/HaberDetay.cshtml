@@ -1,6 +1,7 @@
-﻿HaberDetay
-@using HaberinOlsun.DAL
-@model Haberler
+﻿
+@using HaberinOlsun.PublicUI1.Models
+@model  Modeller
+
 @{
     ViewBag.Title = "HaberDetay";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
@@ -48,17 +49,17 @@
                     <div class="about-us-content bg-white mb-30 p-30 box-shadow">
                         <!-- Section Title -->
                         <div class="section-heading">
-                            <h5>@Model.Baslik</h5>
+                            <h5>@Model.haber.Baslik</h5>
                         </div>
-                        <p>@Model.Ozet</p>
-                        <p>@Model.Detay</p>
+                        <p>@Model.haber.Ozet</p>
+                        <p>@Model.haber.Detay</p>
                         @*<ul>
-                            <li><i class="fa fa-check"></i> Vivamus starlord finibus, dictum massa eget, suscipit metus nami at tristique elit started.</li>
-                            <li><i class="fa fa-check"></i> Cras ipsum libero, suscipit vitamin tellus vitae, feugiat ultricies purus praesent gamora.</li>
-                            <li><i class="fa fa-check"></i> Proin ex sem, ultrices drax the sit amet, facilisis destroyer et odio profession risusest.</li>
-                            <li><i class="fa fa-check"></i> Morbi maximus mauris eget groot dignissim, in laoreet justo facilisis.</li>
-                        </ul>*@
-                        <img class="mt-15" src="@Model.ResimURL" alt="">
+                                <li><i class="fa fa-check"></i> Vivamus starlord finibus, dictum massa eget, suscipit metus nami at tristique elit started.</li>
+                                <li><i class="fa fa-check"></i> Cras ipsum libero, suscipit vitamin tellus vitae, feugiat ultricies purus praesent gamora.</li>
+                                <li><i class="fa fa-check"></i> Proin ex sem, ultrices drax the sit amet, facilisis destroyer et odio profession risusest.</li>
+                                <li><i class="fa fa-check"></i> Morbi maximus mauris eget groot dignissim, in laoreet justo facilisis.</li>
+                            </ul>*@
+                        <img class="mt-15" src="@Model.haber.ResimURL" alt="">
 
                         <!-- Team Member Area -->
                         <div class="section-heading mt-30">
@@ -66,7 +67,7 @@
                         </div>
 
                         <!-- Single Team Member -->
-                       
+
 
                         <div class="single-team-member d-flex align-items-center">
                             <div class="team-member-thumbnail">
@@ -81,10 +82,10 @@
                                 <h6>Mrs. Susan Monroe</h6>
                                 <span>Reporter</span>
                                 <p>
-                                   </p>
+                                </p>
                             </div>
                         </div>
-                        
+
                         <!-- Single Team Member -->
                         <div class="single-team-member d-flex align-items-center">
                             <div class="team-member-thumbnail">
@@ -163,15 +164,14 @@
                             </div>
 
                             <!-- Catagory Widget -->
-                            <ul class="catagory-widgets">
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Life Style</span> <span>35</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Travel</span> <span>30</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Foods</span> <span>13</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Game</span> <span>06</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Sports</span> <span>28</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Football</span> <span>08</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> TV Show</span> <span>13</span></a></li>
-                            </ul>
+                            @foreach (var item in Model.Kategoriler)
+                            {
+
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</a></li>
+
+                                </ul>
+                            }
                         </div>
 
                         <!-- Sidebar Widget -->

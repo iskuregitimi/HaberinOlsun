@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -136,9 +137,12 @@
     <Compile Include="Controllers\GundemController.cs" />
     <Compile Include="Controllers\HaberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\YazarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HaberModell.cs" />
+    <Compile Include="Models\Modeller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +155,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Gundem\Gundem.cshtml" />
     <Content Include="Views\Haber\HaberDetay.cshtml" />
+    <Content Include="Views\Yazar\getKoseYazıDetay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,7 +171,6 @@
     <Folder Include="Content\img\" />
     <Folder Include="Content\js\" />
     <Folder Include="Content\scss\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HaberinOlsun.BLL\HaberinOlsun.BLL.csproj">

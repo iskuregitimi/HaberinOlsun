@@ -1,5 +1,6 @@
 ﻿using HaberinOlsun.BLL;
 using HaberinOlsun.DAL;
+using HaberinOlsun.PublicUI1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,16 @@ namespace HaberinOlsun.PublicUI1.Controllers
         }
         public ActionResult HaberDetay(int id)
         {
-            Haberler haber = HaberBLL.haberdetay(id);
+            Modeller model = new Modeller();
+            model.haber = HaberBLL.haberdetay(id);
+            List<Haberler> haberler = HaberBLL.getHaber();
+            List<Kategori> kategoriler = KategoriBLL.GetKAtegori();
+            List<KoseYazilari> Koseyazarlar = KöseYazilariBLL.GetKöseYazilaris();
 
-            return View(haber);
+            model.KoseYazilari = Koseyazarlar;
+            model.Haberler = haberler;
+            model.Kategoriler = kategoriler;
+            return View(model);
         }
     }
 }
