@@ -33,6 +33,7 @@ Kategori
 	- Aciklama
 
 HaberKategori
+	- HaberKategoriId
 	- KategoriId
 	- HaberId
 
@@ -48,6 +49,7 @@ Yazarlar
 	- ResimURL
 
 Gundem
+	- GundemId
 	- HaberId
 	- Sira
 

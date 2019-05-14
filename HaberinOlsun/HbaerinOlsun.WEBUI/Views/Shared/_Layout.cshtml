@@ -4,29 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
-    <meta charset="UTF-8">
+
+
+
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Title -->
     <title>Mag - Video &amp; Magazine HTML Template</title>
+
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="~/Content/img/core-img/favicon.ico">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="spinner">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-        </div>
-    </div>
+
+
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
@@ -38,7 +39,7 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="index.html" class="nav-brand"><img src="~/Content/img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -57,64 +58,9 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="archive.html">Archive</a></li>
-                                    <li>
-                                        <a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="archive.html">Archive</a></li>
-                                            <li><a href="video-post.html">Single Video Post</a></li>
-                                            <li><a href="single-post.html">Single Post</a></li>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="submit-video.html">Submit Video</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Mega</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="archive.html">Archive</a></li>
-                                                <li><a href="video-post.html">Single Video Post</a></li>
-                                                <li><a href="single-post.html">Single Post</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="archive.html">Archive</a></li>
-                                                <li><a href="video-post.html">Single Video Post</a></li>
-                                                <li><a href="single-post.html">Single Post</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="archive.html">Archive</a></li>
-                                                <li><a href="video-post.html">Single Video Post</a></li>
-                                                <li><a href="single-post.html">Single Post</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="archive.html">Archive</a></li>
-                                                <li><a href="video-post.html">Single Video Post</a></li>
-                                                <li><a href="single-post.html">Single Post</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="#">Genel Haberler</a></li>
+                                    <li><a href="#">Spor</a></li>
+                                    <li><a href="#">Magazin</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -131,7 +77,6 @@
                             <!-- Login -->
                             <a href="login.html" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
                             <!-- Submit Video -->
-                            <a href="submit-video.html" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">Submit Video</span></a>
                         </div>
                     </div>
                 </nav>
@@ -203,7 +148,7 @@
     <section class="mag-posts-area d-flex flex-wrap">
 
         <!-- >>>>>>>>>>>>>>>>>>>>
-         Post Left Sidebar Area
+        Post Left Sidebar Area
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-white box-shadow">
             <!-- Sidebar Widget -->
@@ -380,7 +325,7 @@
         </div>
 
         <!-- >>>>>>>>>>>>>>>>>>>>
-             Main Posts Area
+        Main Posts Area
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
             <!-- Trending Now Posts Area -->
@@ -611,7 +556,7 @@
                                     <!-- Single Blog Post -->
                                     <div class="single-blog-post d-flex style-3">
                                         <div class="post-thumbnail">
-                                            <img src="img/bg-img/25.jpg" alt="">
+                                            <img src="~/Content/img/bg-img/25.jpg" alt="">
                                         </div>
                                         <div class="post-content">
                                             <a href="single-post.html" class="post-title">American Standards And European Culture How To Avoid</a>
@@ -641,7 +586,7 @@
                                     <!-- Single Blog Post -->
                                     <div class="single-blog-post d-flex style-3">
                                         <div class="post-thumbnail">
-                                            <img src="img/bg-img/27.jpg" alt="">
+                                            <img src="~/Content/img/bg-img/27.jpg" alt="">
                                         </div>
                                         <div class="post-content">
                                             <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
@@ -672,7 +617,7 @@
                     <!-- Single Blog Post -->
                     <div class="single-blog-post style-4">
                         <div class="post-thumbnail">
-                            <img src="img/bg-img/28.jpg" alt="">
+                            <img src="~/Content/img/bg-img/28.jpg" alt="">
                             <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
                             <span class="video-duration">09:27</span>
                         </div>
@@ -689,7 +634,7 @@
                     <!-- Single Blog Post -->
                     <div class="single-blog-post style-4">
                         <div class="post-thumbnail">
-                            <img src="img/bg-img/29.jpg" alt="">
+                            <img src="~/Content/img/bg-img/29.jpg" alt="">
                             <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
                             <span class="video-duration">09:27</span>
                         </div>
@@ -706,7 +651,7 @@
                     <!-- Single Blog Post -->
                     <div class="single-blog-post style-4">
                         <div class="post-thumbnail">
-                            <img src="img/bg-img/30.jpg" alt="">
+                            <img src="~/Content/img/bg-img/30.jpg" alt="">
                             <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
                             <span class="video-duration">09:27</span>
                         </div>
@@ -723,7 +668,7 @@
                     <!-- Single Blog Post -->
                     <div class="single-blog-post style-4">
                         <div class="post-thumbnail">
-                            <img src="img/bg-img/28.jpg" alt="">
+                            <img src="~/Content/img/bg-img/28.jpg" alt="">
                             <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
                             <span class="video-duration">09:27</span>
                         </div>
@@ -740,7 +685,7 @@
                     <!-- Single Blog Post -->
                     <div class="single-blog-post style-4">
                         <div class="post-thumbnail">
-                            <img src="img/bg-img/29.jpg" alt="">
+                            <img src="~/Content/img/bg-img/29.jpg" alt="">
                             <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
                             <span class="video-duration">09:27</span>
                         </div>
@@ -757,7 +702,7 @@
                     <!-- Single Blog Post -->
                     <div class="single-blog-post style-4">
                         <div class="post-thumbnail">
-                            <img src="img/bg-img/30.jpg" alt="">
+                            <img src="~/Content/img/bg-img/30.jpg" alt="">
                             <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
                             <span class="video-duration">09:27</span>
                         </div>
@@ -786,7 +731,7 @@
                     <div class="single-featured-post">
                         <!-- Thumbnail -->
                         <div class="post-thumbnail mb-50">
-                            <img src="img/bg-img/22.jpg" alt="">
+                            <img src="~/Content/img/bg-img/22.jpg" alt="">
                             <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
                         </div>
                         <!-- Post Contetnt -->
@@ -824,7 +769,7 @@
                     <div class="single-featured-post">
                         <!-- Thumbnail -->
                         <div class="post-thumbnail mb-50">
-                            <img src="img/bg-img/22.jpg" alt="">
+                            <img src="~/Content/img/bg-img/22.jpg" alt="">
                             <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
                         </div>
                         <!-- Post Contetnt -->
@@ -902,7 +847,7 @@
                     <div class="col-12 col-lg-6">
                         <div class="single-blog-post d-flex style-3 mb-30">
                             <div class="post-thumbnail">
-                                <img src="img/bg-img/31.jpg" alt="">
+                                <img src="~/Content/img/bg-img/31.jpg" alt="">
                             </div>
                             <div class="post-content">
                                 <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
@@ -919,7 +864,7 @@
                     <div class="col-12 col-lg-6">
                         <div class="single-blog-post d-flex style-3 mb-30">
                             <div class="post-thumbnail">
-                                <img src="img/bg-img/32.jpg" alt="">
+                                <img src="~/Content/img/bg-img/32.jpg" alt="">
                             </div>
                             <div class="post-content">
                                 <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
@@ -936,7 +881,7 @@
                     <div class="col-12 col-lg-6">
                         <div class="single-blog-post d-flex style-3 mb-30">
                             <div class="post-thumbnail">
-                                <img src="img/bg-img/33.jpg" alt="">
+                                <img src="~/Content/img/bg-img/33.jpg" alt="">
                             </div>
                             <div class="post-content">
                                 <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
@@ -953,7 +898,7 @@
                     <div class="col-12 col-lg-6">
                         <div class="single-blog-post d-flex style-3 mb-30">
                             <div class="post-thumbnail">
-                                <img src="img/bg-img/34.jpg" alt="">
+                                <img src="~/Content/img/bg-img/34.jpg" alt="">
                             </div>
                             <div class="post-content">
                                 <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
@@ -971,7 +916,7 @@
         </div>
 
         <!-- >>>>>>>>>>>>>>>>>>>>
-         Post Right Sidebar Area
+        Post Right Sidebar Area
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
             <!-- Sidebar Widget -->
@@ -1034,7 +979,7 @@
                 <!-- Single YouTube Channel -->
                 <div class="single-youtube-channel d-flex">
                     <div class="youtube-channel-thumbnail">
-                        <img src="img/bg-img/15.jpg" alt="">
+                        <img src="~/Content/img/bg-img/15.jpg" alt="">
                     </div>
                     <div class="youtube-channel-content">
                         <a href="single-post.html" class="channel-title">Game Channel</a>
@@ -1045,7 +990,7 @@
                 <!-- Single YouTube Channel -->
                 <div class="single-youtube-channel d-flex">
                     <div class="youtube-channel-thumbnail">
-                        <img src="img/bg-img/16.jpg" alt="">
+                        <img src="~/Content/img/bg-img/16.jpg" alt="">
                     </div>
                     <div class="youtube-channel-content">
                         <a href="single-post.html" class="channel-title">Sport Channel</a>
@@ -1056,7 +1001,7 @@
                 <!-- Single YouTube Channel -->
                 <div class="single-youtube-channel d-flex">
                     <div class="youtube-channel-thumbnail">
-                        <img src="img/bg-img/17.jpg" alt="">
+                        <img src="~/Content/img/bg-img/17.jpg" alt="">
                     </div>
                     <div class="youtube-channel-content">
                         <a href="single-post.html" class="channel-title">Travel Channel</a>
@@ -1067,7 +1012,7 @@
                 <!-- Single YouTube Channel -->
                 <div class="single-youtube-channel d-flex">
                     <div class="youtube-channel-thumbnail">
-                        <img src="img/bg-img/18.jpg" alt="">
+                        <img src="~/Content/img/bg-img/18.jpg" alt="">
                     </div>
                     <div class="youtube-channel-content">
                         <a href="single-post.html" class="channel-title">LifeStyle Channel</a>
@@ -1104,7 +1049,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="footer-widget">
                         <!-- Logo -->
-                        <a href="index.html" class="foo-logo"><img src="img/core-img/logo2.png" alt=""></a>
+                        <a href="index.html" class="foo-logo"><img src="~/Content/img/core-img/logo2.png" alt=""></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         <div class="footer-social-info">
                             <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -1144,7 +1089,7 @@
                         <!-- Single Blog Post -->
                         <div class="single-blog-post style-2 d-flex">
                             <div class="post-thumbnail">
-                                <img src="img/bg-img/12.jpg" alt="">
+                                <img src="~/Content/img/bg-img/12.jpg" alt="">
                             </div>
                             <div class="post-content">
                                 <a href="single-post.html" class="post-title">Take A Romantic Break In A Boutique Hotel</a>
@@ -1158,7 +1103,7 @@
                         <!-- Single Blog Post -->
                         <div class="single-blog-post style-2 d-flex">
                             <div class="post-thumbnail">
-                                <img src="img/bg-img/13.jpg" alt="">
+                                <img src="~/Content/img/bg-img/13.jpg" alt="">
                             </div>
                             <div class="post-content">
                                 <a href="single-post.html" class="post-title">Travel Prudently Luggage And Carry On</a>
@@ -1228,44 +1173,26 @@
     <!-- ##### Footer Area End ##### -->
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="~/Content/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="~/Content/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Content/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
+    <script src="~/Content/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
-        </div>
+    <script src="~/Content/js/active.js"></script>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)*@
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
