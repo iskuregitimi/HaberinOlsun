@@ -6,15 +6,12 @@ using System.Web.Mvc;
 
 namespace HaberinOlsun.PublicUI.Controllers
 {
-    public class HomeController : Controller
+    public class DunyaController : Controller
     {
-        public ActionResult Index()
+        // GET: Dunya
+        public ActionResult Dunya()
         {
             return View();
         }
-
-     
-
-
     }
 }

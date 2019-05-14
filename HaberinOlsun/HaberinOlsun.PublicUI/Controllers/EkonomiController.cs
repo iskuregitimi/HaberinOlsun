@@ -6,15 +6,12 @@ using System.Web.Mvc;
 
 namespace HaberinOlsun.PublicUI.Controllers
 {
-    public class HomeController : Controller
+    public class EkonomiController : Controller
     {
-        public ActionResult Index()
+        // GET: Ekonomi
+        public ActionResult Ekonomi()
         {
             return View();
         }
-
-     
-
-
     }
 }

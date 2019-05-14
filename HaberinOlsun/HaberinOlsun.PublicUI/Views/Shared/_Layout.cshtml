@@ -16,12 +16,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Haberin Olsun", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("HABERİN OLSUN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Ana Sayfa", "Index", "Home")</li>
-                 
+                    <li>@Html.ActionLink("Ana Sayfa", "AnaSayfa", "AnaSayfa")</li>
+                    <li>@Html.ActionLink("Gündem", "Gundem", "Gundem")</li>
+                    <li>@Html.ActionLink("Dünya", "Dunya", "Dunya")</li>
+                    <li>@Html.ActionLink("Ekonomi", "Ekonomi", "Ekonomi")</li>
+                    <li>@Html.ActionLink("Spor", "Spor", "Spor")</li>
+
+
+
+
+
                 </ul>
             </div>
         </div>

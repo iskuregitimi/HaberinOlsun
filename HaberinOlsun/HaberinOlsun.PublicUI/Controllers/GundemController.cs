@@ -6,15 +6,12 @@ using System.Web.Mvc;
 
 namespace HaberinOlsun.PublicUI.Controllers
 {
-    public class HomeController : Controller
+    public class GundemController : Controller
     {
-        public ActionResult Index()
+        // GET: Gundem
+        public ActionResult Gundem()
         {
             return View();
         }
-
-     
-
-
     }
 }

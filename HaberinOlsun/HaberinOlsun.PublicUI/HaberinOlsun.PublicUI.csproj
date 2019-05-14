@@ -132,10 +132,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnaSayfaController.cs" />
+    <Compile Include="Controllers\DunyaController.cs" />
+    <Compile Include="Controllers\EkonomiController.cs" />
+    <Compile Include="Controllers\GundemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SporController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AnaSayfaModel.cs" />
+    <Compile Include="Models\DunyaModel.cs" />
+    <Compile Include="Models\EkonomiModel.cs" />
+    <Compile Include="Models\GundemModel.cs" />
+    <Compile Include="Models\SporModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,13 +181,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\AnaSayfa\AnaSayfa.cshtml" />
+    <Content Include="Views\Gundem\Gundem.cshtml" />
+    <Content Include="Views\Dunya\Dunya.cshtml" />
+    <Content Include="Views\Ekonomi\Ekonomi.cshtml" />
+    <Content Include="Views\Spor\Spor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
