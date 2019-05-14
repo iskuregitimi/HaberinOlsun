@@ -45,6 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -137,12 +145,154 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\classy-nav.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\nice-select.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\themify-icons.css" />
+    <Content Include="Content\fonts\classy.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\themify.svg" />
+    <Content Include="Content\img\bg-img\1.jpg" />
+    <Content Include="Content\img\bg-img\10.jpg" />
+    <Content Include="Content\img\bg-img\11.jpg" />
+    <Content Include="Content\img\bg-img\12.jpg" />
+    <Content Include="Content\img\bg-img\13.jpg" />
+    <Content Include="Content\img\bg-img\14.jpg" />
+    <Content Include="Content\img\bg-img\15.jpg" />
+    <Content Include="Content\img\bg-img\16.jpg" />
+    <Content Include="Content\img\bg-img\17.jpg" />
+    <Content Include="Content\img\bg-img\18.jpg" />
+    <Content Include="Content\img\bg-img\19.jpg" />
+    <Content Include="Content\img\bg-img\2.jpg" />
+    <Content Include="Content\img\bg-img\20.jpg" />
+    <Content Include="Content\img\bg-img\21.jpg" />
+    <Content Include="Content\img\bg-img\22.jpg" />
+    <Content Include="Content\img\bg-img\23.jpg" />
+    <Content Include="Content\img\bg-img\24.jpg" />
+    <Content Include="Content\img\bg-img\25.jpg" />
+    <Content Include="Content\img\bg-img\26.jpg" />
+    <Content Include="Content\img\bg-img\27.jpg" />
+    <Content Include="Content\img\bg-img\28.jpg" />
+    <Content Include="Content\img\bg-img\29.jpg" />
+    <Content Include="Content\img\bg-img\3.jpg" />
+    <Content Include="Content\img\bg-img\30.jpg" />
+    <Content Include="Content\img\bg-img\31.jpg" />
+    <Content Include="Content\img\bg-img\32.jpg" />
+    <Content Include="Content\img\bg-img\33.jpg" />
+    <Content Include="Content\img\bg-img\34.jpg" />
+    <Content Include="Content\img\bg-img\35.jpg" />
+    <Content Include="Content\img\bg-img\36.jpg" />
+    <Content Include="Content\img\bg-img\37.jpg" />
+    <Content Include="Content\img\bg-img\38.jpg" />
+    <Content Include="Content\img\bg-img\39.jpg" />
+    <Content Include="Content\img\bg-img\4.jpg" />
+    <Content Include="Content\img\bg-img\40.jpg" />
+    <Content Include="Content\img\bg-img\41.jpg" />
+    <Content Include="Content\img\bg-img\42.jpg" />
+    <Content Include="Content\img\bg-img\43.jpg" />
+    <Content Include="Content\img\bg-img\44.jpg" />
+    <Content Include="Content\img\bg-img\45.jpg" />
+    <Content Include="Content\img\bg-img\46.jpg" />
+    <Content Include="Content\img\bg-img\47.jpg" />
+    <Content Include="Content\img\bg-img\48.jpg" />
+    <Content Include="Content\img\bg-img\49.jpg" />
+    <Content Include="Content\img\bg-img\5.jpg" />
+    <Content Include="Content\img\bg-img\50.jpg" />
+    <Content Include="Content\img\bg-img\51.jpg" />
+    <Content Include="Content\img\bg-img\52.jpg" />
+    <Content Include="Content\img\bg-img\53.jpg" />
+    <Content Include="Content\img\bg-img\54.jpg" />
+    <Content Include="Content\img\bg-img\55.jpg" />
+    <Content Include="Content\img\bg-img\6.jpg" />
+    <Content Include="Content\img\bg-img\7.jpg" />
+    <Content Include="Content\img\bg-img\8.jpg" />
+    <Content Include="Content\img\bg-img\9.jpg" />
+    <Content Include="Content\img\bg-img\add.png" />
+    <Content Include="Content\img\bg-img\add2.png" />
+    <Content Include="Content\img\core-img\favicon.ico" />
+    <Content Include="Content\img\core-img\logo.png" />
+    <Content Include="Content\img\core-img\logo2.png" />
+    <Content Include="Content\js\active.js" />
+    <Content Include="Content\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Content\js\bootstrap\popper.min.js" />
+    <Content Include="Content\js\jquery\jquery-2.2.4.min.js" />
+    <Content Include="Content\js\plugins\plugins.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\.sass-cache\79e8b4b23cae96bc59accba0bc44812257da6644\style.scssc" />
+    <Content Include="Content\.sass-cache\79e8b4b23cae96bc59accba0bc44812257da6644\_fonts.scssc" />
+    <Content Include="Content\.sass-cache\79e8b4b23cae96bc59accba0bc44812257da6644\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\79e8b4b23cae96bc59accba0bc44812257da6644\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\79e8b4b23cae96bc59accba0bc44812257da6644\_theme_color.scssc" />
+    <Content Include="Content\.sass-cache\79e8b4b23cae96bc59accba0bc44812257da6644\_variables.scssc" />
+    <Content Include="Content\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\style.scssc" />
+    <Content Include="Content\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_fonts.scssc" />
+    <Content Include="Content\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_theme_color.scssc" />
+    <Content Include="Content\.sass-cache\530a3acc31b0b3d3f7f5afd88ed40b860ea1ca7f\style.scssc" />
+    <Content Include="Content\.sass-cache\530a3acc31b0b3d3f7f5afd88ed40b860ea1ca7f\_fonts.scssc" />
+    <Content Include="Content\.sass-cache\530a3acc31b0b3d3f7f5afd88ed40b860ea1ca7f\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\530a3acc31b0b3d3f7f5afd88ed40b860ea1ca7f\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\530a3acc31b0b3d3f7f5afd88ed40b860ea1ca7f\_theme_color.scssc" />
+    <Content Include="Content\.sass-cache\530a3acc31b0b3d3f7f5afd88ed40b860ea1ca7f\_variables.scssc" />
+    <Content Include="Content\.sass-cache\82b7a64a6998190f01312a0c1f7661264cd7f171\style.scssc" />
+    <Content Include="Content\.sass-cache\82b7a64a6998190f01312a0c1f7661264cd7f171\_fonts.scssc" />
+    <Content Include="Content\.sass-cache\82b7a64a6998190f01312a0c1f7661264cd7f171\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\82b7a64a6998190f01312a0c1f7661264cd7f171\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\82b7a64a6998190f01312a0c1f7661264cd7f171\_theme_color.scssc" />
+    <Content Include="Content\.sass-cache\82b7a64a6998190f01312a0c1f7661264cd7f171\_variables.scssc" />
+    <Content Include="Content\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\style.scssc" />
+    <Content Include="Content\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\_theme_color.scssc" />
+    <Content Include="Content\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\_variables.scssc" />
+    <Content Include="Content\.sass-cache\aaea34438c4adf88ad126fd9f0fe12a19e9263ac\style.scssc" />
+    <Content Include="Content\.sass-cache\aaea34438c4adf88ad126fd9f0fe12a19e9263ac\_fonts.scssc" />
+    <Content Include="Content\.sass-cache\aaea34438c4adf88ad126fd9f0fe12a19e9263ac\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\aaea34438c4adf88ad126fd9f0fe12a19e9263ac\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\aaea34438c4adf88ad126fd9f0fe12a19e9263ac\_theme_color.scssc" />
+    <Content Include="Content\.sass-cache\b362b0918ebd42cf56ce6a76e2430595e644f539\style.scssc" />
+    <Content Include="Content\.sass-cache\b362b0918ebd42cf56ce6a76e2430595e644f539\_fonts.scssc" />
+    <Content Include="Content\.sass-cache\b362b0918ebd42cf56ce6a76e2430595e644f539\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\b362b0918ebd42cf56ce6a76e2430595e644f539\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\b362b0918ebd42cf56ce6a76e2430595e644f539\_theme_color.scssc" />
+    <Content Include="Content\.sass-cache\b362b0918ebd42cf56ce6a76e2430595e644f539\_variables.scssc" />
+    <Content Include="Content\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\style.scssc" />
+    <Content Include="Content\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_theme_color.scssc" />
+    <Content Include="Content\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_variables.scssc" />
+    <Content Include="Content\.sass-cache\d85c8cf619ac1df897d554b9bf37f413df87287f\style.scssc" />
+    <Content Include="Content\.sass-cache\d85c8cf619ac1df897d554b9bf37f413df87287f\_fonts.scssc" />
+    <Content Include="Content\.sass-cache\d85c8cf619ac1df897d554b9bf37f413df87287f\_mixin.scssc" />
+    <Content Include="Content\.sass-cache\d85c8cf619ac1df897d554b9bf37f413df87287f\_responsive.scssc" />
+    <Content Include="Content\.sass-cache\d85c8cf619ac1df897d554b9bf37f413df87287f\_theme_color.scssc" />
+    <Content Include="Content\fonts\classy.eot" />
+    <Content Include="Content\fonts\classy.ttf" />
+    <Content Include="Content\fonts\classy.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\themify.eot" />
+    <Content Include="Content\fonts\themify.ttf" />
+    <Content Include="Content\fonts\themify.woff" />
+    <Content Include="Content\scss\style.scss" />
+    <Content Include="Content\scss\_fonts.scss" />
+    <Content Include="Content\scss\_mixin.scss" />
+    <Content Include="Content\scss\_responsive.scss" />
+    <Content Include="Content\scss\_theme_color.scss" />
+    <Content Include="Content\scss\_variables.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -185,6 +335,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HaberinOlsun.BLL\HaberinOlsun.BLL.csproj">
+      <Project>{70bdfb5c-057b-4ac7-8aea-90f034db150d}</Project>
+      <Name>HaberinOlsun.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaberinOlsun.DAL\HaberinOlsun.DAL.csproj">
+      <Project>{67b574f7-1bc1-464e-a9da-18e3b1621002}</Project>
+      <Name>HaberinOlsun.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
