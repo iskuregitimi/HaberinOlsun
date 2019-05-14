@@ -15,5 +15,17 @@ namespace HaberinOlsun.BLL
             Haberler haber = DataContext.GetHaber();
             return haber;
         }
+
+        public static List<Haberler> getAllNews()
+        {
+            List<Haberler> list= DataContext.getAllHaber();
+            return list;
+        }
+
+        public static List<Gundem> getAllCurrents()
+        {
+            List<Gundem> list = DataContext.getAllGundems();
+            return list;
+        }
     }
 }

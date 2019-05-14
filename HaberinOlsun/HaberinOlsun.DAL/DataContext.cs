@@ -15,5 +15,15 @@ namespace HaberinOlsun.DAL
         {
             return context.Haberlers.Where(x => x.HaberId == 1).FirstOrDefault();
         }
+
+        public static List<Haberler> getAllHaber()
+        {
+            return context.Haberlers.ToList();
+        }
+
+        public static List<Gundem> getAllGundems()
+        {
+            return context.Gundems.ToList();
+        }
     }
 }

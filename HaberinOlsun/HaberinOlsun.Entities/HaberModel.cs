@@ -17,6 +17,7 @@ namespace HaberinOlsun.Entities
         public virtual DbSet<KoseYazilari> KoseYazilaris { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Yazarlar> Yazarlars { get; set; }
+        public virtual DbSet<Gundem> Gundems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
