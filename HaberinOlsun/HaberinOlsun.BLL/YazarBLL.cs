@@ -16,5 +16,9 @@ namespace HaberinOlsun.BLL
             return db.Yazar.ToList();
         }
 
+        public Yazar GetYazar(int Id)
+        {
+            return db.Yazar.FirstOrDefault(x => x.YazarId == Id);
+        }
     }
 }

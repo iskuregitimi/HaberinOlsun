@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HaberinOlsun.BLL;
+using HaberinOlsun.ENTITY;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +10,17 @@ namespace HaberinOlsun.PublicUI.Controllers
 {
     public class KategoriController : Controller
     {
-       
+        KategoriBLL kategoribll = new KategoriBLL();
         // GET: Kategori
-        public ActionResult Index(int Id)
+        public ActionResult Kategori(int Id)
         {
-            return View();
+            Kategori kategori = kategoribll.GetKategori(Id);
+            List<Haber> haberler = new List<Haber>();
+            foreach (Haber item in kategori.Haber)
+            {
+                haberler.Add(item);
+            }
+            return View(haberler);
         }
     }
 }

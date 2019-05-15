@@ -11,6 +11,7 @@ namespace HaberinOlsun.PublicUI.Controllers
     public class YazarController : Controller
     {
         KoseYazisiBLL koseYazisiBLL = new KoseYazisiBLL();
+        YazarBLL yazarbll = new YazarBLL();
         // GET: Yazar
         public ActionResult Index()
         {           
@@ -18,8 +19,21 @@ namespace HaberinOlsun.PublicUI.Controllers
         }
         public ActionResult Detay(int Id)
         {
-            KoseYazilari koseyazisi = koseYazisiBLL.GetKoseYazilari(Id);
-            return View(koseyazisi);
+            Yazar yazar = yazarbll.GetYazar(Id);
+            List<KoseYazilari> koseyazilari = new List<KoseYazilari>();
+
+            foreach (KoseYazilari item in yazar.KoseYazilari)
+            {
+                koseyazilari.Add(item);
+            }
+            return View(koseyazilari);
+        }
+
+        public ActionResult YaziDetay(int Id)
+        {
+           
+            KoseYazilari koseyazilari = koseYazisiBLL.GetKoseYazilari(Id);
+            return View(koseyazilari);
         }
     }
 }

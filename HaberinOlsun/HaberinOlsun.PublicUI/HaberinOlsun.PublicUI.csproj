@@ -209,10 +209,11 @@
     <Content Include="Views\Haber\Index.cshtml" />
     <Content Include="Views\Yazar\Detay.cshtml" />
     <Content Include="Views\Home\PartialView.cshtml" />
+    <Content Include="Views\Kategori\Kategori.cshtml" />
+    <Content Include="Views\Yazar\YaziDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Kategori\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

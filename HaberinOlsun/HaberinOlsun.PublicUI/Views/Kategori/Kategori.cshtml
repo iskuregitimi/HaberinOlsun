@@ -1,0 +1,28 @@
+﻿@using HaberinOlsun.ENTITY
+@model List<Haber>
+
+@{
+    ViewBag.Title = "Kategori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section>
+    <h4 class="p-title"><b>Haberler</b></h4>
+    <div class="row">
+        @foreach (Haber item in Model)
+        {            
+            <div class="col-md-4">
+                <img src="@item.ResimURL" alt="@item.Baslik" height="200">
+                <h4 class="pt-20"><a href="/Haber/Index/@item.HaberId"><b>@item.Baslik</b></a></h4><br />
+                <ul class="list-li-mr-20 pt-10 pb-20">
+                    <li class="color-lite-black">
+                        by <a href="#" class="color-black"><b>@item.Kaynak,</b></a>
+                        @item.Tarih<br />
+                    </li>
+                    <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i><b>@item.OkunmaSayisi</b></li>
+                </ul>
+                <hr />
+            </div><!-- col-sm-6 -->
+
+        }
+    </div><!-- row -->
+</section>

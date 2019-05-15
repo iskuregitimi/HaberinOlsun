@@ -7,7 +7,6 @@
 @{
     HaberBLL haberbll = new HaberBLL();
     List<Haber> haber = haberbll.GetHabers();
-
 }
 <section>
     @Html.Partial("~/Views/Home/PartialView.cshtml")
@@ -17,7 +16,7 @@
 <section>
     <h4 class="p-title"><b>GÜNCEL HABERLER</b></h4>
     <div class="row">
-            @foreach (Haber item in haber)
+            @foreach (Haber item in haber.Take(9))
             {
                 <div class="col-md-4">
                     <h4 class="pt-20"><a href="/Haber/Index/@item.HaberId"><b>@item.Baslik</b></a></h4><br />
@@ -28,7 +27,7 @@
                             @item.Tarih<br />
                         </li>
                         <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i><b>@item.OkunmaSayisi</b></li>
-                        @foreach (var item1 in item.Kategori)
+                        @foreach (Kategori item1 in item.Kategori)
                         {
                             <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i><b>@item1.Adi</b></li>
                         }
