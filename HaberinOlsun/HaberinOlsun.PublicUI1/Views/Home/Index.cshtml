@@ -9,12 +9,12 @@
 
 
 <body>
-    @*<div class="hero-area owl-carousel">
+    <div class="hero-area owl-carousel">
         <!-- Single Blog Post -->
         @foreach (var item in Model.Haberler)
         {
 
-            <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/1.jpg);">
+            <div class="hero-blog-post bg-img bg-overlay" style="background-image:url( @item.ResimURL);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
@@ -31,45 +31,10 @@
                     </div>
                 </div>
             </div>
-        }*@
+        }
 
 
-    @*<div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/2.jpg);">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <!-- Post Contetnt -->
-                        <div class="post-content text-center">
-                            <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                                <a href="#">MAY 8, 2018</a>
-                                <a href="archive.html">lifestyle</a>
-                            </div>
-                            <a href="video-post.html" class="post-title" data-animation="fadeInUp" data-delay="300ms">Party Jokes Startling But Unnecessary</a>
-                            <a href="video-post.html" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/3.jpg);">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <!-- Post Contetnt -->
-                        <div class="post-content text-center">
-                            <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                                <a href="#">MAY 8, 2018</a>
-                                <a href="archive.html">lifestyle</a>
-                            </div>
-                            <a href="video-post.html" class="post-title" data-animation="fadeInUp" data-delay="300ms">Party Jokes Startling But Unnecessary</a>
-                            <a href="video-post.html" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
+   
     </div>
     <section class="mag-posts-area d-flex flex-wrap">
 
@@ -92,7 +57,7 @@
                             <img src="@item.Yazarlar.ResimURL" alt="">
                         </div>
                         <div class="post-content">
-                            <a href="/Yazar/getKoseYazıDetay/@item.YaziID" class="post-title">@item.Ozet</a>
+                            <a href="/Yazarlar/getKoseYazıDetay/@item.YaziID" class="post-title">@item.Ozet</a>
                             <div class="post-meta d-flex justify-content-between">
                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
                                 <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
@@ -350,7 +315,7 @@
                                     <!-- Post Contetnt -->
                                     <div class="post-content">
                                         <div class="post-meta">
-                                            <a href="#">MAY 8, 2018</a>
+                                            <a href="#">@item.Tarih</a>
                                             <a href="archive.html">lifestyle</a>
                                         </div>
                                         <a href="video-post.html" class="post-title">@item.Baslik</a>
@@ -360,9 +325,8 @@
                                     <div class="post-share-area d-flex align-items-center justify-content-between">
                                         <!-- Post Meta -->
                                         <div class="post-meta pl-3">
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
+                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> @item.OkunmaSayisi</a>
+                                            
                                         </div>
                                         <!-- Share Info -->
                                         <div class="share-info">
@@ -880,7 +844,9 @@
             </div>
 
             <!-- Sidebar Widget -->
-            <div class="single-sidebar-widget p-30">
+
+               @Html.Partial("~/Views/PartialView/Categori.cshtml")
+            @*<div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
                 <div class="section-heading">
                     <h5>Categories</h5>
@@ -895,7 +861,7 @@
                 }
 
 
-            </div>
+            </div>*@
 
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget">

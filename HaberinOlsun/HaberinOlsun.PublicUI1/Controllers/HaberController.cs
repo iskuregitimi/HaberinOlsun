@@ -19,11 +19,13 @@ namespace HaberinOlsun.PublicUI1.Controllers
         public ActionResult HaberDetay(int id)
         {
             AnasayfaModel model = new AnasayfaModel();
+            
             model.haber = HaberBLL.haberdetay(id);
             List<Haberler> haberler = HaberBLL.getHaber();
             List<Kategori> kategoriler = KategoriBLL.GetKAtegori();
             List<KoseYazilari> Koseyazarlar = KöseYazilariBLL.GetKöseYazilaris();
-
+            
+            model.haber.OkunmaSayisi += 1;
             model.KoseYazilari = Koseyazarlar;
             model.Haberler = haberler;
             model.Kategoriler = kategoriler;

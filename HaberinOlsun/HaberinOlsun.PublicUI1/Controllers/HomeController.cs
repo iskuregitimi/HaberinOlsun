@@ -15,6 +15,7 @@ namespace HaberinOlsun.PublicUI1.Controllers
         public ActionResult Index()
         {
             AnasayfaModel model = new AnasayfaModel();
+           
             List<Haberler> haberler = HaberBLL.getHaber();
             List<Kategori> kategoriler = KategoriBLL.GetKAtegori();
             List<KoseYazilari> Koseyazarlar = KöseYazilariBLL.GetKöseYazilaris();

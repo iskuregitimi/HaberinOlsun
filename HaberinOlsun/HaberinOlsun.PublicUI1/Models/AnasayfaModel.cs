@@ -14,6 +14,7 @@ namespace HaberinOlsun.PublicUI1.Models
         public List<Yazarlar> Yazarlar { get; set; }
         public List<KoseYazilari> KoseYazilari { get; set; }
         public Haberler haber { get; set; }
+        public KoseYazilari kyazilari{ get; set; }
 
     }
 }

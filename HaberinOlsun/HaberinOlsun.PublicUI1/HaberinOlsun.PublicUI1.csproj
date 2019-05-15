@@ -154,6 +154,7 @@
     <Content Include="Views\Gundem\Gundem.cshtml" />
     <Content Include="Views\Haber\HaberDetay.cshtml" />
     <Content Include="Views\Yazarlar\getKoseYazıDetay.cshtml" />
+    <Content Include="Views\PartialView\Categori.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

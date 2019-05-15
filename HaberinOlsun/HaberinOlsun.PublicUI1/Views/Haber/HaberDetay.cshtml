@@ -17,7 +17,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>HaberDetay</h2>
+                        <h2>@Model.haber.Baslik DETAYI</h2>
                     </div>
                 </div>
             </div>
@@ -157,23 +157,7 @@
                         </div>
 
                         <!-- Sidebar Widget -->
-                        <div class="single-sidebar-widget p-30">
-                            <!-- Section Title -->
-                            <div class="section-heading">
-                                <h5>Categories</h5>
-                            </div>
-
-                            <!-- Catagory Widget -->
-                            @foreach (var item in Model.Kategoriler)
-                            {
-
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</a></li>
-
-                                </ul>
-                            }
-                        </div>
-
+                        @Html.Partial("~/Views/PartialView/Categori.cshtml")
                         <!-- Sidebar Widget -->
                         <div class="single-sidebar-widget">
                             <a href="#" class="add-img"><img src="img/bg-img/add2.png" alt=""></a>
