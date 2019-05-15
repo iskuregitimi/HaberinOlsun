@@ -13,8 +13,8 @@ namespace HaberinOlsun.WebUI.Controllers
         // GET: Tr
         public ActionResult Anasayfa()
         {
-            Haberler haber = NewsBLL.getNews();
-            return View(haber);
+            List<Haberler> haberler = NewsBLL.getCurrentNews();
+            return View(haberler);
         }
     }
 }

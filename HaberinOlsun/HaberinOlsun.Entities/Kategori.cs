@@ -12,18 +12,21 @@ namespace HaberinOlsun.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Kategori()
         {
-            Haberlers = new HashSet<Haberler>();
+            HaberKategoris = new HashSet<HaberKategori>();
         }
 
-        public int KategoriId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int KategoriID { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string Adi { get; set; }
 
+        [Required]
         [StringLength(250)]
         public string Aciklama { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Haberler> Haberlers { get; set; }
+        public virtual ICollection<HaberKategori> HaberKategoris { get; set; }
     }
 }

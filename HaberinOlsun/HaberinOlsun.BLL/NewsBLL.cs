@@ -16,15 +16,15 @@ namespace HaberinOlsun.BLL
             return haber;
         }
 
-        public static List<Haberler> getAllNews()
+        public static List<Haberler> getCurrentNews()
         {
-            List<Haberler> list= DataContext.getAllHaber();
+            List<Haberler> list = DataContext.getCurrentHaber();
             return list;
         }
 
-        public static List<Gundem> getAllCurrents()
+        public static List<Haberler> getAllCurrents()
         {
-            List<Gundem> list = DataContext.getAllGundems();
+            List<Haberler> list = DataContext.getCurrentHaber();
             return list;
         }
     }

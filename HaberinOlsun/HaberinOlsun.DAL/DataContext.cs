@@ -16,14 +16,19 @@ namespace HaberinOlsun.DAL
             return context.Haberlers.Where(x => x.HaberId == 1).FirstOrDefault();
         }
 
-        public static List<Haberler> getAllHaber()
+        public static List<Haberler> getCurrentHaber()
         {
             return context.Haberlers.ToList();
         }
 
-        public static List<Gundem> getAllGundems()
+        public static List<Kategori> GetKategoris()
         {
-            return context.Gundems.ToList();
+            return context.Kategoris.ToList();
+        }
+
+        public static List<Yazarlar> GetYazarlars()
+        {
+            return context.Yazarlars.ToList();
         }
     }
 }
