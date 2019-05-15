@@ -9,34 +9,38 @@
     List<Haber> haber = haberbll.GetHabers();
 
 }
+<section>
+    @Html.Partial("~/Views/Home/PartialView.cshtml")
+</section>
+    
 
 <section>
     <h4 class="p-title"><b>GÜNCEL HABERLER</b></h4>
     <div class="row">
-        @foreach (Haber item in haber)
-        {
-            <div class="col-md-5">
-                <h4 class="pt-20"><a href="/Haber/Index/@item.HaberId"><b>@item.Baslik</b></a></h4><br />
-                <img src="@item.ResimURL" alt="@item.Baslik" height="200">
-                <ul class="list-li-mr-20 pt-10 pb-20">
-                    <li class="color-lite-black">
-                        by <a href="#" class="color-black"><b>@item.Kaynak,</b></a>
-                        @item.Tarih<br />
-                    </li>
-                    <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i><b>@item.OkunmaSayisi</b></li>
-                    @foreach (var item1 in item.Kategori)
-                    {
-                        <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i><b>@item1.Adi</b></li>
-                    }
+            @foreach (Haber item in haber)
+            {
+                <div class="col-md-4">
+                    <h4 class="pt-20"><a href="/Haber/Index/@item.HaberId"><b>@item.Baslik</b></a></h4><br />
+                    <img src="@item.ResimURL" alt="@item.Baslik" height="200">
+                    <ul class="list-li-mr-20 pt-10 pb-20">
+                        <li class="color-lite-black">
+                            by <a href="#" class="color-black"><b>@item.Kaynak,</b></a>
+                            @item.Tarih<br />
+                        </li>
+                        <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i><b>@item.OkunmaSayisi</b></li>
+                        @foreach (var item1 in item.Kategori)
+                        {
+                            <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i><b>@item1.Adi</b></li>
+                        }
 
-                </ul>
-                <p>
-                    @item.Ozet
-                    <a href="/Haber/Index/@item.HaberId"> <b>Haberin Devamı...</b></a>
-                </p>
-                <hr />
-            </div><!-- col-sm-6 -->
-        }
+                    </ul>
+                    <p>
+                        @item.Ozet
+                        <a href="/Haber/Index/@item.HaberId"> <b>Haberin Devamı...</b></a>
+                    </p>
+                    <hr />
+                </div><!-- col-sm-6 -->
+            }      
     </div><!-- row -->
 </section>
 

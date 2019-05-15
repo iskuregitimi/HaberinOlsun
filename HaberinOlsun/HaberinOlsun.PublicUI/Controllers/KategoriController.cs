@@ -12,7 +12,6 @@ namespace HaberinOlsun.PublicUI.Controllers
         // GET: Kategori
         public ActionResult Index(int Id)
         {
-
             return View();
         }
     }
