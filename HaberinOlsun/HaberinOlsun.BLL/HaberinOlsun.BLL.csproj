@@ -48,7 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HaberlerBLL.cs" />
+    <Compile Include="KategoriBLL.cs" />
+    <Compile Include="Koseyazilalari.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YazarlarBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
