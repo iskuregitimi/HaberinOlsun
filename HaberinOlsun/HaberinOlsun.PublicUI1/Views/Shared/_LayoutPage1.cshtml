@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using HaberinOlsun.PublicUI1.Models
+@model  AnasayfaModel
+
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -137,7 +141,7 @@
             </div>
         </div>
     </header>
-   
+
 
     <div>
         @RenderBody()
@@ -166,18 +170,14 @@
                     <div class="footer-widget">
                         <h6 class="widget-title">Categories</h6>
                         <nav class="footer-widget-nav">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Life Style</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Tech</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Travel</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Music</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Foods</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Fashion</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Game</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Football</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Sports</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> TV Show</a></li>
-                            </ul>
+                            @foreach (var item in Model.Kategoriler)
+                            {
+
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</a></li>
+
+                                </ul>
+                            }
                         </nav>
                     </div>
                 </div>
