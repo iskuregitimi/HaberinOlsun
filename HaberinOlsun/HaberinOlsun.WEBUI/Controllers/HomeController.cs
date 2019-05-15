@@ -13,5 +13,10 @@ namespace HaberinOlsun.WEBUI.Controllers
         {
             return View();
         }
+
+		public ActionResult AnaSayfa()
+		{
+			return View();
+		}
     }
 }
