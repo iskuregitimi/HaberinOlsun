@@ -1,0 +1,339 @@
+USE [master]
+GO
+/****** Object:  Database [HaberinOlsun]    Script Date: 15.05.2019 14:42:51 ******/
+CREATE DATABASE [HaberinOlsun]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'HaberinOlsun', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\HaberinOlsun.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'HaberinOlsun_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\HaberinOlsun_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+ALTER DATABASE [HaberinOlsun] SET COMPATIBILITY_LEVEL = 140
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [HaberinOlsun].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [HaberinOlsun] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [HaberinOlsun] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [HaberinOlsun] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [HaberinOlsun] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET RECOVERY FULL 
+GO
+ALTER DATABASE [HaberinOlsun] SET  MULTI_USER 
+GO
+ALTER DATABASE [HaberinOlsun] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [HaberinOlsun] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [HaberinOlsun] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [HaberinOlsun] SET DELAYED_DURABILITY = DISABLED 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'HaberinOlsun', N'ON'
+GO
+ALTER DATABASE [HaberinOlsun] SET QUERY_STORE = OFF
+GO
+USE [HaberinOlsun]
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = ON;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET LEGACY_CARDINALITY_ESTIMATION = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET LEGACY_CARDINALITY_ESTIMATION = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 0;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET PARAMETER_SNIFFING = ON;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET PARAMETER_SNIFFING = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES = PRIMARY;
+GO
+USE [HaberinOlsun]
+GO
+/****** Object:  Table [dbo].[Gundem]    Script Date: 15.05.2019 14:42:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Gundem](
+	[HaberID] [int] NOT NULL,
+	[Sira] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HaberKategori]    Script Date: 15.05.2019 14:42:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HaberKategori](
+	[KategoriID] [int] NOT NULL,
+	[HaberID] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Haberler]    Script Date: 15.05.2019 14:42:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Haberler](
+	[HaberID] [int] IDENTITY(1,1) NOT NULL,
+	[Baslik] [nvarchar](250) NOT NULL,
+	[Tarih] [datetime] NOT NULL,
+	[Ozet] [nvarchar](500) NOT NULL,
+	[Detay] [nvarchar](max) NOT NULL,
+	[Kaynak] [nvarchar](50) NOT NULL,
+	[OkunmaSayisi] [int] NULL,
+	[ResimURL] [nvarchar](250) NOT NULL,
+ CONSTRAINT [PK_Haberler] PRIMARY KEY CLUSTERED 
+(
+	[HaberID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Kategori]    Script Date: 15.05.2019 14:42:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Kategori](
+	[KategoriID] [int] IDENTITY(1,1) NOT NULL,
+	[Adi] [nvarchar](250) NOT NULL,
+	[Aciklama] [nvarchar](500) NOT NULL,
+ CONSTRAINT [PK_Kategori] PRIMARY KEY CLUSTERED 
+(
+	[KategoriID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[KoseYazilari]    Script Date: 15.05.2019 14:42:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[KoseYazilari](
+	[YaziID] [int] IDENTITY(1,1) NOT NULL,
+	[YazarID] [int] NOT NULL,
+	[Ozet] [nvarchar](500) NOT NULL,
+	[Detay] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_KoseYazilari] PRIMARY KEY CLUSTERED 
+(
+	[YaziID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Yazarlar]    Script Date: 15.05.2019 14:42:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Yazarlar](
+	[YazarID] [int] IDENTITY(1,1) NOT NULL,
+	[AdiSoyadi] [nvarchar](250) NOT NULL,
+	[ResimURL] [nvarchar](250) NOT NULL,
+ CONSTRAINT [PK_Yazarlar] PRIMARY KEY CLUSTERED 
+(
+	[YazarID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Gundem] ([HaberID], [Sira]) VALUES (2, 1)
+INSERT [dbo].[Gundem] ([HaberID], [Sira]) VALUES (3, 2)
+INSERT [dbo].[Gundem] ([HaberID], [Sira]) VALUES (5, 3)
+INSERT [dbo].[Gundem] ([HaberID], [Sira]) VALUES (6, 4)
+INSERT [dbo].[Gundem] ([HaberID], [Sira]) VALUES (12, 5)
+INSERT [dbo].[Gundem] ([HaberID], [Sira]) VALUES (15, 6)
+INSERT [dbo].[Gundem] ([HaberID], [Sira]) VALUES (18, 7)
+INSERT [dbo].[Gundem] ([HaberID], [Sira]) VALUES (19, 8)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (3, 1)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (4, 2)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (6, 3)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (5, 4)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (5, 5)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (1, 6)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (1, 12)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (6, 15)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (6, 17)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (6, 18)
+INSERT [dbo].[HaberKategori] ([KategoriID], [HaberID]) VALUES (6, 19)
+SET IDENTITY_INSERT [dbo].[Haberler] ON 
+
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (1, N'Esenler Belediye Baþkaný Tevfik Göksu, Trabzonlulara “Yunan” benzetmesi yaptý', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'Esenler Belediye Baþkaný ve ÝBB Meclisi AKP Grubu Baþkanvekili Tevfik Göksu’nun Ýmamoðlu üzerinden Trabzonlular ile ilgili açýklamasý büyük tepki topladý.', N'Katýldýðý bir iftar programýnda konuþma yapan Esenler Belediye Baþkaný Tevfik Göksu, Ýstanbul Büyükþehir Belediye Baþkaný olan daha sonra da mazbatasý elinden alýnan Ekrem Ýmamoðlu''na tepki gösterdi.
+
+Ýmamoðlu''nun kazanmasýna en çok Yunan medyasýnýn sevindiðini ifade eden Göksu daha sonra Ýmamoðlu''nun nereli olduðunu iftar programýna katýlan vatandaþlara sordu. Vatandaþlardan “Trabzon” cevabýný alan Göksu “E hesap baþka” dedi.
+
+ÝYÝ PARTÝ’DEN TEPKÝ
+“SOYLU GÖREVDEN ALMALIDIR”
+ÝYÝ Parti Ortahisar Ýlçe Baþkaný Muhammet Erkan “Þ…, adi, alçak, yaratýk… Bunlar iyice ipin ucunu kaçýrdý. Oy verecek Trabzonlulara yazýklar olsun Sayýn Süleyman Soylu bu gece Esenler Belediye Baþkanýný görevden almalýdýr. Bu þehir bu hakareti kaldýramaz. Trabzonlulara Yunanlý diyen alçaðý o görevden uzaklaþtýrmalýdýr. Bir Trabzonlu bakan olarak bunu yapmalýdýr” ifadelerini kullandý.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/esenler-belediye-baskani-manset-2.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (2, N'ABD’nin skandal kararýnýn yýl dönümünde tepki çeken görüntü!', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'ABD’nin Tel Aviv Büyükelçiliði’nin Kudüs''e taþýnmasýnýn birinci yýldönümü nedeniyle, iþgal altýndaki Doðu Kudüs’ün Eski Þehir bölgesini çevreleyen tarihi surlara ABD ve Ýsrail bayraklarý yansýtýldý.', N'Ýsrail''e baðlý Kudüs Belediyesi, Eski Þehir''in etrafýndaki surlarýn batý Kudüs tarafýnda kalan kýsýmlarýna ýþýklandýrma sistemi ile ABD ve Ýsrail
+bayraklarý yansýttý. Mescid-i Aksa''nýn da içinde bulunduðu Eski Þehir''i çevreleyen surlarýn yaný sýra kutsal þehirdeki birçok simge alana da ayný þekilde bayraklar yansýtýldý.
+
+Ýsrail Baþbakanlýk Basýn Ofisi''nden yapýlan yazýlý açýklamaya göre, Kudüs Belediyesi tarafýndan ABD''nin büyükelçiliðinin Kudüs''e taþýnmasýnýn birinci yýldönümü nedeniyle bir kutlama töreni düzenlendi.
+
+Törende konuþma yapan Kudüs Belediye Baþkaný Moshe Lion, “ABD, büyükelçiliðini ebedi baþkentimiz ve Ýsrail Devletindeki elçilikler için tek
+uygun yer olan Kudüs’e taþýyan ilk ülkedir. ABD''deki dostlarýmýzý kucaklýyoruz. Baþkan Donald Trump ve Büyükelçi David Friedman siz gerçek dostlarsýnýz” dedi.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/goruntu.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (3, N'Fenerbahçe’nin WinWin programýnýn bilançosu belli oldu', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'123 bin forma (300 TL) satýlýrken, kulübe 950 bin adet 20 TL’lik SMS baðýþý yapýldý. Acun Ilýcalý, Cem Yýlmaz ve Beyaz gibi ünlülerin destek verdiði kampanyada iki günde 56 milyon TL’lik gelir saðlandý', N'Ýrfan Yirmibeþ / Fenerbahçe''nin, 4 Nisan’da startý verilen FENER OL kampanyasý kapsamýnda ünlü isimlerin yer aldýðý Win Win projesi önceki gece sona erdi. Kampanyada 300 TL deðerinde olan formalardan 123 bin adet satýn alýndý.Kulübe 20 TL’lik SMS baðýþý 950 bin kez yapýldý. Böylece iki günde toplam 55 milyon 900 bin TL’lik destek saðlanmýþ oldu.Baþkan Yardýmcýsý Burhan Karaçam, “Bu kazançlarý UEFA’ya göstermeliyiz. Bu nedenle ay sonuna kadar forma satýþlarýnýn gelirlerinin tahsilini yapmak zorundayýz” diye konuþtu.', N'Sözcü', 0, N'https://cdn-amk.sozcu.com.tr/amk-resimler/2019/05/alikoc-1.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (4, N'Son dakika: Bütçede büyük açýk', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'2018 nisan ayýnda 2.8 milyar TL açýk veren bütçe 2019 yýlý nisan ayýnda 18.3 milyar TL açýk verdi. Yýlýn ilk dört ayýnda bütçe 54.5 milyar TL açýk verdi, 2018''de yýlýn ilk dört ayýnda bütçe 23.2 milyar TL açýk vermiþti.', N'Hazine ve Maliye Bakanlýðý, bütçenin Nisan ayýnda 18,3 milyar TL  açýk, 13,2 milyar TL faiz dýþý açýk verdiðini bildirdi.
+
+Nisan ayý gerçekleþmeleri þu þekilde:
+
+2018 yýlý Nisan ayýnda 2,8 milyar TL açýk veren bütçe, 2019 yýlý Nisan ayýnda 18,3 milyar TL açýk verdi.
+
+2018 yýlý Nisan ayýnda 356 milyon TL faiz dýþý fazla verilmiþ iken 2019 yýlý Nisan ayýnda 13,2 milyar TL faiz dýþý açýk verdi. 2019 yýlý Nisan ayýnda bütçe gelirleri bir önceki yýlýn ayný ayýna göre yüzde 10,7 oranýnda azalarak 57,7 milyar TL oldu.Bütçe giderleri ise yüzde 12,8 oranýnda artarak 76 milyar TL olarak gerçekleþti.
+
+2019 yýlý Nisan ayýnda vergi gelirleri geçen yýlýn ayný ayýna göre yüzde 8,3 oranýnda artarak 48,8 milyar TL olarak gerçekleþmiþtir. Faiz hariç bütçe giderleri ise yüzde 10,3 oranýnda artarak 70,9 milyar TL oldu.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/acikacik.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (5, N'Araç sahipleri dikkat! Af teklifi meclise gelecek… | Son dakika haberleri', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'15 Temmuz Þehitler Köprüsü''nde geçiþi yasak olan binlerce araç sahibi araçlarýnýn deðerinden fazla cezalarla karþý karþýya kalmýþtý. Bu cezalar 31 Mart seçimleri öncesinde iptal edilmiþti. Ardýndan tekrar cezalar gelmeye baþlamýþtý. 23 Haziran''da Ýstanbul''da yapýlacak seçim öncesi de af teklifi gündeme geldi. AKP Grup Baþkanvekili Mehmet Muþ Köprü cezalarýnýn iptali için Meclis Baþkanlýðý''na sunacaklarý bir teklif olduðunu söyledi.', N'AKP Grup Baþkanvekili Mehmet Muþ, “Binali Yýldýrým’ýn gündeme getirdiði köprülerle alakalý bazý vatandaþlara verilen yüklü miktarda cezalar vardý. Bu cezalarýn iptali için Meclis Baþkanlýðý''na sunacaðýmýz teklif var. Meclis’in programýna göre yasalaþmasý halinde bu sorun da ortadan kalkacaktýr” dedi.AKP Grup Baþkanvekili Mehmet Muþ, muhalefet partilerin, Ýstanbul Büyükþehir Belediye Baþkanlýðý seçimi nedeniyle ‘Meclis çalýþmýyor’ eleþtirilerine yanýt verdi. Muþ, bayrama kadar gündemlerinden çýkmasý gereken öncelikli yasalar olduðunu söyledi. Muþ, Meclis çalýþmalarýnýn devam ettiðini belirterek, “Genel Kurul’da ‘Kapadokya Alan Baþkanlýðý’ kurulmasýna iliþkin müzakereler baþladý. Önümüzdeki haftalarda yeni verilecek tekliflerle süreç iþleyecek. Haziran''ýn ilk haftasý bayram. Meclis bayrama kadar aralýksýz çalýþacak. Askerlik ile ilgili düzenleme, Kapadokya teklifi, turizm teþvik yasasý ve köprü geçiþlerindeki trafik cezalarý ve çeþitli kanunlarýn yer alacaðý düzenlemeler var” dedi.Muþ, AkP Ýstanbul Büyükþehir Belediye Baþkaný adayý Binali Yýldýrým’ýn gündeme getirdiði köprü geçiþ cezalarýyla ilgili çalýþmalarý olduðunu belirterek, “Binali Yýldýrým’ýn gündeme getirdiði köprülerle alakalý bazý vatandaþlara verilen yüklü miktarda cezalar vardý. Bu cezalarýn iptali için Meclis Baþkanlýðý’na sunacaðýmýz teklif var. Meclis’in programýna göre yasalaþmasý halinde bu sorun da ortadan kalkacaktýr. Diðer alanlarla ilgili bir çalýþmamýz var. Netleþtiði zaman onu da kamuoyu ile paylaþacaðýz. Þimdi üzerinde çalýþýyoruz” diye konuþtu.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/kapak-4.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (6, N'Son dakika! MEB açýkladý: Okullara yeni ara tatil düzenlemesi geliyor! Ýki yeni ara tatil…', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'Milli Eðitim Bakaný Ziya Selçuk eðitimde yeni düzenlemeler hakkýnda bilgi verdi. Selçuk yeni dönemde Nisan ve Kasým aylarýnda iki ara tatil olacaðýný söyledi. Yaz tatili iki hafta kýsalacak, Nisan ve Kasým''da ara tatil olacak.', N'Milli Eðitim Bakaný Ziya Selçuk, bakanlýkta düzenlediði basýn toplantýsýnda ‘Yeni Eðitim-Öðretim Çalýþma Takvimi Modeli’ni açýkladý. Bakan Selçuk, yeni modelle ilgili, “13 haftalýk yaz tatilinin 2 haftasý, nisan ve kasým aylarýnda 1’er haftalýk ara tatil olarak yapýlacak” dedi.Konuyla ilgili bakanlýktan yapýlan yazýlý açýklamada, yeni çalýþma takvimiyle tatil ve okul zamanlarýnýn daha dengeli hale geldiði belirtilerek, þu ifadelere yer verildi:
+
+“13 haftalýk yaz tatili süresi, öðrencilerin öðrenme motivasyonlarýný kaybedecek kadar okuldan uzaklaþmamalarý için 11 hafta olarak düzenlendi. Yaz tatilinden alýnan 2 hafta ise Nisan ve Kasým aylarýnda 1’er haftalýk ara tatil olarak verilecek. Yeni modele göre artýk okullar bir hafta erken açýlacak, bir hafta daha geç kapanacak. Ancak bu durum toplam tatil süresini kýsaltmayacak. 2019-2020 eðitim öðretim yýlý 9 Eylül 2019´da baþlayacak. 18-22 Kasým 2019´da ilk ara tatil yapýlacak. 25 Kasým´dan 17 Ocak´a kadar birinci dönem devam edecek. Yarýyýl tatili 20-31 Ocak 2020 tarihleri arasýnda olacak. Ýkinci yarýyýl eðitim-öðretim dönemi 3 Þubat 2020´de baþlayacak. 06-10 Nisan 2020 tarihleri arasýnda ikinci ara tatil verilecek. 13 Nisan’da baþlayacak ikinci dönemin ikinci yarýsý 19 Haziran’da tamamlanarak, 11 haftalýk yaz tatiline girilecek. Yeni çalýþma takvimi ile öðrenciler, ara tatillerde dinlenme fýrsatý elde etmenin yanýnda, öðrendiklerini kontrol edecek ve öðrenmelerini derinleþtirecek. Ara tatiller öðrencilerin olasý öðrenme eksikliklerinin derinleþmeden ve yeni konular eklenmeden telafi edilebilmesi için uygun bir zaman olarak planlandý.”Açýklamanýn devamýnda, öðretmenlerin tatil takviminde deðiþiklik olmayacaðý belirtilerek, þöyle denildi:
+
+“Sadece eðitim yýlý kapanýþý ve açýlýþýndaki seminer dönemlerinin birer haftasý yýl içerisinde alýnacak. Öðrencilerin tatilde olduðu ara dönemler, öðretmen ve okullarýn kurumsal iþleyiþe yönelik ara deðerlendirmelerle gerekli iyileþtirmeleri yapabilmeleri için de bir fýrsat olacak. Ara tatillerde veli toplantýlarý, zümre toplantýlarý, mesleki geliþim çalýþmalarý, kiþisel ve sosyal geliþim etkinlikleri, okullarýn fiziki yenilenmeleri yapýlacak. Bunun yaný sýra bir ana tema baþlýðýnda; bilim, kültür, sanat ve spor alanýnda etkinlikler planlanacak. Çocuklarýn ara tatillerde huzurevleri ziyaretleri, yardýmlaþma faaliyetleri, aile ziyaretleri, okul kulüp çalýþmalarý gibi toplumsal fayda çalýþmalarý yapmalarýna imkân tanýnacak. Okul öncesi, ilkokul 1’inci sýnýf, ortaokul 5’inci sýnýf ve ortaöðretim 9’uncu sýnýf öðrencilerine uygulanan oryantasyon eðitimi okul açýlmadan önceki hafta hayata geçirilmeye devam edecek.”
+
+YENÝ TATÝL DÜZENÝNÝN AYRINTILARI
+
+Yeni modele göre artýk okullar bir hafta erken açýlacak, bir hafta daha geç kapanacak. Ancak bu durum toplam tatil süresini kýsaltmayacak.
+
+2019-2020 eðitim öðretim yýlý 9 Eylül 2019''da baþlayacak.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/0587988.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (12, N'AKP’li baþkan belediyenin borçlarýný ödemek için araçlarý satýyor', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'31 Mart seçimlerinde yüzde % 75,56''lýk oran ile Türkiye’nin en yüksek oy alan 3. belediyesi olan Ordu''nun Kumru Belediyesi’nin AKP''li baþkaný Yusuf Yalçuva, belediyenin borçlarý ödemek ve tasarruf için 2''si makam olmak üzere toplam 7 belediye aracýný satýþa çýkardý. Görevi AKP''li Murat Hatipoðlu''ndan devralan Yusuf Yalçuva "Ýnsanlarýmýzýn bizim ilçemizde daha öncelikli ihtiyaçlarý varken, böyle lüks araçlara ihtiyacýmýz yok." dedi. ', N'Ordu’nun Kumru ilçesinin yeni baþkaný Yusuf Yalçuva, gerçekleþtirilen ilk belediye meclis toplantýsýnda aralarýnda makam araçlarýnýn bulunduðu toplam 7 aracýn satýlmasýný talep etti. Toplantýda, baþkan Yalçuva görevi devraldýðý AKP’li Murat Hatipoðlu’ndan belediyeyi ne kadar borçla devraldýðýný ise açýklamadý.Belediyede 3 tane makam aracýnýn olduðunu belirten Baþkan Yusuf Yalçuva, “Belediyemizde mevcut 3 makam aracýmýza gerek yok. Jipimizi ve bir aracýmýzý satacaðýz. Ýnsanlarýmýzýn bizim ilçemizde daha öncelikli ihtiyaçlarý varken, böyle lüks araçlara ihtiyacýmýz yok. Meclis kararý alarak, 2 adet makam aracýmýzý satacaðýz. Fen Müdürümüze tahsis edilmiþ aracýmýzý da tasarruf amaçlý satacaðýz. Bize özel makam aracý gerekmiyor” diye konuþtu.Kumru Belediyesi Baþkaný Yusuf Yalçuva, meclisten çýkan doðrultusunda 2’si makam aracý olmak üzere toplam 7 aracý satýþa çýkardý. Belediyenin resmi internet ve sosyal medya hesabýndan yapýlan duyuruda, “Mülkiyeti Belediyemize ait aþaðýda listede yer alan 7 araç hali hazýr mevcut durumu ile ayrý ayrý satýþa çýkarýlmýþ olup 2886 Sayýlý Devlet Ýhale Kanunun 45.Maddesine göre açýk artýrma yoluyla ihale edilecektir” denildi.
+
+Ýlanda araçlarýn fiyatlarý, ihale tarih ve þartlarý yayýmlandý. Duyuruda araçlarýn fotoðraflarý da paylaþýldý.Kumru Belediye Baþkan adayý CHP''li Osman Cayak, baþkan Yusuf Yalçuva''nýn önce devraldýðý borç miktarýný açýklamasý gerektiðini belirterek þöyle konuþtu; “Sayýn baþkan görevi bir baþka AKP''li Murat Hatipoðlu’ndan devraldý. ', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/satiyor-man.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (15, N'Gazeteci Hasan Tahsin’in þehit ediliþinin 100’üncü yýlýnda anýldý', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'Ýzmir''in iþgalinin baþladýðý 15 Mayýs 1919''da Yunan askerlerine ilk kurþunu atan ve orada þehit edilen gazeteci Hasan Tahsin için Ýlk Kurþun Anýtý önünde tören düzenlendi.', N'Ýzmir’in iþgalinin baþladýðý 15 Mayýs 1919’da Yunan askerlerine ilk atan ve orada þehit edilen gazeteci Hasan Tahsin için Ýlk Kurþun Anýtý önünde tören düzenlendi. Ýzmir Gazeteciler Cemiyeti Baþkaný Misket Dikmen, saygý duruþunda bulunulmasý ve Ýstiklal Marþý’nýn okunmasýnýn ardýndan anýta çelenk býraktý.
+
+Hasan Tahsin’in düþmana attýðý ilk kurþunun, Türk ulusunun kurtuluþa giden yolunu açtýðýný belirten Dikmen, “Hasan Tahsin milli mücadelenin önemli sembollerinden biridir. Gazeteci, fikirleri, yazdýklarý ve söyledikleriyle toplumun öncü güçlerindendir.” dedi.Hasan Tahsin’in kýz kardeþinin torunu Nevrez Cenk Kýral, tören için Ýstanbul’dan Ýzmir’e geldi. Hasan Tahsin’in þehit ediliþinin 100. yýlýnda düzenlenen anma programýnda olmanýn kendisi için büyük bir mutluluk olduðunu dile getiren Kýral, “Baðýmsýzlýk tarihimiz için çok önemli yere sahip olan Hasan Tahsin’in aile ferdi olmaktan gurur duyuyorum.” diye konuþtu.
+Dokuz Eylül Üniversitesi Atatürk Ýlkeleri ve Ýnkýlap Tarihi Enstitüsü Öðretim Üyesi Dr. Ahmet Mehmetefendioðlu da Hasan Tahsin’i genç kitlelere tanýtmak üzere bir çalýþma yaptýðýný dile getirdi.
+
+Konuþmalarýn ardýndan katýlýmcýlar, bando eþliðinde Cumhuriyet Meydaný’na kadar yürüdü. Burada zeybek gösterisinin ardýndan havaya balon uçuruldu. Programa, Ýzmir Büyükþehir Belediye Baþkaný Tunç Soyer, Ýzmir Vali Yardýmcýsý Uður Kolsuz, CHP Ýzmir Milletvekilleri Atilla Sertel, Bedri Serter, Özcan Purçu, ÝYÝ Parti Genel Baþkan Yardýmcýsý Müsavat Derviþoðlu, MHP Ýzmir Ýl Baþkaný Veysel Þahin, CHP Ýzmir Ýl Baþkaný Deniz Yücel ile gazeteciler, gaziler ve vatandaþlar katýldý.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/hasan.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (17, N'Gümüþhane’de açýlamayan yeni devlet hastanesi için dev proje', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'Gümüþhane''de yapýmý tamamlanan ve zeminindeki heyelan tehdidi nedeniyle 4 yýldýr hizmete açýlamayan yeni devlet hastanesi için güçlendirme ve heyelan önleme projesi hazýrlandý. Kuzey ve güney cephesinde aðýrlýk yapan yamaçta molozlar temizlenecek, 600 metre uzunluðunda 3 sýra diyafram duvar örülerek hastanenin zemin kayma riski ortadan kaldýrýlacak.', N'Kentte, Baðlarbaþý mevkiinde yapýmýna 2012 yýlýnda baþlanan ve 51 milyon liraya mal olan 8 katlý, 200 yataklý ve bünyesinde 10 ameliyathane ile 30 yoðun bakým ünitesi yer alan yeni devlet hastanesinin inþaatý 2015´te tamamlandý. Yamaç araziden elde edilen alan üzerine inþa edilen hastane binasýnda ve zemininde çatlaklar oluþtuðu gözlendi. Hastane, zemindeki kayma riski nedeniyle 4 yýldýr hizmete açýlamadý.
+
+Hastane binasý için zemin güçlendirme ve heyelan önleme projesi hazýrlandý. AFAD tarafýndan hazýrlanan proje ile hastanenin kuzey ve güney cephesinde bulunan kayalýk alanlardan yaklaþýk 390 bin metreküp hafriyat çýkarýlacak, aðýrlýk yapan yamaçta molozlarýnýn temizlenmesinin ardýndan 600 metre uzunluðunda 3 sýra diyafram duvar örülecek. Proje ile zemin kaymasý riski ortadan kaldýrýlarak hastane hizmete açýlacak.Gümüþhane’de vatandaþlar, hastanenin bir an önce hizmete açýlmasýný bekliyor. Hastaneye kentin ihtiyacý olduðunu anlatan vatandaþlardan Ali Sait Al, “Bu hizmetin Gümüþhaneliler tarafýndan kullanýlamamasý bir handikap. Burada yetkililerin bir an önce çözüm bulup böyle bir yatýrýmý Gümüþhane´de kullanýma açmasý gerekiyor. Çünkü mevcut hastanemizin durumu ve kapasitesi ortada” dedi.Hastanenin yapýldýðý arazinin yanlýþ seçildiðini söyleyen Tamer Merdan ise “Hastane bitirildi ve açýlamadý. Hastanenin zeminin saðlam olmadýðý ve kaymalar olduðu söylendi. Þu an bölgeyi diyafram duvar ile saðlamlaþtýrmaya çalýþtýklarýný öðrendik. Süreç çok uzadý bu da insanlarý usandýrdý” diye konuþtu.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/zenginmillet-1.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (18, N'Özilhan: 31 Mart demokrasi sýnavý oldu', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'Türk Sanayicileri ve Ýþ Ýnsanlarý Derneði (TÜSÝAD) Yüksek Ýstiþare Konseyi Toplantýsý bugün Ýstanbul''da yapýldý. Yüksek Ýstiþare Kurulu Baþkaný Tuncay Özilhan’ýn konuþmasýyla genel kurul baþladý. Daha sonra mikrofonu TÜSÝAD Baþkaný Simone Kaslowski aldý. Seçim sürecine iliþkin açýklamalarda bulunan Özilhan, " 31 Mart demokrasi sýnavý oldu. Bu sýnavda kimin ne not aldýðýný ileride tarih yazacaktýr" dedi. Ýþte Kaslowski ve Özilhan''ýn açýklamalarýndan satýr baþlarý...', N'Türk Sanayicileri ve Ýþ Ýnsanlarý Derneði Baþkaný (TÜSÝAD) Simone Kaslowski’nin konuþmasýndan satýr baþlarý:
+
+Sayýn üyeler TÜSÝAD  deðerlerinden taviz vermeksizin bu günlere ulaþtý. TÜSÝAD bünyesinde 700’e yakýn üyesiyle 4500 þirketi temsil ediyor. Çalýþma gruplarýmýzda 3000 civarýnda uzman ve yönetici yer alýyor.  Bu çeþitlilik ve derinlik sayesinde ülkemizin menfaatine olan pek çok görüþ karþýlýk buluyor. Sürdürülebilir kalkýnma için dünya ile entegrasyon, hukukun üstünlüðü, yüksek demokratik standartlar geliyor.Uzun bir süredir seçim atmosferi içinde hareket ediyoruz. 31 Marttan sonra seçimsiz bir dönem olacaðýný ümit ediyorduk. Ancak yerel seçimler Ýstanbul’da yenilenecek ve seçim ortamý 3 ay daha uzayacak. Bu sene pozitif bir büyüme elde etmek kolay olmayacak. Son iki senede 4 seçim reform ve makroekonomi gündemine odaklanýlmasýný zorlaþtýrdý.Küresel arka planda deðiþimler var. Ticaret savaþlarý, keyfi yaptýrýmlar gibi olumsuz tatsýz geliþmeler yaþanýyor. Deðerli konuklar ülkemiz son yýllarda olaðanüstü sorunlarla karþýlaþtý. Bugün terörle mücadelede büyük baþarýlar kazanýldýðýný görüyoruz. Dýþ politikada zorlu süreçlerin eþiðindeyiz. S-400 ve Doðu Akdeniz konularý karþýmýzda duruyor. Bu konular ekonomimize olumsuz yansýyor.Ülkenin pusulasýný, AB üyeliðine ayarlamalý ve o yönde ilerlemeliyiz. Biz AB deyince demokrasi, hukuk ve refah anlýyoruz. En önemli ekonomik partnerimiz olan AB ile ilerlemeye ihtiyacýmýz var. Elbette her türlü iþbirliðinde milli çýkarlarýmýz doðrultusunda çalýþmak esastýr.
+
+Deðerli üyeler güvenlik olgusu iç ve dýþ güvenliði saðlamakla sýnýrlý deðil. Ekonomik güven de var. Ekonomimizi doðrudan veya dolaylý etkileyebilecek tüm kurumlarýmýzda þeffaflýk ve liyakat saðlanmalýdýr.
+
+Belirsizlik yatýrým ortamýna zarar verir. Yatýrým iþtahýný azaltýr. Türkiye’nin ciddi bir dýþ borcu var. TL’nin ciddi deðer kaybý, borcu daha da aðýrlaþtýrdý. Güveni saðlamak için alýnan önlemlerin süratle hayata geçirilmesine ihtiyaç vardýr.
+
+Bugün geldiðimiz noktaya baktýðýmýzda dýþ borç hala yüksek enflasyon istenilen noktada deðil. Rekabet gücümüzü artýrmamýz gerekiyor. Reformlarýn hýzla baþlamasý gerekli. Bu reformlar orta vadeli sonuçlar verse bile kýsa vadede güven saðlamak için önemli.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/kapak-2.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (19, N'Son dakika…. Ýþsizlik rakamlarý açýklandý', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'Ocak ve Þubat ve Mart aylarýný kapsayan, þubat dönemi iþsizlik rakamlarý açýklandý. Ýþsizlik oraný son 10 yýlýn en yüksek rakamýna ulaþarak yine yüzde 14.7 oldu. Þubat döneminde bir önceki yýlýn ayný dönemine göre iþsiz sayýsý 1 milyon 376 bin kiþi artarak 4 milyon 730 bin kiþi oldu. Geçen yýlýn ayný dönemine göre iþsiz sayýsý yüzde 41 arttý!', N'Türkiye genelinde 15 ve daha yukarý yaþtakilerde iþsiz sayýsý 2019 yýlý Þubat döneminde geçen yýlýn ayný dönemine göre 1 milyon 376 bin kiþi artarak 4 milyon 730 bin kiþi oldu. Ýþsizlik oraný 4,1 puanlýk artýþ ile %14,7 seviyesinde gerçekleþti. Ayný dönemde; tarým dýþý iþsizlik oraný 4,4 puanlýk artýþ ile %16,9 olarak tahmin edildi. Genç nüfusta (15-24 yaþ) iþsizlik oraný 7,1 puanlýk artýþ ile %26,1 olurken,15-64 yaþ grubunda bu oran 4,1 puanlýk artýþ ile %15,0 olarak gerçekleþti.
+
+Ýstihdam edilenlerin sayýsý 2019 yýlý Þubat döneminde, bir önceki yýlýn ayný dönemine göre 811 bin kiþi azalarak 27 milyon 355 bin kiþi, istihdam oraný ise 1,8 puanlýk azalýþ ile %44,8 oldu.
+
+Bu dönemde, tarým sektöründe çalýþan sayýsý 296 bin, tarým dýþý sektörlerde çalýþan sayýsý 514 bin kiþi azaldý. Ýstihdam edilenlerin %17,1’i tarým, %19,7’si sanayi, %5,4’ü inþaat, %57,7’si ise hizmet sektöründe yer aldý. Önceki yýlýn ayný dönemi ile karþýlaþtýrýldýðýnda tarým sektörünün istihdam edilenler içindeki payý 0,6 puan, sanayi sektörünün istihdam edilenler içindeki payý 0,3 puan, inþaat sektörünün payý 1,6 puan azalýrken, hizmet sektörünün payý 2,4 puan arttý.Ýþgücü 2019 yýlý Þubat döneminde bir önceki yýlýn ayný dönemine göre 564 bin kiþi artarak 32 milyon 84 bin kiþi, iþgücüne katýlma oraný ise 0,3 puanlýk artýþ ile %52,5 olarak gerçekleþti. Ayný dönemler için yapýlan kýyaslamalara göre; erkeklerde iþgücüne katýlma oraný 0,1 puanlýk azalýþ ile %71,4, kadýnlarda ise 0,7 puanlýk artýþla %34,0 olarak gerçekleþti.
+
+Kayýt dýþý çalýþanlarýn oraný %33,5 olarak gerçekleþti
+
+Þubat 2019 döneminde herhangi bir sosyal güvenlik kuruluþuna baðlý olmadan çalýþanlarýn oraný, bir önceki yýlýn ayný dönemine göre 1,3 puan artarak %33,5 olarak gerçekleþti. Tarým dýþý sektörde kayýt dýþý çalýþanlarýn oraný ise bir önceki yýlýn ayný dönemine göre 1,1 puan artarak %22,8 oldu.Cumhurbaþkanlýðý Strateji ve Bütçe Baþkanlýðý’nýn derlediði verilere göre, 2019 yýlý I. döneminde toplam kamu istihdamý 2018 yýlýnýn ayný dönemine göre %21,6 oranýnda artarak 4 milyon 517 bin kiþi oldu. Bu artýþta, daha önce kamu istihdamýnda yer almayan taþeronlarýn kamu çalýþaný statüsüne (sürekli iþçi) geçmesi etkili oldu.
+
+Mevsim etkisinden arýndýrýlmýþ istihdam oraný %46,0, iþsizlik oraný %13,6 oldu
+
+Mevsim etkisinden arýndýrýlmýþ istihdam bir önceki döneme göre 68 bin kiþi artarak 28 milyon 85 bin kiþi olarak tahmin edildi. Ýstihdam oraný 0,1 puan artarak %46,0 oldu.
+
+Mevsim etkisinden arýndýrýlmýþ iþsiz sayýsý bir önceki döneme göre 113 bin kiþi artarak 4 milyon 417 bin kiþi olarak gerçekleþti. Ýþsizlik oraný 0,3 puan artarak %13,6 oldu.CHP Genel Baþkan Yardýmcýsý Veli Aðbaba, “Türkiye geliþmiþ ülkeler karþýsýnda hem ekonomik hem toplumsal refah açýsýndan her geçen gün daha kötüye gitmektedir. Ülkemiz artýk 3’üncü dünya ülkelerindeki iþsizlik ve enflasyon oranlarý ile karþýlaþtýrýlýr duruma düþmüþtür.” ifadesini kullandý.
+
+Aðbaba, yazýlý açýklamasýnda, Türkiye’nin bir yandan yüksek enflasyon, diðer yandan yüksek iþsizliðin birlikte görüldüðü tarihin en büyük ekonomik krizlerinden birini yaþadýðýný savundu.
+
+Ekonomideki durgunluk ve küçülmeye, yüksek iþsizlik ile enflasyon oranlarýnýn eþlik ettiðini aktaran Aðbaba, eylül ayýnda açýklanan Yeni Ekonomik Program’ýn her geçen gün iflas etmeyi sürdürdüðünü ileri sürdü.
+
+Türkiye genelinde 15 ve daha yukarý yaþtakilerde iþsiz sayýsýnýn 2019 Þubat döneminde geçen yýlýn ayný dönemine göre 1 milyon 376 bin kiþi artarak 4 milyon 730 bin kiþi olduðunu aktaran Aðbaba, iþsizlik oranýnýn 4,1 puanlýk artýþ ile yüzde 14,7 seviyesinde gerçekleþtiðini belirtti.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/buyuteckapak.jpg')
+INSERT [dbo].[Haberler] ([HaberID], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkunmaSayisi], [ResimURL]) VALUES (20, N'Minik Ayþe’den kötü haber', CAST(N'2019-05-15T00:00:00.000' AS DateTime), N'Trabzon''un Akçaabat ilçesinde, sürücüsünün kontrolünden çýkan otomobil, refüje çarpýp, ters döndü. Kazada sürücü, eþi ve çiftin 1 yaþýndaki kýzlarý Ayþe yaralandý. Babasýnýn kucaðýna alýp, gözyaþý dökerek sarýldýðý minik Ayþe, kaldýrýldýðý hastanede kurtarýlamadý.', N'Kaza, dün akþam saatlerinde Akçaabat ilçesi Dörtyol Mahallesi giriþinde meydana geldi. Akçaabat’tan Düzköy yönüne giden Suat Kalýntaþ (35), 61 UA 512 plakalý otomobilinin direksiyon kontrolünü yitirdi. Savrulan otomobil, refüje çarparak, ters döndü.Yoldan geçen sürücülerin ihbarý üzerine olay yerine çok sayýda ambulans ve itfaiye ekibi sevk edildi. Kazada sürücü Suat Kalýntaþ ve eþi Sibel Kalýntaþ (30) ile annesinin kucaðýnda olan 1 yaþýndaki Ayþe Kalýntaþ yaralandý. Suat Kalýntaþ, kaza yerinde aðýr yaralý kýzýný kucaðýna alýp, dakikalarca sarýlýp, gözyaþý döktü.
+
+Baba, anne ve kýzlarý, ilk müdahalelerinin ardýndan Akçaabat Haçkalý Baba Devlet Hastanesi’ne kaldýrýldý. Ancak minik Ayþe, tüm müdahalelere raðmen hayatýný kaybetti.', N'Sözcü', 0, N'https://i.sozcu.com.tr/wp-content/uploads/2019/05/15/78787878787.jpg')
+SET IDENTITY_INSERT [dbo].[Haberler] OFF
+SET IDENTITY_INSERT [dbo].[Kategori] ON 
+
+INSERT [dbo].[Kategori] ([KategoriID], [Adi], [Aciklama]) VALUES (1, N'Ekonomi', N'TR,USD,EUR')
+INSERT [dbo].[Kategori] ([KategoriID], [Adi], [Aciklama]) VALUES (2, N'Spor', N'Futbol,Basket,Tenis')
+INSERT [dbo].[Kategori] ([KategoriID], [Adi], [Aciklama]) VALUES (3, N'Dünya', N'Avrupa,Asya,Amerika')
+INSERT [dbo].[Kategori] ([KategoriID], [Adi], [Aciklama]) VALUES (4, N'Teknoloji', N'Araba,Telefon,PC,Konsol')
+INSERT [dbo].[Kategori] ([KategoriID], [Adi], [Aciklama]) VALUES (5, N'Magazin', N'Error')
+INSERT [dbo].[Kategori] ([KategoriID], [Adi], [Aciklama]) VALUES (6, N'Gündem', N'Sýcak,Son Dakika')
+SET IDENTITY_INSERT [dbo].[Kategori] OFF
+SET IDENTITY_INSERT [dbo].[KoseYazilari] ON 
+
+INSERT [dbo].[KoseYazilari] ([YaziID], [YazarID], [Ozet], [Detay]) VALUES (1, 1, N'Galaksinin Son Durumu', N'Ölüm Yýldýzý hangi gezegeni patlatacak.')
+INSERT [dbo].[KoseYazilari] ([YaziID], [YazarID], [Ozet], [Detay]) VALUES (2, 2, N'Halayýn Faydalarý', N'LOOOOOOO')
+INSERT [dbo].[KoseYazilari] ([YaziID], [YazarID], [Ozet], [Detay]) VALUES (3, 3, N'Who am I?', N'Gel tanýþalým önce.')
+INSERT [dbo].[KoseYazilari] ([YaziID], [YazarID], [Ozet], [Detay]) VALUES (4, 4, N'Þampiyon Golden State Warriors', N'Hello World')
+SET IDENTITY_INSERT [dbo].[KoseYazilari] OFF
+SET IDENTITY_INSERT [dbo].[Yazarlar] ON 
+
+INSERT [dbo].[Yazarlar] ([YazarID], [AdiSoyadi], [ResimURL]) VALUES (1, N'Darth', N'Vader')
+INSERT [dbo].[Yazarlar] ([YazarID], [AdiSoyadi], [ResimURL]) VALUES (2, N'Mahmut', N'Tuncer')
+INSERT [dbo].[Yazarlar] ([YazarID], [AdiSoyadi], [ResimURL]) VALUES (3, N'Hakký', N'Bulut')
+INSERT [dbo].[Yazarlar] ([YazarID], [AdiSoyadi], [ResimURL]) VALUES (4, N'Kevin', N'Durant')
+SET IDENTITY_INSERT [dbo].[Yazarlar] OFF
+ALTER TABLE [dbo].[Haberler] ADD  CONSTRAINT [DF_Haberler_OkunmaSayisi]  DEFAULT ((0)) FOR [OkunmaSayisi]
+GO
+ALTER TABLE [dbo].[Gundem]  WITH CHECK ADD  CONSTRAINT [FK_Gundem_Haberler] FOREIGN KEY([HaberID])
+REFERENCES [dbo].[Haberler] ([HaberID])
+GO
+ALTER TABLE [dbo].[Gundem] CHECK CONSTRAINT [FK_Gundem_Haberler]
+GO
+ALTER TABLE [dbo].[HaberKategori]  WITH CHECK ADD  CONSTRAINT [FK_HaberKategori_Haberler] FOREIGN KEY([HaberID])
+REFERENCES [dbo].[Haberler] ([HaberID])
+GO
+ALTER TABLE [dbo].[HaberKategori] CHECK CONSTRAINT [FK_HaberKategori_Haberler]
+GO
+ALTER TABLE [dbo].[HaberKategori]  WITH CHECK ADD  CONSTRAINT [FK_HaberKategori_Kategori] FOREIGN KEY([KategoriID])
+REFERENCES [dbo].[Kategori] ([KategoriID])
+GO
+ALTER TABLE [dbo].[HaberKategori] CHECK CONSTRAINT [FK_HaberKategori_Kategori]
+GO
+ALTER TABLE [dbo].[KoseYazilari]  WITH CHECK ADD  CONSTRAINT [FK_KoseYazilari_Yazarlar] FOREIGN KEY([YazarID])
+REFERENCES [dbo].[Yazarlar] ([YazarID])
+GO
+ALTER TABLE [dbo].[KoseYazilari] CHECK CONSTRAINT [FK_KoseYazilari_Yazarlar]
+GO
+USE [master]
+GO
+ALTER DATABASE [HaberinOlsun] SET  READ_WRITE 
+GO

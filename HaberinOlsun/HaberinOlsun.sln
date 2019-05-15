@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaberinOlsun.PublicUI", "Ha
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8F0918F-9492-4895-897E-1B229EFDDB57}"
 	ProjectSection(SolutionItems) = preProject
+		Database.txt = Database.txt
 		Readme.txt = Readme.txt
 	EndProjectSection
 EndProject
