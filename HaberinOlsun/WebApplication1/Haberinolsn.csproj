@@ -255,6 +255,7 @@
     <Content Include="scss\_variables.scss" />
     <Content Include="Views\Home\Anasayfa.cshtml" />
     <Content Include="Views\Home\Koseyazilari.cshtml" />
+    <Content Include="Views\Home\HaberDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

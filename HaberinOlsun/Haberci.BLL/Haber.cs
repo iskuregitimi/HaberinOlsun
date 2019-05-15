@@ -15,7 +15,11 @@ namespace Haberci.BLL
             DataContext db = new DataContext();
             return db.Haberler.ToList();
         }
-
+        public static Haberler GetDetails(int id)
+        {
+            DataContext db = new DataContext();
+            return db.Haberler.Where(x => x.HaberId == id).FirstOrDefault();
+        }
     }  
 
 }

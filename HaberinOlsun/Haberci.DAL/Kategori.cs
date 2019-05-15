@@ -9,6 +9,12 @@ namespace Haberci.DAL
     [Table("Kategori")]
     public partial class Kategori
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Kategori()
+        {
+            Haberler = new HashSet<Haberler>();
+        }
+
         public int KategoriId { get; set; }
 
         [Required]
@@ -17,5 +23,8 @@ namespace Haberci.DAL
 
         [Required]
         public string Aciklama { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Haberler> Haberler { get; set; }
     }
 }

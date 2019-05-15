@@ -50,12 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="DataContext.cs" />
     <Compile Include="Gundem.cs" />
     <Compile Include="Haberler.cs" />
     <Compile Include="Kategori.cs" />
     <Compile Include="KoseYazilari.cs" />
+    <Compile Include="DataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Yazarlar.cs" />
   </ItemGroup>

@@ -37,7 +37,11 @@ namespace WebApplication1.Controllers
 
             return View(koseyazisi);
         }
-
+        public ActionResult HaberDetails(int id)
+        {
+            Haberler haber = Haber.GetDetails(id);
+            return View (haber);
+        }
 
     }
 }

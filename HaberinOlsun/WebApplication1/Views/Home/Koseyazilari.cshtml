@@ -9,14 +9,41 @@
 
 
 
-    @foreach (var item in Model)
-    {
-         @item.Detay
 
-        
-       
-                     
-    }
+
+<div style="background-color:aqua">
+
+    <h2 style="text-align:center">Sizler için usta kalemlerin araştırmaları sonucu düzenlenmiş köşe yazılarımız kısmına hoşgeldiniz </h2>
+    <br />
+    <br />
+    <br />
+    <div>
+
+
+        @foreach (var item in Model)
+        {
+            <hr />
+            <hr />
+            <hr />
+            <b style="color:black;  ; padding-left:15px;">@item.Detay </b>
+
+
+
+
+
+
+
+        }
+    </div>
+
+
+    <br />
+    <br />
+    <br />
+</div>
+
+
+
 
 
 
