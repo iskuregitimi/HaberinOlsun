@@ -12,7 +12,11 @@ namespace HaberinOlsun.PublicUI.Controllers
     {
         KoseYazisiBLL koseYazisiBLL = new KoseYazisiBLL();
         // GET: Yazar
-        public ActionResult Index(int Id)
+        public ActionResult Index()
+        {           
+            return View();
+        }
+        public ActionResult Detay(int Id)
         {
             KoseYazilari koseyazisi = koseYazisiBLL.GetKoseYazilari(Id);
             return View(koseyazisi);

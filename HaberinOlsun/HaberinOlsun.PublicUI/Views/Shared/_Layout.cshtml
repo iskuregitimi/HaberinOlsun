@@ -1,10 +1,10 @@
-﻿@using HaberinOlsun.PublicUI.Models
-@model  HaberYazarModel
+﻿@using HaberinOlsun.BLL
+@using  HaberinOlsun.ENTITY
 
 <!DOCTYPE HTML>
 <html lang="tr">
 <head>
-    <title>Newsbit</title>
+    <title>HaberinOlsun</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
@@ -20,6 +20,17 @@
 
 </head>
 <body>
+    @{ 
+        HaberBLL haberbll = new HaberBLL();
+        List<Haber> haber = haberbll.GetHabers();
+
+        YazarBLL yazarbll = new YazarBLL();
+        List<Yazar> yazar = yazarbll.GetYazars();
+
+        KategoriBLL kategoribll = new KategoriBLL();
+        List<Kategori> kategori = kategoribll.GetKategoris();
+
+    }
     <header>
         <div class="bg-191">
             <div class="container">
@@ -61,13 +72,10 @@
 
             <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
             <ul class="main-menu" id="main-menu">
-                <li><a href="02_archive-page.html">GÜNDEM</a></li>
-                <li>
-                    <a href="03_single-post.html">DÜNYA</a>
-                </li>
-                <li><a href="04_FAQS.html">SPOR</a></li>
-                <li><a href="05_FAQS-single.html">MAGAZİN</a></li>
-                <li><a href="06_contact-us.html">TEKNOLOJİ</a></li>
+                @foreach (Kategori item in kategori)
+                {
+                    <li><a href="#">@item.Adi</a></li>
+                }
             </ul>
             <div class="clearfix"></div>
         </div><!-- container -->
@@ -77,9 +85,9 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
              
-                    @foreach(var item in Model.Habers.OrderByDescending(x => x.OkunmaSayisi).ToList())
+                    @foreach(Haber item in haber)
                     {
-                        if (item.OkunmaSayisi == Model.Habers.Max(x => x.OkunmaSayisi))
+                        if (item.OkunmaSayisi == haber.Max(x => x.OkunmaSayisi))
                         {
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="@item.ResimURL">
@@ -115,11 +123,11 @@
             <div class="col-md-4">
                 <div class="mtb-50">
                     <h4 class="p-title"><b>YAZARLAR</b></h4>
-                    @foreach (var item in Model.Yazars)
+                    @foreach (Yazar item in yazar)
                     {
                         foreach (var item1 in item.KoseYazilari)
                         {
-                            <a class="oflow-hidden pos-relative mb-20 dplay-block" href="/Yazar/Index/@item1.YaziId">
+                            <a class="oflow-hidden pos-relative mb-20 dplay-block" href="/Yazar/Detay/@item1.YaziId">
                                 <div class="wh-100x abs-tlr"><img src="@item.ResimURL" alt="@item.AdiSoyadi"></div>
                                 <div class="ml-120 min-h-100x">
 
@@ -128,33 +136,7 @@
                                 </div>
                             </a><!-- oflow-hidden -->
                         }
-                    }
-
-
-                    @*<a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-            <div class="wh-100x abs-tlr"><img src="images/polular-2-100x100.jpg" alt=""></div>
-            <div class="ml-120 min-h-100x">
-                <h5><b>Bitcoin Billionares Hidding in Plain Sight</b></h5>
-                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-            </div>
-        </a><!-- oflow-hidden -->
-
-        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-            <div class="wh-100x abs-tlr"><img src="images/polular-3-100x100.jpg" alt=""></div>
-            <div class="ml-120 min-h-100x">
-                <h5><b>Bitcoin Billionares Hidding in Plain Sight</b></h5>
-                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-            </div>
-        </a><!-- oflow-hidden -->
-
-        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-            <div class="wh-100x abs-tlr"><img src="images/polular-4-100x100.jpg" alt=""></div>
-            <div class="ml-120 min-h-100x">
-                <h5><b>Bitcoin Billionares Hidding in Plain Sight</b></h5>
-                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-            </div>
-        </a><!-- oflow-hidden -->*@
-
+                    }           
                 </div><!-- mtb-50 -->
             </div><!--col-sm-6-->
         </div>

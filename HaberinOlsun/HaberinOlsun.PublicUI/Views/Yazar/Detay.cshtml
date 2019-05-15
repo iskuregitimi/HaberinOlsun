@@ -1,16 +1,24 @@
 ﻿@model HaberinOlsun.ENTITY.KoseYazilari
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Detay";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Detay</h2>
 
 <div>
     <h4>KoseYazilari</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.YaziTarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YaziTarih)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Ozet)
         </dt>
@@ -25,14 +33,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Detay)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.YaziTarih)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.YaziTarih)
         </dd>
 
     </dl>
