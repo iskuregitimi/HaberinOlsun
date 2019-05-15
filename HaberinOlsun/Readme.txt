@@ -1,6 +1,7 @@
 - Haberlerimiz olacak
 - Kategorilerimiz olacak
-- 1 kategoriye 1 den fazla haber ekleyebileceðiz.
+-
+
 - 1 haberin 1 den fazla kategorisi olabilecek.
 - Köþe yazarlarýmýz olacak
 - Köþe yazýlarýmýz olacak

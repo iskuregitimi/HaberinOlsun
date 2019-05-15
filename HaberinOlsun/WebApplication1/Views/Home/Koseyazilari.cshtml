@@ -1,0 +1,25 @@
+﻿@*@model IEnumerable<Haberci.DAL.KoseYazilari>*@
+@using Haberci.DAL
+@model  List<KoseYazilari>
+
+@{
+    ViewBag.Title = "Koseyazilari";
+    Layout = "~/Views/shared/_LayoutPageHome.cshtml";
+}
+
+
+
+    @foreach (var item in Model)
+    {
+         @item.Detay
+
+        
+       
+                     
+    }
+
+
+
+
+
+
