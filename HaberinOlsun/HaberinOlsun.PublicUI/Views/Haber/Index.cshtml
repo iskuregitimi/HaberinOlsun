@@ -1,0 +1,66 @@
+﻿@model HaberinOlsun.ENTITY.Haber
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Haber</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ozet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ozet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kaynak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kaynak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimURL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

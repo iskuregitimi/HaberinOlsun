@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HaberinOlsun.BLL;
+using HaberinOlsun.ENTITY;
+using HaberinOlsun.PublicUI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +11,24 @@ namespace HaberinOlsun.PublicUI.Controllers
 {
     public class HomeController : Controller
     {
+        HaberBLL haberBLL = new HaberBLL();
+        YazarBLL yazarBLL = new YazarBLL();
+        KoseYazisiBLL koseYazisiBLL = new KoseYazisiBLL();
         public ActionResult Index()
         {
-            return View();
-        }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+          List<Haber> habers=  haberBLL.GetHabers();
+          List<Yazar> yazars = yazarBLL.GetYazars();
+          List<KoseYazilari> koseyazi= koseYazisiBLL.GetKoseYazilaris();
 
-            return View();
-        }
+            HaberYazarModel models = new HaberYazarModel()
+            {
+                Habers = habers,
+                KoseYazilaris = koseyazi,
+                Yazars = yazars       
+            };
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+            return View(models);
+        }    
     }
 }
