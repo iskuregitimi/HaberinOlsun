@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HaberinOlsun.BLL;
+using HaberinOlsun.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +25,15 @@ namespace HaberinOlsun.PublicUI.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Kategoriler(int id)
+        {
+            KategoriBLL kategoriBLL = new KategoriBLL();
+            Kategori kategori = kategoriBLL.GetKategori(id);
+            
 
             return View();
         }
