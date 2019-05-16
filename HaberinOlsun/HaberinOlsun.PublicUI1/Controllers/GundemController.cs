@@ -18,9 +18,10 @@ namespace HaberinOlsun.PublicUI1.Controllers
         }
         public ActionResult Gundem()
         {
+       
             AnasayfaModel model = new AnasayfaModel();
 
-            List<Haberler> haberler = HaberBLL.getHaber();
+            List<Haberler> haberler = HaberBLL.haber();
             List<Kategori> kategoriler = KategoriBLL.GetKAtegori();
             List<KoseYazilari> Koseyazarlar = KöseYazilariBLL.GetKöseYazilaris();
 

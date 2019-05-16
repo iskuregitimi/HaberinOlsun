@@ -21,7 +21,7 @@ namespace HaberinOlsun.PublicUI1.Controllers
             AnasayfaModel model = new AnasayfaModel();
 
             model.kyazilari = KöseYazilariBLL.detaykoseYazilari(id);
-            List<Haberler> haberler = HaberBLL.getHaber();
+            List<Haberler> haberler = HaberBLL.haber();
             List<Kategori> kategoriler = KategoriBLL.GetKAtegori();
             List<KoseYazilari> Koseyazarlar = KöseYazilariBLL.GetKöseYazilaris();
            

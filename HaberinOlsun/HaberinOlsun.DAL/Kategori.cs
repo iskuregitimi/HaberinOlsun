@@ -12,7 +12,8 @@ namespace HaberinOlsun.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Kategori()
         {
-            Haberler = new HashSet<Haberler>();
+            HaberKategori = new HashSet<HaberKategori>();
+            HaberKategori1 = new HashSet<HaberKategori>();
         }
 
         public int KategoriID { get; set; }
@@ -25,6 +26,9 @@ namespace HaberinOlsun.DAL
         public string Aciklama { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Haberler> Haberler { get; set; }
+        public virtual ICollection<HaberKategori> HaberKategori { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HaberKategori> HaberKategori1 { get; set; }
     }
 }

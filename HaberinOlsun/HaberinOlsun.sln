@@ -14,11 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaberinOlsun.BLL", "Haberin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaberinOlsun.PublicUI1", "HaberinOlsun.PublicUI1\HaberinOlsun.PublicUI1.csproj", "{E50CE4C2-F8A4-4479-8038-0E03C87A953D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "script", "script", "{594A1C14-9C1D-4F2E-BAF2-0E2039714475}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Users\BilgeAdam\Desktop\HaberinOlsun.sql = ..\..\..\Users\BilgeAdam\Desktop\HaberinOlsun.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,5 +1,10 @@
-﻿@using HaberinOlsun.PublicUI1.Models
-@model  AnasayfaModel
+﻿@using HaberinOlsun.BLL
+@using HaberinOlsun.DAL
+
+
+@{
+    List<Kategori> kategoriler = KategoriBLL.GetKAtegori();
+}
 
 
 <!DOCTYPE html>
@@ -63,58 +68,27 @@
                                     <li class="active"><a href="/Home/Index">Anasayfa</a></li>
                                     <li><a href="/Gundem/Gundem">Gundem</a></li>
                                     <li>
-                                        <a href="#">Pages</a>
+                                        <a href="#">Kategoriler</a>
                                         <ul class="dropdown">
-                                            <li><a href="/Home/Index">Anasayfa</a></li>
-                                            <li><a href="/Gundem/Gundem">Gundem</a></li>
-                                            <li><a href="video-post.html">Single Video Post</a></li>
-                                            <li><a href="single-post.html">Single Post</a></li>
-                                            <li><a href="/Haber/HaberDetay">Haber Listesi</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="submit-video.html">Submit Video</a></li>
-                                            <li><a href="login.html">Login</a></li>
+                                            @foreach (Kategori item in kategoriler)
+                                            {
+                                                <ul class="catagory-widgets">
+                                                    <li><a href="/Kategori/kategoriHaberleri/@item.KategoriID"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</span> <span>@kategoriler.GroupBy(x => x.KategoriID).Count()</span></a></li>
+                                                </ul>
+                                            }
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#">Mega</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="archive.html">Archive</a></li>
-                                                <li><a href="video-post.html">Single Video Post</a></li>
-                                                <li><a href="single-post.html">Single Post</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="archive.html">Archive</a></li>
-                                                <li><a href="video-post.html">Single Video Post</a></li>
-                                                <li><a href="single-post.html">Single Post</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="~/Home/index">Home</a></li>
-                                                <li><a href="archive.html">Archive</a></li>
-                                                <li><a href="video-post.html">Single Video Post</a></li>
-                                                <li><a href="single-post.html">Single Post</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="archive.html">Archive</a></li>
-                                                <li><a href="video-post.html">Single Video Post</a></li>
-                                                <li><a href="single-post.html">Single Post</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                            </ul>
-                                        </div>
+                                       @*@ <a href="#">Kategoriler</a>
+                                        @*<div class="megamenu">
+                                           
+                                            @foreach (Kategori item in kategoriler)
+                                            {
+                                                <ul class="catagory-widgets">
+                                                    <li><a href="/Kategori/kategoriHaberleri/@item.KategoriID"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</span> <span>@kategoriler.GroupBy(x => x.KategoriID).Count()</span></a></li>
+                                                </ul>
+                                            }
+                                        </div>*@
                                     </li>
                                     <li><a href="about.html">About</a></li>
                                     <li><a href="contact.html">Contact</a></li>
@@ -141,6 +115,7 @@
             </div>
         </div>
     </header>
+    @*@Html.Partial("~/Views/PartialView/Categori.cshtml")*@
 
 
     <div>
@@ -165,27 +140,7 @@
                     </div>
                 </div>
 
-                <!-- Footer Widget Area -->
-
-
-                @Html.Partial("~/Views/PartialView/Categori.cshtml")
-
-                @*<div class="col-12 col-sm-6 col-lg-3">
-                    <div class="footer-widget">
-                        <h6 class="widget-title">Categories</h6>
-                        <nav class="footer-widget-nav">
-                            @foreach (var item in Model.Kategoriler)
-                            {
-
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</a></li>
-
-                                </ul>
-                            }
-                        </nav>
-                    </div>
-                </div>*@
-
+            
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="footer-widget">
@@ -207,7 +162,7 @@
                         <!-- Single Blog Post -->
                         <div class="single-blog-post style-2 d-flex">
                             <div class="post-thumbnail">
-                                <img src="img/bg-img/13.jpg" alt="">
+                                <img src="~/Content/img/bg-img/13.jpg" alt="">
                             </div>
                             <div class="post-content">
                                 <a href="single-post.html" class="post-title">Travel Prudently Luggage And Carry On</a>
@@ -263,7 +218,7 @@
                     <div class="col-12 col-sm-6">
                         <nav class="footer-nav">
                             <ul>
-                                <li><a href="#">Home</a></li>
+                                <li><a href="">Home</a></li>
                                 <li><a href="#">Privacy</a></li>
                                 <li><a href="#">Advertisement</a></li>
                                 <li><a href="#">Contact Us</a></li>

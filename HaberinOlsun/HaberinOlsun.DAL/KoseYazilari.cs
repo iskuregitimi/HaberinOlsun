@@ -22,5 +22,7 @@ namespace HaberinOlsun.DAL
         public string Detay { get; set; }
 
         public virtual Yazarlar Yazarlar { get; set; }
+
+        public virtual Yazarlar Yazarlar1 { get; set; }
     }
 }

@@ -15,5 +15,9 @@ namespace HaberinOlsun.BLL
         {
             return db.Kategori.ToList();
         }
+        public static Kategori GetKAtegori(int id)
+        {
+            return db.Kategori.Where(x => x.KategoriID == id).FirstOrDefault();
+        }
     }
 }

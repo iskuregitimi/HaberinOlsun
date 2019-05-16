@@ -19,7 +19,7 @@
         @foreach (Kategori item in kategoriler)
         {
             <ul class="catagory-widgets">
-                <li><a href="/Home/Kate/@item.KategoriID"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</span> <span>@kategoriler.GroupBy(x=>x.KategoriID).Count()</span></a></li>
+                <li><a href="/Kategori/kategoriHaberleri/@item.KategoriID"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</span> <span>@kategoriler.GroupBy(x=>x.KategoriID).Count()</span></a></li>
             </ul>
         }
 

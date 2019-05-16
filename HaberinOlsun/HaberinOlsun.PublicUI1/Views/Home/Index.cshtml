@@ -11,7 +11,7 @@
 <body>
     <div class="hero-area owl-carousel">
         <!-- Single Blog Post -->
-        @foreach (var item in Model.Haberler)
+        @foreach (var item in Model.Haberler.Take(10))
         {
 
             <div class="hero-blog-post bg-img bg-overlay" style="background-image:url( @item.ResimURL);">
@@ -34,7 +34,7 @@
         }
 
 
-   
+
     </div>
     <section class="mag-posts-area d-flex flex-wrap">
 
@@ -49,7 +49,7 @@
                     <h5>Most Popular</h5>
                 </div>
 
-                @foreach (var item in Model.KoseYazilari)
+                @foreach (var item in Model.KoseYazilari.Take(5))
                 {
 
                     <div class="single-blog-post d-flex">
@@ -67,72 +67,11 @@
                     </div>
                 }
 
-                <!-- Single Blog Post -->
-                @*<div class="single-blog-post d-flex">
-                        <div class="post-thumbnail">
-                            <img src="img/bg-img/5.jpg" alt="">
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Cruising Destination Ideas</a>
-                            <div class="post-meta d-flex justify-content-between">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post d-flex">
-                        <div class="post-thumbnail">
-                            <img src="~/Content/img/bg-img/6.jpg" alt="">
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">The Luxury Of Traveling With</a>
-                            <div class="post-meta d-flex justify-content-between">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post d-flex">
-                        <div class="post-thumbnail">
-                            <img src="~/Content/img/bg-img/7.jpg" alt="">
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Choose The Perfect Accommodations</a>
-                            <div class="post-meta d-flex justify-content-between">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post d-flex">
-                        <div class="post-thumbnail">
-                            <img src="~/Content/img/bg-img/8.jpg" alt="">
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                            <div class="post-meta d-flex justify-content-between">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                            </div>
-                        </div>
-                    </div>*@
+              
             </div>
 
             <!-- Sidebar Widget -->
-            <div class="single-sidebar-widget">
-                <a href="#" class="add-img"><img src="~/Content/img/bg-img/add.png" alt=""></a>
-            </div>
-
+          
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
@@ -223,139 +162,68 @@
              Main Posts Area
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
-            <!-- Trending Now Posts Area -->
-            <div class="trending-now-posts mb-30">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>TRENDING NOW</h5>
-                </div>
-                <!-- foreach   -->
-
-                <div class="trending-post-slides owl-carousel">
-
-                    @foreach (var item in Model.Haberler)
-                    {
-                        <div class="single-trending-post">
-                            <img src="@item.ResimURL" alt="">
-                            <div class="post-content">
-                                <a href="#" class="post-cata">Video</a>
-                                <a href="/Haber/HaberDetay/@item.HaberID" class="post-title">@item.Ozet</a>
-                            </div>
-                        </div>
-
-
-                    }
-
-
-                    @*<div class="single-trending-post">
-                            <img src="~/Content/img/bg-img/20.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#" class="post-cata">TV Show</a>
-                                <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                            </div>
-                        </div>*@
-
-                    <!-- Single Trending Post -->
-                    @*<div class="single-trending-post">
-                            <img src="~/Content/img/bg-img/21.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#" class="post-cata">Sports</a>
-                                <a href="video-post.html" class="post-title">The Health Benefits Of Sunglasses</a>
-                            </div>
-                        </div>*@
-
-                    <!-- Single Trending Post -->
-                    @*<div class="single-trending-post">
-                            <img src="~/Content/img/bg-img/19.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#" class="post-cata">Video</a>
-                                <a href="video-post.html" class="post-title">Big Savings On Gas While You Travel</a>
-                            </div>
-                        </div>*@
-
-                    <!-- Single Trending Post -->
-                    @*<div class="single-trending-post">
-                            <img src="~/Content/img/bg-img/20.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#" class="post-cata">TV Show</a>
-                                <a href="~/Content/video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                            </div>
-                        </div>*@
-
-                    <!-- Single Trending Post -->
-                    @*<div class="single-trending-post">
-                            <img src="~/Content/img/bg-img/21.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#" class="post-cata">Sports</a>
-                                <a href="~/Content/video-post.html" class="post-title">The Health Benefits Of Sunglasses</a>
-                            </div>
-                        </div>*@
-                </div>
-            </div>
 
             <!-- Feature Video Posts Area -->
             <div class="feature-video-posts mb-30">
                 <!-- Section Title -->
                 <div class="section-heading">
-                    <h5>Featured Videos</h5>
+                    <h5>TÜM HABERLER</h5>
                 </div>
 
                 <div class="featured-video-posts">
                     <div class="row">
-                        <div class="col-12 col-lg-7">
-                            <!-- Single Featured Post -->
-                            @foreach (var item in Model.Haberler)
-                            {
-                                <div class="single-featured-post">
-                                    <!-- Thumbnail -->
-                                    <div class="post-thumbnail mb-50">
-                                        <img src="@item.ResimURL" alt="">
-                                        <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
+
+                        <!-- Single Featured Post -->
+                        @foreach (var item in Model.Haberler)
+                        {
+                            <div class="single-featured-post">
+                                <!-- Thumbnail -->
+                                <div class="post-thumbnail mb-50">
+                                    <img src="@item.ResimURL" alt="">
+                                    <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
+                                </div>
+                                <!-- Post Contetnt -->
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <a href="#">@item.Tarih</a>
+                                        <a href="archive.html">lifestyle</a>
                                     </div>
-                                    <!-- Post Contetnt -->
-                                    <div class="post-content">
-                                        <div class="post-meta">
-                                            <a href="#">@item.Tarih</a>
-                                            <a href="archive.html">lifestyle</a>
-                                        </div>
-                                        <a href="video-post.html" class="post-title">@item.Baslik</a>
-                                        <p>@item.Ozet</p>
+                                    <a href="/Haber/HaberDetay/@item.HaberID" class="post-title">@item.Baslik</a>
+                                    <p>@item.Ozet</p>
+                                </div>
+                                <!-- Post Share Area -->
+                                <div class="post-share-area d-flex align-items-center justify-content-between">
+                                    <!-- Post Meta -->
+                                    <div class="post-meta pl-3">
+                                        <a href="@item.OkunmaSayisi"><i class="fa fa-eye" aria-hidden="true"></i> @item.OkunmaSayisi</a>
+
                                     </div>
-                                    <!-- Post Share Area -->
-                                    <div class="post-share-area d-flex align-items-center justify-content-between">
-                                        <!-- Post Meta -->
-                                        <div class="post-meta pl-3">
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> @item.OkunmaSayisi</a>
-                                            
-                                        </div>
-                                        <!-- Share Info -->
-                                        <div class="share-info">
-                                            <a href="#" class="sharebtn"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            <!-- All Share Buttons -->
-                                            <div class="all-share-btn d-flex">
-                                                <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                                <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                            </div>
+                                    <!-- Share Info -->
+                                    <div class="share-info">
+                                        <a href="#" class="sharebtn"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                        <!-- All Share Buttons -->
+                                        <div class="all-share-btn d-flex">
+                                            <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                            <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                            <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                            <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                            }
+                            </div>
+                        }
 
-                        </div>
+
 
                         <div class="col-12 col-lg-5">
-                            <!-- Featured Video Posts Slide -->
+                             Featured Video Posts Slide 
                             <div class="featured-video-posts-slide owl-carousel">
 
 
                                 <div class="single--slide">
                                     <!-- Single Blog Post -->
-                                    @*@if (Model.Kategoriler.Find())
-                                        {
 
-                                        }*@
+
                                     <div class="single-blog-post d-flex style-3">
                                         <div class="post-thumbnail">
                                             <img src="img/bg-img/23.jpg" alt="">
@@ -370,7 +238,9 @@
                                         </div>
                                     </div>
 
+
                                     <!-- Single Blog Post -->
+
                                     <div class="single-blog-post d-flex style-3">
                                         <div class="post-thumbnail">
                                             <img src="img/bg-img/24.jpg" alt="">
@@ -507,327 +377,26 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+                            
                         </div>
+
+
                     </div>
                 </div>
             </div>
-
-            <!-- Most Viewed Videos -->
-            <div class="most-viewed-videos mb-30">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Most Viewed Videos</h5>
-                </div>
-
-                <div class="most-viewed-videos-slide owl-carousel">
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail">
-                            <img src="img/bg-img/28.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">09:27</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                            <div class="post-meta d-flex">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail">
-                            <img src="img/bg-img/29.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">09:27</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Dentists Are Smiling Over Painless Veneer Alternative</a>
-                            <div class="post-meta d-flex">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail">
-                            <img src="img/bg-img/30.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">09:27</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Become A Travel Pro In One Easy Lesson</a>
-                            <div class="post-meta d-flex">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail">
-                            <img src="img/bg-img/28.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">09:27</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                            <div class="post-meta d-flex">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail">
-                            <img src="img/bg-img/29.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">09:27</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Dentists Are Smiling Over Painless Veneer Alternative</a>
-                            <div class="post-meta d-flex">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-4">
-                        <div class="post-thumbnail">
-                            <img src="img/bg-img/30.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                            <span class="video-duration">09:27</span>
-                        </div>
-                        <div class="post-content">
-                            <a href="single-post.html" class="post-title">Become A Travel Pro In One Easy Lesson</a>
-                            <div class="post-meta d-flex">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Sports Videos -->
-            <div class="sports-videos-area">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Sports Videos</h5>
-                </div>
-
-                <div class="sports-videos-slides owl-carousel mb-30">
-                    <!-- Single Featured Post -->
-                    <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="img/bg-img/22.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                        </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">MAY 8, 2018</a>
-                                <a href="archive.html">lifestyle</a>
-                            </div>
-                            <a href="video-post.html" class="post-title">A Closer Look At Our Front Porch Items From Lowe’s</a>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-                        </div>
-                        <!-- Post Share Area -->
-                        <div class="post-share-area d-flex align-items-center justify-content-between">
-                            <!-- Post Meta -->
-                            <div class="post-meta pl-3">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                            <!-- Share Info -->
-                            <div class="share-info">
-                                <a href="#" class="sharebtn"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                <!-- All Share Buttons -->
-                                <div class="all-share-btn d-flex">
-                                    <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                    <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Featured Post -->
-                    <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="img/bg-img/22.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                        </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">MAY 8, 2018</a>
-                                <a href="archive.html">lifestyle</a>
-                            </div>
-                            <a href="video-post.html" class="post-title">A Closer Look At Our Front Porch Items From Lowe’s</a>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-                        </div>
-                        <!-- Post Share Area -->
-                        <div class="post-share-area d-flex align-items-center justify-content-between">
-                            <!-- Post Meta -->
-                            <div class="post-meta pl-3">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                            <!-- Share Info -->
-                            <div class="share-info">
-                                <a href="#" class="sharebtn"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                <!-- All Share Buttons -->
-                                <div class="all-share-btn d-flex">
-                                    <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                    <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Featured Post -->
-                    <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="img/bg-img/22.jpg" alt="">
-                            <a href="video-post.html" class="video-play"><i class="fa fa-play"></i></a>
-                        </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">MAY 8, 2018</a>
-                                <a href="archive.html">lifestyle</a>
-                            </div>
-                            <a href="video-post.html" class="post-title">A Closer Look At Our Front Porch Items From Lowe’s</a>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-                        </div>
-                        <!-- Post Share Area -->
-                        <div class="post-share-area d-flex align-items-center justify-content-between">
-                            <!-- Post Meta -->
-                            <div class="post-meta pl-3">
-                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                            </div>
-                            <!-- Share Info -->
-                            <div class="share-info">
-                                <a href="#" class="sharebtn"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                <!-- All Share Buttons -->
-                                <div class="all-share-btn d-flex">
-                                    <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                    <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                <img src="img/bg-img/31.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
-                                <div class="post-meta d-flex">
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                <img src="img/bg-img/32.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
-                                <div class="post-meta d-flex">
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                <img src="img/bg-img/33.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
-                                <div class="post-meta d-flex">
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                <img src="img/bg-img/34.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">From Wetlands To Canals And Dams Amsterdam Is Alive</a>
-                                <div class="post-meta d-flex">
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 1034</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 834</a>
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 234</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+           
         </div>
+
+        <!-- Most Viewed Videos -->
+       
 
         <!-- >>>>>>>>>>>>>>>>>>>>
          Post Right Sidebar Area
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
+
+            @Html.Partial("~/Views/PartialView/Categori.cshtml")
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget p-30">
                 <!-- Social Followers Info -->
@@ -842,27 +411,8 @@
                     <a href="#" class="google-followers"><i class="fa fa-google-plus"></i> 4,230 <span>Followers</span></a>
                 </div>
             </div>
-
+           
             <!-- Sidebar Widget -->
-
-               @Html.Partial("~/Views/PartialView/Categori.cshtml")
-            @*<div class="single-sidebar-widget p-30">
-                <!-- Section Title -->
-                <div class="section-heading">
-                    <h5>Categories</h5>
-                </div>
-
-                <!-- Catagory Widget -->
-                @foreach (var item in Model.Kategoriler)
-                {
-                    <ul class="catagory-widgets">
-                        <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> @item.Adi</span> <span>35</span></a></li>
-                    </ul>
-                }
-
-
-            </div>*@
-
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget">
                 <a href="#" class="add-img"><img src="~/Content/img/bg-img/add2.png" alt=""></a>

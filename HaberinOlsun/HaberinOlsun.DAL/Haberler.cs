@@ -13,39 +13,42 @@ namespace HaberinOlsun.DAL
         public Haberler()
         {
             Gundem = new HashSet<Gundem>();
-            Kategori = new HashSet<Kategori>();
+            Gundem1 = new HashSet<Gundem>();
+            HaberKategori = new HashSet<HaberKategori>();
+            HaberKategori1 = new HashSet<HaberKategori>();
         }
 
         [Key]
         public int HaberID { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(500)]
         public string Baslik { get; set; }
 
-        public DateTime Tarih { get; set; }
+        public DateTime? Tarih { get; set; }
 
-        [Required]
         [StringLength(1000)]
         public string Ozet { get; set; }
 
-        [Required]
         [StringLength(250)]
         public string Kaynak { get; set; }
 
-        [Required]
         public string Detay { get; set; }
 
-        public int OkunmaSayisi { get; set; }
+        public int? OkunmaSayisi { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(500)]
         public string ResimURL { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gundem> Gundem { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Kategori> Kategori { get; set; }
+        public virtual ICollection<Gundem> Gundem1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HaberKategori> HaberKategori { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HaberKategori> HaberKategori1 { get; set; }
     }
 }

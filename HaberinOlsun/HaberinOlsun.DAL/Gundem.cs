@@ -16,5 +16,7 @@ namespace HaberinOlsun.DAL
         public int Sira { get; set; }
 
         public virtual Haberler Haberler { get; set; }
+
+        public virtual Haberler Haberler1 { get; set; }
     }
 }

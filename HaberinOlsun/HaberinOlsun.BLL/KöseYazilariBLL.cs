@@ -18,9 +18,6 @@ namespace HaberinOlsun.BLL
         {
             return DataContext.KoseYazilari.FirstOrDefault(x => x.YaziID == id);
         }
-        //public  static KoseYazilari kyazilari()
-        //{
-        //    r
-        //}
+        
     }
 }

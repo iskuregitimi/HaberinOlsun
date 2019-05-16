@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="DataContext.cs" />
     <Compile Include="Gundem.cs" />
+    <Compile Include="HaberKategori.cs" />
     <Compile Include="Haberler.cs" />
     <Compile Include="Kategori.cs" />
     <Compile Include="KoseYazilari.cs" />
