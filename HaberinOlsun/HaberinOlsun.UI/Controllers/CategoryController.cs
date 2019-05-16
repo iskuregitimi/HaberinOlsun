@@ -17,9 +17,9 @@ namespace HaberinOlsun.UI.Controllers
             return View();
         }
 
-        public ActionResult GetCategoryPosts(int KategoriID = 1)
+        public ActionResult GetCategoryPosts(int id)
         {
-            List<Haberler> haber = CategoryBLL.getpostsfromcategory(KategoriID);
+            List<Haberler> haber = CategoryBLL.getpostsfromcategory(id);
             return View(haber);
 
         }

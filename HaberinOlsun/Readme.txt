@@ -9,7 +9,7 @@
 - Ana sayfada carousel olacak ve gündemin 10 haberine ait resimler burada olacak. -- ok
 - Carouselin altýnda sol tarafta random 10 tane haber gösterilecek.
 - Carouselin altýnda sað tarafta köþe yazarlarý listelenecek. --ok
-- Haberlere týklandýðýnda haber detaylarý gösterilecek. 
+- Haberlere týklandýðýnda haber detaylarý gösterilecek. --ok
 - Köþe yazarlarýna týklandýðýnda yazara ait tüm köþe yazýlarý listelenecek. (Tarihe göre ters sýralý.)
 - Kategorilere týklandýðýnda haberler tarihe göre ters sýralý listelenecek. 
 - Bir haber açýldýðýnda okuma sayýsý 1 arttýrýlacak. -- ok
