@@ -11,6 +11,9 @@ namespace HaberinOlsun.BLL
 	public class KategoriBLL
 	{
 		RepositoryPattern<Kategori> repo = new RepositoryPattern<Kategori>();
+		RepositoryPattern<HaberKategori> repo1 = new RepositoryPattern<HaberKategori>();
+		DataContext db = new DataContext();
+
 		public List<Kategori> GetKategori(int id)
 		{
 			return repo.List(x => x.KategoriId == id);
@@ -21,8 +24,11 @@ namespace HaberinOlsun.BLL
 		}
 		public Kategori KategorileriGetir(int id)
 		{
-			return repo.Find(x=> x.KategoriId==id);
+			return repo.Find(x => x.KategoriId == id);
 		}
+
+	
+
 
 	}
 }

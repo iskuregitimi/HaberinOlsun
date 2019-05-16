@@ -12,6 +12,7 @@ namespace HaberinOlsun.DAL
 			: base("name=DataContext")
 		{
 		}
+
 		public virtual DbSet<Gundem> Gundems { get; set; }
 		public virtual DbSet<HaberKategori> HaberKategoris { get; set; }
 		public virtual DbSet<Haberler> Haberlers { get; set; }
@@ -19,8 +20,19 @@ namespace HaberinOlsun.DAL
 		public virtual DbSet<KoseYazilari> KoseYazilaris { get; set; }
 		public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 		public virtual DbSet<Yazarlar> Yazarlars { get; set; }
+
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
+			modelBuilder.Entity<Haberler>()
+				.HasMany(e => e.HaberKategoris)
+				.WithRequired(e => e.Haberler)
+				.WillCascadeOnDelete(false);
+
+			modelBuilder.Entity<Kategori>()
+				.HasMany(e => e.HaberKategoris)
+				.WithRequired(e => e.Kategori)
+				.WillCascadeOnDelete(false);
+
 			modelBuilder.Entity<Yazarlar>()
 				.HasMany(e => e.KoseYazilaris)
 				.WithRequired(e => e.Yazarlar)

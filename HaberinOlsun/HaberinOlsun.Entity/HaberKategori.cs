@@ -14,5 +14,9 @@ namespace HaberinOlsun.Entity
         public int KategoriId { get; set; }
 
         public int HaberId { get; set; }
+
+        public virtual Haberler Haberler { get; set; }
+
+        public virtual Kategori Kategori { get; set; }
     }
 }

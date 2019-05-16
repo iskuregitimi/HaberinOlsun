@@ -14,11 +14,11 @@ namespace HaberinOlsun.WEBUI.Controllers
         // GET: Kategori
         public ActionResult Kategori(int id)
         {
-			Kategori kategori = kategoribll.KategorileriGetir(id);
+			string kategori = kategoribll.HaberKategorileriGetir(id);
 			List<Haberler> haberler = new List<Haberler>();
-			foreach (Haberler item in kategori.)
+			foreach (Haberler item in kat)
 			{
-
+				haberler.Add(item);
 			}
 		 
             return View();

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CEA6340C-A639-48EE-A089-0318112FEAE8}</ProjectGuid>
+    <ProjectGuid>{4F9178C7-72F5-41E0-801A-6A80AD5151CF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HaberinOlsun.Entity</RootNamespace>

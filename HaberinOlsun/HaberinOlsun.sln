@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaberinOlsun.BLL", "Haberin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaberinOlsun.DAL", "HaberinOlsun.DAL\HaberinOlsun.DAL.csproj", "{7FBE78E0-00B9-4BBB-8643-8D280E93815E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaberinOlsun.Entity", "HaberinOlsun.Entity\HaberinOlsun.Entity.csproj", "{CEA6340C-A639-48EE-A089-0318112FEAE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaberinOlsun.Entity", "HaberinOlsun.Entity\HaberinOlsun.Entity.csproj", "{4F9178C7-72F5-41E0-801A-6A80AD5151CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +34,10 @@ Global
 		{7FBE78E0-00B9-4BBB-8643-8D280E93815E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FBE78E0-00B9-4BBB-8643-8D280E93815E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FBE78E0-00B9-4BBB-8643-8D280E93815E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEA6340C-A639-48EE-A089-0318112FEAE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEA6340C-A639-48EE-A089-0318112FEAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEA6340C-A639-48EE-A089-0318112FEAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEA6340C-A639-48EE-A089-0318112FEAE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F9178C7-72F5-41E0-801A-6A80AD5151CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F9178C7-72F5-41E0-801A-6A80AD5151CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F9178C7-72F5-41E0-801A-6A80AD5151CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F9178C7-72F5-41E0-801A-6A80AD5151CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

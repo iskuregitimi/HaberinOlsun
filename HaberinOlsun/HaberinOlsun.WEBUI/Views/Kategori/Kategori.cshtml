@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HaberinOlsun.Entity.Haberler>
+
+@{
+    ViewBag.Title = "Kategori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategori</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ozet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Detay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kaynak)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ozet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Detay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kaynak)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResimURL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -14,5 +14,7 @@ namespace HaberinOlsun.Entity
         public int? HaberId { get; set; }
 
         public int? Sıra { get; set; }
+
+        public virtual Haberler Haberler { get; set; }
     }
 }
