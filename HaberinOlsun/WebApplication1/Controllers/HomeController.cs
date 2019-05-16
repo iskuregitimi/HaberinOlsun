@@ -20,8 +20,8 @@ namespace WebApplication1.Controllers
             //return View(haber);
 
             AnasayfaModeller model = new AnasayfaModeller();
-            List<Haberler> haber = Haber.GetHaberlers();
-            List<Kategori> kategori = Categoriler.getkategori();
+            List<Haberler> haber = HaberBLL.GetHaberlers();
+            List<Kategori> kategori = CategorilerBLL.getkategori();
             List<Yazarlar> yazarlar = YazarBLL.yazargetir();
             model.Kategori = kategori;
             model.Haberler = haber;
@@ -39,7 +39,7 @@ namespace WebApplication1.Controllers
         }
         public ActionResult HaberDetails(int id)
         {
-            Haberler haber = Haber.GetDetails(id);
+            Haberler haber = HaberBLL.GetDetails(id);
             return View (haber);
         }
 

@@ -177,6 +177,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriHaberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -256,6 +257,8 @@
     <Content Include="Views\Home\Anasayfa.cshtml" />
     <Content Include="Views\Home\Koseyazilari.cshtml" />
     <Content Include="Views\Home\HaberDetails.cshtml" />
+    <Content Include="Views\koseyazıilaripartialView.cshtml" />
+    <Content Include="Views\KategoriHaber\HaberKategori.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Haberci.BLL
 {
-    public static class Haber
+    public static class HaberBLL
     {
         public static List<Haberler> GetHaberlers()
         {

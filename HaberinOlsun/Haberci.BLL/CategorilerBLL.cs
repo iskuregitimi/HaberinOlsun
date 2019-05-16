@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Haberci.BLL
 {
-   public static  class Categoriler
+   public static  class CategorilerBLL
     {
        static  DataContext db = new DataContext();
         
@@ -15,5 +15,11 @@ namespace Haberci.BLL
         {
             return db.Kategori.ToList();
         }
+
+        public static Kategori KategoriDetailsGetir(int id)
+        {
+            return db.Kategori.Where(x => x.KategoriId == id).FirstOrDefault();
+        }
+
     }
 }

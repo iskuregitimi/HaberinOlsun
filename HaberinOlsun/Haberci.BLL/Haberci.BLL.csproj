@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categoriler.cs" />
-    <Compile Include="Haber.cs" />
+    <Compile Include="CategorilerBLL.cs" />
+    <Compile Include="HaberBLL.cs" />
     <Compile Include="KoseyazisiBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YazarBLL.cs" />
