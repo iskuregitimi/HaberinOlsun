@@ -38,6 +38,8 @@ namespace Entity
 
         public int OkunmaSayisi { get; set; }
 
+        public string HaberTipi { get; set; }
+
         [Required]
         [StringLength(250)]
         public string ResimURL { get; set; }

@@ -132,10 +132,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DunyaController.cs" />
+    <Compile Include="Controllers\EkonomiController.cs" />
+    <Compile Include="Controllers\GundemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MagazinController.cs" />
+    <Compile Include="Controllers\SporController.cs" />
+    <Compile Include="Controllers\TeknolojiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dunya.cs" />
+    <Compile Include="Models\Ekonomi.cs" />
+    <Compile Include="Models\Gundem.cs" />
+    <Compile Include="Models\Magazin.cs" />
+    <Compile Include="Models\Spor.cs" />
+    <Compile Include="Models\Teknoloji.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,10 +186,20 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Dunya\Index.cshtml" />
+    <Content Include="Views\Ekonomi\Index.cshtml" />
+    <Content Include="Views\Gundem\Index.cshtml" />
+    <Content Include="Views\Magazin\Index.cshtml" />
+    <Content Include="Views\Spor\Index.cshtml" />
+    <Content Include="Views\Teknoloji\Index.cshtml" />
+    <Content Include="Views\Home\HaberGetir.cshtml" />
+    <Content Include="Views\Home\EkonomiGetir.cshtml" />
+    <Content Include="Views\Home\GündemGetir.cshtml" />
+    <Content Include="Views\Home\AllNews.cshtml" />
+    <Content Include="Views\Home\YazarGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -191,6 +213,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\HaberinOlsun.Entity.csproj">
+      <Project>{ca5558e6-cd0c-40d4-b418-834e7e3d4cbb}</Project>
+      <Name>HaberinOlsun.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaberinOlsun.BLL\HaberinOlsun.BLL.csproj">
+      <Project>{9a859cf2-1c29-41f9-8d6e-27171e1c550f}</Project>
+      <Name>HaberinOlsun.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaberinOlsun.DAL\HaberinOlsun.DAL.csproj">
+      <Project>{85372ee2-2742-4294-9b6c-b99e935662a3}</Project>
+      <Name>HaberinOlsun.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

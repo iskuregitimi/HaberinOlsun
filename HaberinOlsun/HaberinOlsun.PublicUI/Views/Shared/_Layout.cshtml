@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="font-size:large">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,19 +20,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Gündem", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Ekonomi", "About", "Home")</li>
-                    <li>@Html.ActionLink("Spor", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Dünya", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Teknoloji", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Magazin", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Gündem", "Index", "Gundem")</li>
+                    <li>@Html.ActionLink("Ekonomi", "Index", "Ekonomi")</li>
+                    <li>@Html.ActionLink("Spor", "Index", "Spor")</li>
+                    <li>@Html.ActionLink("Dünya", "Index", "Dunya")</li>
+                    <li>@Html.ActionLink("Teknoloji", "Index", "Teknoloji")</li>
+                    <li>@Html.ActionLink("Magazin", "Index", "Magazin")</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="border:none">
         @RenderBody()
-        <hr />
         <footer>
             
         </footer>
