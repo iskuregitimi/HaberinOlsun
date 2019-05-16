@@ -19,8 +19,13 @@ namespace HaberinOlsun.UI.Controllers
 
         public ActionResult GetPost(int id)
         {
-            Haberler post = PostsBLL.GetSelectedPost(id);
+            var post = PostsBLL.GetSelectedPost(id);
             return View(post);
+        }
+
+        public ActionResult CornerPost(int id)
+        {
+            return View();
         }
 
     }

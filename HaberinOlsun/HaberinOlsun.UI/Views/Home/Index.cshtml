@@ -1,8 +1,8 @@
-﻿@using HaberinOlsun.Entities
-@model  List<HaberinOlsun.Entities.Haberler>
+﻿@using HaberinOlsun.UI.Models
+@model  HomePageModel
 <!-- ##### Hero Area Start ##### -->
 <div class="hero-area owl-carousel">
-    @foreach (Haberler item in Model.Take(10))
+    @foreach (var item in Model.Haberler.Take(5))
     {
         <!-- Single Blog Post -->
         <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(@item.ResimURL);">
@@ -13,7 +13,7 @@
                         <div class="post-content text-center">
                             <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
                                 <a href="#">@item.Tarih</a>
-                                <a href="archive.html">lifestyle</a>
+                                <a href="/Category/GetCategoryPosts/@item.HaberKategori.KategoriID">@item.HaberKategori.Kategori.Adi</a>
                             </div>
                             <a href="/News/GetPost/@item.HaberID" class="post-title" data-animation="fadeInUp" data-delay="300ms">@item.Baslik</a>
                         </div>
@@ -326,22 +326,24 @@
             </div>
 
             <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                @foreach (var yazar in Model)
-                {
-                    <div class="post-thumbnail">
-                        <img src="@yazar.ResimURL" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">@yazar.AdiSoyadi</a>
-                        <div class="post-meta d-flex justify-content-between">
-                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        </div>
-                    </div>
-                }
-            </div>
 
+            @foreach (var yazar in Model.Yazarlar)
+            {
+        <div class="single-blog-post d-flex">
+            <div class="post-thumbnail">
+                <img src="@yazar.ResimURL" alt="">
+            </div>
+            <div class="post-content">
+                <a href="single-post.html" class="post-title">@yazar.AdiSoyadi</a>
+                <div class="post-meta d-flex justify-content-between">
+                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
+                </div>
+            </div>
         </div>
+              }
+                </div>
+
+           
 
         <!-- Sidebar Widget -->
         <div class="single-sidebar-widget">

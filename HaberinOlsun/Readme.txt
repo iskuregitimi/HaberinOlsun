@@ -1,14 +1,14 @@
 - Haberlerimiz olacak -- ok
 - Kategorilerimiz olacak -- ok
 - 1 kategoriye 1 den fazla haber ekleyebileceðiz. 
-- 1 haberin 1 den fazla kategorisi olabilecek.
+- 1 haberin 1 den fazla kategorisi olabilecek. --ok
 - Köþe yazarlarýmýz olacak -- ok
-- Köþe yazýlarýmýz olacak
+- Köþe yazýlarýmýz olacak -- ok
 - 1 yazar 1 den fazla köþe yazýsý yazabilecek. 
-- Ana sayfada headerda kategoriler yatay sýrada listelenecek. 
-- Ana sayfada carousel olacak ve gündemin 10 haberine ait resimler burada olacak. -- 10 haber kýsmý ayarlanacak
+- Ana sayfada headerda kategoriler yatay sýrada listelenecek. --ok  
+- Ana sayfada carousel olacak ve gündemin 10 haberine ait resimler burada olacak. -- ok
 - Carouselin altýnda sol tarafta random 10 tane haber gösterilecek.
-- Carouselin altýnda sað tarafta köþe yazarlarý listelenecek. 
+- Carouselin altýnda sað tarafta köþe yazarlarý listelenecek. --ok
 - Haberlere týklandýðýnda haber detaylarý gösterilecek. 
 - Köþe yazarlarýna týklandýðýnda yazara ait tüm köþe yazýlarý listelenecek. (Tarihe göre ters sýralý.)
 - Kategorilere týklandýðýnda haberler tarihe göre ters sýralý listelenecek. 

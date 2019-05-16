@@ -15,18 +15,30 @@ namespace HaberinOlsun.BLL
             return (db.Haberlers.ToList());
         }
         
-        public static Haberler GetSelectedPost(int HaberID)
+        public static object GetSelectedPost(int HaberID)
         {
             var getpostdata = db.Haberlers.Where(x => x.HaberID == HaberID).FirstOrDefault();
-            getpostdata.OkunmaSayisi = getpostdata.OkunmaSayisi + 1;
+            var updatecount = getpostdata.OkunmaSayisi + 1;
             db.SaveChanges();
-            var getpost = getpostdata;
-            return (getpost);
+            return (getpostdata);
         }
+
+
 
         public static List<Yazarlar> getAuthors()
         {
             return(db.Yazarlars.ToList());
         }
+
+        public static List<Kategori> getCategories()
+        {
+            return (db.Kategoris.ToList());
+        }
+
+        public static List<KoseYazilari> getCornerPosts(int Yazarid)
+        {
+            return (db.KoseYazilaris.Where(x => x.YazarID == Yazarid).ToList()); 
+        }
+
     }
 }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using HaberinOlsun.BLL
+@using HaberinOlsun.Entities
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,6 +21,9 @@
 </head>
 
 <body>
+    @{
+        List<Kategori> categories = PostsBLL.getCategories();
+    }
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="spinner">
@@ -58,15 +63,10 @@
                                 <ul>
                                     <li class="active"><a href="/Home/Index">Anasayfa</a></li>
                                     <li><a href="archive.html">Gündem</a></li>
-                                    <li>
-                                        <a href="#">Haberler</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Dünyadan Haberler</a></li>
-                                            <li><a href="archive.html">Yurttan Haberler</a></li>
-                                            <li><a href="video-post.html">Arşiv</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">Köşe Yazıları</a></li>
+                                    @foreach (var item in categories)
+                                    {
+                                        <li><a href="archive.html">@item.Adi</a></li>
+                                    }
                                 </ul>
                             </div>
                             <!-- Nav End -->

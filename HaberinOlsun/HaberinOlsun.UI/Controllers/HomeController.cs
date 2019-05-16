@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HaberinOlsun.UI.Models;
 
 namespace HaberinOlsun.UI.Controllers
 {
@@ -13,13 +14,13 @@ namespace HaberinOlsun.UI.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            List<Haberler> haberler = PostsBLL.GetPosts();
-            return View(haberler);
-        }
-        public ActionResult Authors()
-        {
+            HomePageModel model = new HomePageModel();
             List<Yazarlar> yazarlar = PostsBLL.getAuthors();
-            return View("Index");
+            List<Haberler> haberler = PostsBLL.GetPosts();
+
+            model.Haberler = haberler;
+            model.Yazarlar = yazarlar;
+            return View(model);
         }
 
     }
