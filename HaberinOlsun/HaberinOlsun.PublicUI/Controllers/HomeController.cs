@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HaberinOlsun.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,17 @@ namespace HaberinOlsun.PublicUI.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        HaberManager haberler = new HaberManager();
+        // GET: Home
+        public ActionResult Index() 
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Kat(int id)
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
     }
 }

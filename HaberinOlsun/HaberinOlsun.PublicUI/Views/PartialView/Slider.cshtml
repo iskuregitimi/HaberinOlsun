@@ -1,0 +1,32 @@
+﻿@using HaberinOlsun.BLL
+@using HaberinOlsun.Entities
+@{ 
+    HaberManager manager = new HaberManager();
+    List < Haberler > haberler= manager.GetHaberler();
+}
+<section>
+    <div class="container">
+        <div class="owl-carousel owl-theme blog-slider">
+
+            @foreach (Haberler item in haberler)
+            {
+                <div class="card blog__slide text-center">
+                    <div class="blog__slide__img">
+                        <img class="card-img rounded-0" src="@item.ResimUrl" alt="">
+                    </div>
+                    <div class="blog__slide__content">
+                        <a class="blog__slide__label" href="#">@item.Baslik </a>
+                        <h3><a href="#">@item.Ozet</a></h3>
+                        <p>@item.Tarih.ToShortDateString()</p>
+                    </div>
+                </div>
+            }
+
+
+
+
+
+
+        </div>
+    </div>
+</section>
