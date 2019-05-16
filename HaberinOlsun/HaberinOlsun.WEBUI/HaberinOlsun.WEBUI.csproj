@@ -165,10 +165,11 @@
     <Content Include="Content\img\bg-img\add.png" />
     <Content Include="Content\img\bg-img\add2.png" />
     <Content Include="Content\img\core-img\favicon.ico" />
-    <Content Include="Content\img\core-img\indir %281%29.png" />
+    <Content Include="Content\img\core-img\indir %281%29.jpg" />
     <Content Include="Content\img\core-img\logo.png" />
     <Content Include="Content\img\core-img\logo2.png" />
     <Content Include="Content\img\core-img\indir.jpg" />
+    <Content Include="Content\img\core-img\loogo.png" />
     <Content Include="Content\js\active.js" />
     <Content Include="Content\js\bootstrap\bootstrap.min.js" />
     <Content Include="Content\js\bootstrap\popper.min.js" />
@@ -222,6 +223,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\AnaSayfa.cshtml" />
+    <Content Include="Views\PartialView\BannerPartialView.cshtml" />
+    <Content Include="Views\PartialView\KoseYazilarPartialView.cshtml" />
+    <Content Include="Views\PartialView\SonDakikaPartialView.cshtml" />
+    <Content Include="Views\Home\HaberDetay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -4,121 +4,42 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using 
-
-<!-- ##### Hero Area Start ##### -->
-<div class="hero-area owl-carousel">
-	<!-- Single Blog Post -->
-	<div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/1.jpg);">
-		<div class="container h-100">
-			<div class="row h-100 align-items-center">
-				<div class="col-12">
-					<!-- Post Contetnt -->
-					<div class="post-content text-center">
-						<div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-							<a href="#">MAY 8, 2018</a>
-							<a href="archive.html">lifestyle</a>
-						</div>
-						<a href="video-post.html" class="post-title" data-animation="fadeInUp" data-delay="300ms"></a>
-						<a href="video-post.html" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Single Blog Post -->
-	<div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/2.jpg);">
-		<div class="container h-100">
-			<div class="row h-100 align-items-center">
-				<div class="col-12">
-					<!-- Post Contetnt -->
-					<div class="post-content text-center">
-						<div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-							<a href="#">MAY 8, 2018</a>
-							<a href="archive.html">lifestyle</a>
-						</div>
-						<a href="video-post.html" class="post-title" data-animation="fadeInUp" data-delay="300ms">Party Jokes Startling But Unnecessary</a>
-						<a href="video-post.html" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Single Blog Post -->
-	<div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/3.jpg);">
-		<div class="container h-100">
-			<div class="row h-100 align-items-center">
-				<div class="col-12">
-					<!-- Post Contetnt -->
-					<div class="post-content text-center">
-						<div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-							<a href="#">MAY 8, 2018</a>
-							<a href="archive.html">lifestyle</a>
-						</div>
-						<a href="video-post.html" class="post-title" data-animation="fadeInUp" data-delay="300ms">Party Jokes Startling But Unnecessary</a>
-						<a href="video-post.html" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+@Html.Partial("~/Views/PartialView/BannerPartialView.cshtml")
 
 
 
 
-<!-- ##### Hero Area End ##### -->
 <!-- ##### Mag Posts Area Start ##### -->
 <section class="mag-posts-area d-flex flex-wrap">
-
 	<!-- >>>>>>>>>>>>>>>>>>>>
 	 orta kısım sol bölüm
 	<<<<<<<<<<<<<<<<<<<<< -->
-	<div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-white box-shadow">
-		<div class="single-sidebar-widget p-30">
-			<div class="section-heading">
-				<h5>Most Popular</h5>
-			</div>
-		</div>
-	</div>
+
+	@Html.Partial("~/Views/PartialView/KoseYazilarPartialView.cshtml")
 
 	<!-- >>>>>>>>>>>>>>>>>>>>
 		orta kısım orta bölüm
 	<<<<<<<<<<<<<<<<<<<<< -->
+
 	<div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
+
 		<!-- Trending Now Posts Area -->
 		<div class="trending-now-posts mb-30">
-			<!-- Section Title -->
-			<div class="trending-post-slides owl-carousel">
-			</div>
+			<script type="text/javascript">
+				var exchanges = "dolar,euro,sterlin,eur-usd,altin";
+				var bg1 = "#6D2D6A";
+				var bg2 = "#562A69";
+				var titles = "#fffff";
+				var parity = "#4183A8";
+				var width = "550";
+			</script>
+			<script type="text/javascript" charset="iso-8859-9" src="https://finansmerkezi.net/assets/js/exchange-box.js"></script>
 		</div>
 
-
 	</div>
-
 	<!-- >>>>>>>>>>>>>>>>>>>>
 	 orta kısım sağ bölümm
 	<<<<<<<<<<<<<<<<<<<<< -->
-	<div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
-		<!-- Sidebar Widget -->
-		<div class="single-sidebar-widget p-30">
-			<!-- Social Followers Info -->
-		</div>
-		<!-- Sidebar Widget -->
-		<div class="single-sidebar-widget p-30">
-			<!-- Section Title -->
-		</div>
-
-
-
-		<!-- Sidebar Widget -->
-		<div class="single-sidebar-widget p-30">
-			<!-- Section Title -->
-
-
-		</div>
-	</div>
+	@Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
 </section>
 <!-- ##### Mag Posts Area End ##### -->

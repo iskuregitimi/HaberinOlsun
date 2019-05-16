@@ -1,0 +1,37 @@
+﻿@using HaberinOlsun.BLL
+@using HaberinOlsun.Entity
+
+@{ 
+	HaberlerBLL haberlerBLL = new HaberlerBLL();
+	List<Haberler> haberler = haberlerBLL.GetHaberler();
+
+}
+
+
+<div class="hero-area owl-carousel " style="background-color:#cbc8c8" >
+	@foreach(Haberler item in haberler){
+
+		<!-- Single Blog Post -->
+		<div class="hero-blog-post "style="width:100%; height:450px">
+			<div class="container h-100">
+				<div class="row h-100 ">
+					<div class="col-12">
+						<div class="post-content text-center">
+							<div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
+								<a href="#">@item.Tarih</a>		
+								<img src="@item.ResimURL" />
+								<div class="carousel-caption">
+									<h2 style="color:antiquewhite;background-color:black">@item.Baslik</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+
+</div>
+
+
+

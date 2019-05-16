@@ -1,0 +1,30 @@
+﻿
+
+@using HaberinOlsun.BLL
+@using HaberinOlsun.Entity
+
+@{
+	HaberlerBLL haberlerbll = new HaberlerBLL();
+	List<Haberler> haber = haberlerbll.GetHaberler();
+}
+
+
+<div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
+	<h1 style="background-color:#451057;color:white">SON DAKİKA HABERLERİ</h1>
+	<ul>
+		@foreach (Haberler item in haber)
+		{
+			<li style="border:solid;color:antiquewhite">
+				<a href="/Home/HaberDetay" title="@item.Baslik">
+					<span class="gradient"></span>
+					<img src=@item.ResimURL width="300" height="170">
+
+					<span>@item.Baslik</span>
+				</a>
+
+			</li>
+		}
+
+	</ul>
+
+</div>

@@ -1,0 +1,33 @@
+﻿@using HaberinOlsun.Entity
+@using HaberinOlsun.BLL
+
+@{KoseYazilariBLL koseyazilaribll = new KoseYazilariBLL();
+	List<KoseYazilari> koseyazilari = koseyazilaribll.GetKoseYazilari();
+}
+
+
+<div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-gray box-shadow">
+	<div class="single-sidebar-widget p-30">
+
+		<h1 style="background-color:#451057;color:white">KÖŞE YAZILARI</h1>
+		<ul>
+			@foreach (KoseYazilari item in koseyazilari)
+			{
+				<li style="border:groove; color:antiquewhite">
+
+					<img src=@item.Yazarlar.ResimURL>
+
+					<div class="author"><a href="/koseyazisi/1393002/_Simdi_hayalinde_istanbul_u_goreceksin__.html"><h2>@item.Yazarlar.AdiSoyadi</h2></a></div>
+					<div class="article">
+						<a href="/koseyazisi/1393002/_Simdi_hayalinde_istanbul_u_goreceksin__.html">
+							@item.Ozet
+						</a>
+					</div>
+				</li>
+
+			}
+
+		</ul>
+
+	</div>
+</div>

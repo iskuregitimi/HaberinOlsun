@@ -49,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="KategoriBLL.cs" />
+    <Compile Include="KoseYazilariBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HaberlerBLL.cs" />
+    <Compile Include="YazarlarBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

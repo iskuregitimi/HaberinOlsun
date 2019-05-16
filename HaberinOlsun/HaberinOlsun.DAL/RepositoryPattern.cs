@@ -21,5 +21,9 @@ namespace HaberinOlsun.DAL
 			return db.Set<T>().Where(where).ToList();
 		}
 
+		public T Find(Expression<Func<T, bool>> where)
+		{
+			return db.Set<T>().FirstOrDefault(where);
+		}
 	}
 }

@@ -533,7 +533,7 @@ input:focus {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 720px; }
+  height: 520px; }
   @media only screen and (min-width: 1200px) and (max-width: 1499px) {
     .hero-blog-post {
       height: 650px; } }
@@ -559,9 +559,9 @@ input:focus {
       display: inline-block;
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 2px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: #ed3974; }
+      color: #ffffff; }
       .hero-blog-post .post-content .post-meta a:last-child {
         margin-left: 20px; }
         .hero-blog-post .post-content .post-meta a:last-child::after {
@@ -1647,7 +1647,7 @@ blockquote {
 .footer-area {
   position: relative;
   z-index: 1;
-  background-color: #111111;
+  background-color: #cbc8c8;
   padding-top: 80px; }
   .footer-area .footer-widget {
     position: relative;
@@ -1659,7 +1659,7 @@ blockquote {
       margin-bottom: 30px;
       font-size: 16px;
       font-weight: 500;
-      color: #ffffff;
+      color:#000000;
       text-transform: uppercase;
       border-left: 3px solid #ed3974;
       padding-left: 10px; }
@@ -1676,7 +1676,7 @@ blockquote {
       background-color: #ed3974;
       text-align: center;
       font-size: 15px;
-      color: #ffffff;
+      color: #000000;
       line-height: 40px;
       margin-right: 3px;
       border-radius: 50%; }
@@ -1727,13 +1727,13 @@ blockquote {
           width: 50%; }
           .footer-area .footer-widget .footer-widget-nav ul li a {
             display: inline-block;
-            color: #ffffff;
+            color: #000000;
             margin-bottom: 15px; }
             .footer-area .footer-widget .footer-widget-nav ul li a i {
-              color: #777777;
+              color: #000000;
               margin-right: 5px; }
             .footer-area .footer-widget .footer-widget-nav ul li a:hover, .footer-area .footer-widget .footer-widget-nav ul li a:focus {
-              color: #ed3974; }
+              color: #000000; }
     .footer-area .footer-widget .footer-tags {
       position: relative;
       z-index: 1;
