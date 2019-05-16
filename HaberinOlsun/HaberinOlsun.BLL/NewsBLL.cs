@@ -10,9 +10,9 @@ namespace HaberinOlsun.BLL
 {
     public static class NewsBLL
     {
-        public static Haberler getNews()
+        public static Haberler getNews(int id)
         {
-            Haberler haber = DataContext.GetHaber();
+            Haberler haber = DataContext.GetHaber(id);
             return haber;
         }
 

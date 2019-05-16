@@ -19,6 +19,8 @@ namespace HaberinOlsun.Entities
 
         public string Detay { get; set; }
 
+        public DateTime? Tarih { get; set; }
+
         public virtual Yazarlar Yazarlar { get; set; }
     }
 }

@@ -1,0 +1,33 @@
+﻿@model HaberinOlsun.WebUI.Models.HomePageModel
+
+@{
+    ViewBag.Title = "getCornerPost";
+    Layout = "~/Views/LayoutPageTr.cshtml";
+}
+
+
+<section>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <h2 class="mt-30"><b>@Html.DisplayFor(model => model.KoseYazisi.Ozet)</b></h2>
+            <br />
+            <div class="col-md-3">
+                <img src="@Html.DisplayFor(model => model.KoseYazisi.Yazarlar.ResimURL)" alt="" height="150">
+            </div>
+            <ul class="list-li-mr-20 mtb-15">
+                <li><a href="#"><b>@Html.DisplayFor(model => model.KoseYazisi.Yazarlar.AdiSoyadi) </b></a> @Html.DisplayFor(model => model.KoseYazisi.Tarih)</li>
+            </ul>
+            <div class="quote-primary mtb-20">
+                <br />
+                <h5>@Html.DisplayFor(model => model.KoseYazisi.Detay)</h5>
+            </div><!-- quote-primary -->
+            <div class="brdr-ash-1 opacty-5"></div>
+        </div><!-- col-md-6 -->
+        <div class="col-md-4"></div>
+        <div class="d-none d-md-block d-lg-none col-md-3"></div>
+    </div>
+</section>
+
+
+

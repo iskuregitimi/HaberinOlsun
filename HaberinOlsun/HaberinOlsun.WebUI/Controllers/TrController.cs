@@ -1,5 +1,6 @@
 ﻿using HaberinOlsun.BLL;
 using HaberinOlsun.Entities;
+using HaberinOlsun.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,17 @@ namespace HaberinOlsun.WebUI.Controllers
         // GET: Tr
         public ActionResult Anasayfa()
         {
+            HomePageModel model = new HomePageModel();
+
             List<Haberler> haberler = NewsBLL.getCurrentNews();
-            return View(haberler);
+            List<Yazarlar> yazarlar = WriterBLL.getWriters();
+            List<Gundem> gundemler = CurrentBLL.getCurrents();
+
+            model.Haberler = haberler;
+            model.Yazarlar = yazarlar;
+            model.Gundemler = gundemler;
+
+            return View(model);
         }
     }
 }

@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryBLL.cs" />
+    <Compile Include="CornerPostBLL.cs" />
+    <Compile Include="CurrentBLL.cs" />
     <Compile Include="NewsBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WriterBLL.cs" />

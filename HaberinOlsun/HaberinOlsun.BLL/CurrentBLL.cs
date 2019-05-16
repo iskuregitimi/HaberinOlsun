@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace HaberinOlsun.BLL
 {
-    public static class WriterBLL
+    public static class CurrentBLL
     {
-        public static List<Yazarlar> getWriters()
+        public static List<Gundem> getCurrents()
         {
-            List<Yazarlar> list = DataContext.GetYazarlars();
+            List<Gundem> list = DataContext.GetGundems();
             return list;
         }
     }
