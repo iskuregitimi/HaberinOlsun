@@ -18,6 +18,7 @@ namespace HaberinOlsun.PublicUI1.Controllers
         }
         public ActionResult Gundem()
         {
+            LogManager.Write("Gundem Oluşturuldu");
        
             AnasayfaModel model = new AnasayfaModel();
 

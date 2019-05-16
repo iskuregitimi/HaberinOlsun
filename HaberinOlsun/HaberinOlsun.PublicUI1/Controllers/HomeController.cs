@@ -14,6 +14,7 @@ namespace HaberinOlsun.PublicUI1.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            LogManager.Write("Euzübillahimineşşeytanirracim");
             AnasayfaModel model = new AnasayfaModel();
            
             List<Haberler> haberler = HaberBLL.haber();

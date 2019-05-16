@@ -18,6 +18,7 @@ namespace HaberinOlsun.PublicUI1.Controllers
         }
         public ActionResult HaberDetay(int id)
         {
+            LogManager.Write("Haberler Yüklendi");
             
             AnasayfaModel model = new AnasayfaModel();
             
