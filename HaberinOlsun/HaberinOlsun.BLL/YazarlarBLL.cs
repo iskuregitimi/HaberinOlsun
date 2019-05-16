@@ -12,14 +12,16 @@ namespace HaberinOlsun.BLL
 	{
 
 		RepositoryPattern<Yazarlar> repo = new RepositoryPattern<Yazarlar>();
-		public List<Yazarlar> GetYazar(int id)
+		
+		public Yazarlar GetYazar(int id)
 		{
-			return repo.List(x => x.YazarId == id);
+			return repo.Find(x => x.YazarId == id);
 		}
 		public List<Yazarlar> GetYazar()
 		{
 			return repo.List();
 		}
+
 
 	}
 }

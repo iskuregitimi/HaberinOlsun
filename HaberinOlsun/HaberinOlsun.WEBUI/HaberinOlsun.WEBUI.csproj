@@ -211,6 +211,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +228,7 @@
     <Content Include="Views\PartialView\KoseYazilarPartialView.cshtml" />
     <Content Include="Views\PartialView\SonDakikaPartialView.cshtml" />
     <Content Include="Views\Home\HaberDetay.cshtml" />
+    <Content Include="Views\Home\KoseYazıları.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

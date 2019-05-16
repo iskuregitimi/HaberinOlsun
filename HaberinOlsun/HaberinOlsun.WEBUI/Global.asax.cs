@@ -11,6 +11,9 @@ namespace HaberinOlsun.WEBUI
     {
         protected void Application_Start()
         {
+
+			LogManager.Information("bismillah");
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

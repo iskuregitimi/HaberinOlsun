@@ -1,8 +1,8 @@
 ﻿@using HaberinOlsun.Entity
 @using HaberinOlsun.BLL
 
-@{KoseYazilariBLL koseyazilaribll = new KoseYazilariBLL();
-	List<KoseYazilari> koseyazilari = koseyazilaribll.GetKoseYazilari();
+@{YazarlarBLL yazarlarbll = new YazarlarBLL();
+	List<Yazarlar> yazarlars = yazarlarbll.GetYazar();
 }
 
 
@@ -11,18 +11,21 @@
 
 		<h1 style="background-color:#451057;color:white">KÖŞE YAZILARI</h1>
 		<ul>
-			@foreach (KoseYazilari item in koseyazilari)
+			@foreach (Yazarlar item in yazarlars)
 			{
 				<li style="border:groove; color:antiquewhite">
 
-					<img src=@item.Yazarlar.ResimURL>
+					<img src=@item.ResimURL>
+					@foreach (KoseYazilari item1 in item.KoseYazilaris.Take(1))
+					{
+						<div class="author" style="text-align:center"><a href="/Home/KoseYazıları/@item1.YaziId"><h2>@item.AdiSoyadi</h2></a></div>
+						<div class="article" style="text-align:center">
+							<a href="/Home/KoseYazıları/@item1.YazarId">
+								@item1.Ozet
+							</a>
+						</div>
+					}
 
-					<div class="author"><a href="/koseyazisi/1393002/_Simdi_hayalinde_istanbul_u_goreceksin__.html"><h2>@item.Yazarlar.AdiSoyadi</h2></a></div>
-					<div class="article">
-						<a href="/koseyazisi/1393002/_Simdi_hayalinde_istanbul_u_goreceksin__.html">
-							@item.Ozet
-						</a>
-					</div>
 				</li>
 
 			}

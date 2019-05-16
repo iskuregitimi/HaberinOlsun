@@ -10,9 +10,8 @@ namespace HaberinOlsun.BLL
 {
 	public class KoseYazilariBLL
 	{
-
 		RepositoryPattern<KoseYazilari> repo = new RepositoryPattern<KoseYazilari>();
-		public List<KoseYazilari> GetKoseYazilari(int id)
+		public List<KoseYazilari> GetKoseYazilariListesi(int id)
 		{
 			return repo.List(x => x.YaziId== id);
 		}
@@ -20,8 +19,15 @@ namespace HaberinOlsun.BLL
 		{
 			return repo.List();
 		}
+		public KoseYazilari GetKoseYazilariDetay(int id)
+		{
+			return repo.Find(x=> x.YaziId==id);
+		}
 
-
-
+		public List<KoseYazilari> GetKoseYazilarList(int id)
+		{
+			return repo.List(x=> x.YazarId==id);
+		}
+		
 	}
 }
