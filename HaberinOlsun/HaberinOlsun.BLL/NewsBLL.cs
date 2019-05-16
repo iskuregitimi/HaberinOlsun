@@ -27,5 +27,11 @@ namespace HaberinOlsun.BLL
             List<Haberler> list = DataContext.getCurrentHaber();
             return list;
         }
+
+        public static void updateReadingNum(int id)
+        {
+            Haberler haber = DataContext.GetHaber(id);
+            DataContext.increaseNumberOfReading(haber);
+        }
     }
 }

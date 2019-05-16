@@ -18,7 +18,7 @@ namespace HaberinOlsun.DAL
 
         public static List<Haberler> getCurrentHaber()
         {
-            return context.Haberlers.ToList();
+            return context.Haberlers.OrderByDescending(c => c.Tarih.Value).ToList();
         }
 
         public static List<Kategori> GetKategoris()
@@ -44,6 +44,12 @@ namespace HaberinOlsun.DAL
         public static List<KoseYazilari> getKoseYazilari(int yazarId)
         {
             return context.KoseYazilaris.Where(x => x.YazarId == yazarId).ToList();
+        }
+
+        public static void increaseNumberOfReading(Haberler haber)
+        {
+            haber.OkunmaSayisi = haber.OkunmaSayisi + 1;
+            context.SaveChanges();
         }
     }
 }

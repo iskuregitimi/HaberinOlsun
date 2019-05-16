@@ -26,7 +26,7 @@ namespace HaberinOlsun.WebUI.Controllers
             List<Yazarlar> yazarlar = WriterBLL.getWriters();
 
             model.Haber = NewsBLL.getNews(id);
-            model.Haber.OkunmaSayisi += 1;
+            NewsBLL.updateReadingNum(id);
             model.Yazarlar = yazarlar;
             //model.Yazarlar = Koseyazarlar;
             //model.Haberler = haberler;
