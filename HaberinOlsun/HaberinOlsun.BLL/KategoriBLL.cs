@@ -19,6 +19,10 @@ namespace HaberinOlsun.BLL
 		{
 			return repo.List();
 		}
+		public Kategori KategorileriGetir(int id)
+		{
+			return repo.Find(x=> x.KategoriId==id);
+		}
 
 	}
 }
