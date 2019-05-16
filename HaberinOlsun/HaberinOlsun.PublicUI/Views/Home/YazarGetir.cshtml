@@ -1,25 +1,24 @@
 ﻿@model IEnumerable<Entity.Yazarlar>
 
-
-
 <div class="col-sm-3">
     <div class="list-group-item" style="border-style:groove;background-color:antiquewhite">
         <header style="font-size:large"><b>Yazarlar</b></header>
-        @foreach (var item in Model)
-        {<ul class="list-group" style="border-style:none;background-color:azure">
+        <ul class="list-group" style="border-style:none;background-color:azure">
+            @foreach (var item in Model)
+            {
                 <li class="list-group-item" style="background-color:azure">
-                    <div class="media">
-                        <div class="media-left">
-                            <img src="@item.ResimURL" class="media-object" style="width:50px;height:50px">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">@item.AdiSoyadi</h4>
-                        </div>
-                    </div>
+
+                    <a href="~/Views/Magazin/Index.cshtml">
+                        <img src="@item.ResimURL" style="width:50px;height:50px">
+                    </a>
+
+                    <h4>@item.AdiSoyadi</h4>
                 </li>
-            </ul>
-        }
+            }
+        </ul>
     </div>
 </div>
+
+
 
 
