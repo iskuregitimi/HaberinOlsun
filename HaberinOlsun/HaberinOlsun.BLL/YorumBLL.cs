@@ -8,22 +8,21 @@ using System.Threading.Tasks;
 
 namespace HaberinOlsun.BLL
 {
-   public class HaberBLL
-        
+   public class YorumBLL
     {
         DataContext db = new DataContext();
-        public List<Haber> GetHabers()
+        public List<Yorum> GetYorums()
         {
-            return db.Haber.ToList();
+            return db.Yorum.ToList();
+        }
+        public Yorum GetYorum(int Id)
+        {
+            return db.Yorum.FirstOrDefault(x=>x.YorumId==Id);
         }
 
-        public Haber GetHaber(int Id)
+        public void Add(Yorum yrm)
         {
-            return db.Haber.Where(x => x.HaberId == Id).FirstOrDefault();
-        }
-
-        public void Update()
-        {
+            db.Yorum.Add(yrm);
             db.SaveChanges();
         }
     }

@@ -68,7 +68,7 @@
             <div class="src-form">
                 <form>
                     <input type="text" placeholder="Search here">
-                    <button type="submit"><i class="ion-search"></i></a></button>
+                    <button type="submit"><i class="ion-search"></i></button>
                 </form>
             </div><!-- src-form -->
 
@@ -93,19 +93,19 @@
                     <h4 class="p-title"><b>YAZARLAR</b></h4>
                     @foreach (Yazar item in yazar)
                     {
-                        foreach (KoseYazilari item1 in item.KoseYazilari)
-                        {
-                    <a class="oflow-hidden pos-relative mb-20 dplay-block" href="/Yazar/Detay/@item1.YazarId">
+                       
+                    <a class="oflow-hidden pos-relative mb-20 dplay-block" href="/Yazar/Detay/@item.YazarId">
 
                         <div class="wh-100x abs-tlr"><img src="@item.ResimURL" alt="@item.AdiSoyadi"></div>
-                            <div class="ml-120 min-h-100x">
-
-                                <h5><b>@item1.Ozet</b></h5><br />
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>@item.AdiSoyadi</b></span><br /> @item1.YaziTarih</h6>
-                            </div>
+                        <div class="ml-120 min-h-100x">
+                            @foreach (KoseYazilari item1 in item.KoseYazilari.Take(1))
+                            {
+                            <h5><b>@item1.Ozet</b></h5><br />
+                            <h6 class="color-lite-black pt-10">by <span class="color-black"><b>@item.AdiSoyadi</b></span>&nbsp;@item1.YaziTarih</h6>
+                             }
+                        </div>
                     </a><!-- oflow-hidden -->
                         }
-                    }
                 </div>
             </div>
      

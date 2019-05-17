@@ -1,0 +1,123 @@
+﻿@using HaberinOlsun.BLL
+@using HaberinOlsun.ENTITY
+@using HaberinOlsun.PublicUI.Models
+@model YorumModel
+
+@{
+    List<Yorum> yorumlar = new List<Yorum>();
+    HaberBLL haberBLL = new HaberBLL();
+    KoseYazisiBLL koseYazisiBLL = new KoseYazisiBLL();
+    Haber haber = null;
+    KoseYazilari koseYazilari = null;
+    if (Model.Tip == "Haber")
+    {
+        haber = haberBLL.GetHaber(Model.Id);
+
+        foreach (Yorum item in haber.Yorum)
+        {
+            yorumlar.Add(item);
+        }
+
+    }
+    else
+    {
+        koseYazilari = koseYazisiBLL.GetKoseYazilari(Model.Id);
+        foreach (Yorum item in koseYazilari.Yorum)
+        {
+            yorumlar.Add(item);
+        }
+    }
+}
+
+
+@if (Model.Tip == "Haber")
+{
+    <div class="comment_area clearfix">
+        <h5 class="title">@haber.Yorum.Count() Comments</h5>
+        <hr />
+        <ul>
+            @foreach (Yorum item in yorumlar)
+            {
+                <li class="single_comment_area">
+                    <div class="comment-content d-flex">
+                        <div class="comment-meta">
+                            <a href="#" class="post-author">@item.Gönderen</a><br />
+                            <a href="#" class="post-date">@item.Tarih</a><br />
+                            <p>@item.Aciklama</p>
+                        </div>
+                    </div>
+                </li>
+                
+            }
+        </ul>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <h3><b>Yorum Yapın</b></h3>
+                <hr />
+            
+                    @using (Html.BeginForm("HaberYorum", "Yorum", new { id = Model.Id }, FormMethod.Post))
+                    {
+                            <div class="col-sm-12">
+                                <div class="pos-relative">
+                                    @Html.TextBoxFor(x => x.Yorum.Gönderen, new { @class = "form-control", placeholder = "Adınız" })<br />
+                                    <i class="abs-tbr lh-35 font-13 color-green ion-android-done"></i>
+                                </div><!-- pos-relative -->
+                            </div><!-- col-sm-6 -->
+
+                            <div class="col-sm-12">
+                                <div class="pos-relative pr-80">
+                                    @Html.TextAreaFor(x => x.Yorum.Aciklama, new { @class = "form-control", placeholder = "Yorumunuz" })<br />
+                                    <input class=" plr-15 btn-fill-primary" type="submit" />
+                                </div><!-- pos-relative -->
+                            </div><!-- col-sm-6 -->
+                    }
+                </div><!-- col-md-6 -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section>
+}
+else
+{
+    <div class="comment_area clearfix">
+        <h5 class="title">@koseYazilari.Yorum.Count() Comments</h5>
+        <hr />
+        <ol>
+            @foreach (Yorum item in yorumlar)
+            {
+                <li class="single_comment_area">
+                    <div class="comment-content d-flex">
+                        <div class="comment-meta">
+                            <a href="#" class="post-author">@item.Gönderen</a>
+                            <a href="#" class="post-date">@item.Tarih</a>
+                            <p>@item.Aciklama</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+    <div class="post-a-comment-area section-padding-80-0">
+        <h4>Yorum Yap</h4>
+        @using (Html.BeginForm("YaziYorum", "Yorum", new { id = Model.Id }, FormMethod.Post))
+        {
+            <div class="contact-form-area">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        @Html.TextBoxFor(x => x.Yorum.Gönderen, new { @class = "form-control", placeholder = "Adınız" })
+                    </div>
+                    <div class="col-12">
+                        @Html.TextAreaFor(x => x.Yorum.Aciklama, new { @class = "form-control", placeholder = "Yorumunuz" })
+                    </div>
+                    <div class="col-12 text-center">
+                        <input class="btn newspaper-btn mt-30 w-100" type="submit" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+

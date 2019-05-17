@@ -17,6 +17,7 @@ namespace HaberinOlsun.DAL
         public virtual DbSet<Kategori> Kategori { get; set; }
         public virtual DbSet<KoseYazilari> KoseYazilari { get; set; }
         public virtual DbSet<Yazar> Yazar { get; set; }
+        public virtual DbSet<Yorum> Yorum { get; set; }
         public virtual DbSet<Gundem> Gundem { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -11,10 +11,13 @@ namespace HaberinOlsun.PublicUI.Controllers
     public class HaberController : Controller
     {
         HaberBLL haberBLL = new HaberBLL();
+        YorumBLL yorumBLL = new YorumBLL();
         // GET: Haber
         public ActionResult Index(int Id)
         {
             Haber haber = haberBLL.GetHaber(Id);
+            haber.OkunmaSayisi += 1;
+            haberBLL.Update();
             return View(haber);
         }
     }

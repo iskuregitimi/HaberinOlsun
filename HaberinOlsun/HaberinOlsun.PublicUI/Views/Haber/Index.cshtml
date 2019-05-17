@@ -1,4 +1,6 @@
-﻿@model HaberinOlsun.ENTITY.Haber
+﻿@using HaberinOlsun.PublicUI.Models
+
+@model HaberinOlsun.ENTITY.Haber
 
 @{
     ViewBag.Title = "Index";
@@ -27,3 +29,5 @@
 
 </section>
 
+
+@Html.Partial("~/Views/Yorum/YorumPartialView.cshtml", new YorumModel { Id = Model.HaberId, Tip = "Haber" })

@@ -28,12 +28,5 @@ namespace HaberinOlsun.PublicUI.Controllers
             }
             return View(koseyazilari);
         }
-
-        public ActionResult YaziDetay(int Id)
-        {
-           
-            KoseYazilari koseyazilari = koseYazisiBLL.GetKoseYazilari(Id);
-            return View(koseyazilari);
-        }
     }
 }

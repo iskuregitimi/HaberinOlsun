@@ -14,6 +14,7 @@ namespace HaberinOlsun.PublicUI.Controllers
         HaberBLL haberBLL = new HaberBLL();
         YazarBLL yazarBLL = new YazarBLL();
         KoseYazisiBLL koseYazisiBLL = new KoseYazisiBLL();
+
         public ActionResult Index()
         {
 

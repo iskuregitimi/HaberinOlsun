@@ -13,6 +13,7 @@ namespace HaberinOlsun.ENTITY
         public Haber()
         {
             Gundem = new HashSet<Gundem>();
+            Yorum = new HashSet<Yorum>();
             Kategori = new HashSet<Kategori>();
         }
 
@@ -43,6 +44,9 @@ namespace HaberinOlsun.ENTITY
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gundem> Gundem { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Yorum> Yorum { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kategori> Kategori { get; set; }

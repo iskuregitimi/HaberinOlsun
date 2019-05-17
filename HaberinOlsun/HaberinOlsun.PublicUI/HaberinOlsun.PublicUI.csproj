@@ -136,10 +136,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\YazarController.cs" />
+    <Compile Include="Controllers\YorumController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HaberYazarModel.cs" />
+    <Compile Include="Models\YorumModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,7 +212,7 @@
     <Content Include="Views\Yazar\Detay.cshtml" />
     <Content Include="Views\Home\PartialView.cshtml" />
     <Content Include="Views\Kategori\Kategori.cshtml" />
-    <Content Include="Views\Yazar\YaziDetay.cshtml" />
+    <Content Include="Views\Yorum\YorumPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
