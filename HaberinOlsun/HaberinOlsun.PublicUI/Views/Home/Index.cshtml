@@ -21,31 +21,30 @@
 @{ Html.RenderAction("HaberGetir");}
 <br />
 <br />
-<header style="font-size:medium"><b>Döviz</b></header>
-<div class="row" style="font-style:italic;font-size:medium">
-    <div class="col-sm-3">
-        <img src="https://i.sozcu.com.tr/wp-content/themes/Sozcu_V3/assets/images/icons/doviz-hesapla/usa.png" height="44">
-        <b>Dolar 6.0729 TL</b>
-    </div>
-    <div class="col-sm-3">
-        <img src="https://i.sozcu.com.tr/wp-content/themes/Sozcu_V3/assets/images/icons/doviz-hesapla/usa.png" height="44">
-        <b>Dolar 6.0729 TL</b>
-    </div>
-    <div class="col-sm-3">
-        <img src="https://i.sozcu.com.tr/wp-content/themes/Sozcu_V3/assets/images/icons/doviz-hesapla/usa.png" height="44">
-        <b>Dolar 6.0729 TL</b>
-    </div>
-    <div class="col-sm-3">
-        <img src="https://i.sozcu.com.tr/wp-content/themes/Sozcu_V3/assets/images/icons/doviz-hesapla/usa.png" height="44">
-        <b>Dolar 6.0729 TL</b>
-    </div>
-</div>
+
 <br />
 <br />
     <div class="row">
-        <div class="col-sm-5">@{ Html.RenderAction("GündemGetir");}</div>
+        <div class="col-sm-5">
+            @{ Html.RenderAction("GündemGetir");} <br />
+            <script type="text/javascript">
+                var para_birimleri = "USD-EUR-GBP";
+                var arka_plan = "FFFFFF";
+                var cerceve = "333333";
+                var kutucuk = "FFFFFF";
+                var piyasa_baslik = "FFFFFF";
+                var tur_baslik = "999999";
+                var fiyat_baslik = "CC3300";
+                var kutu_kose = "oval";
+                var genislik = "500";
+                var bankalar = "kapali";
+                var paylasim = "kapali";
+            </script>
+            <div style="width:500px;font-size:12px;text-align:right;"><a name="piyasadoviz" target="_blank" href="http://altin.piyasadoviz.com/fiyat">altın hakkında</a></div>
+            <script type="text/javascript" charset="iso-8859-9" src="http://eklenti.piyasadoviz.com/doviz.js"></script>
+        </div>
 
-        <div class="col-sm-4">@{ Html.RenderAction("EkonomiGetir");}</div>
+        <div class="col-sm-4">@{ Html.RenderAction("EkonomiGetir");} <br /> @{ Html.RenderAction("SporGetir");}</div>
 
         <div class="col-sm-3">@{ Html.RenderAction("YazarGetir");}</div>
     </div>

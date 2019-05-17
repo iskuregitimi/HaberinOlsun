@@ -1,9 +1,11 @@
-﻿@model HaberinOlsun.PublicUI.Models.Gundem
+﻿@model IEnumerable<Entity.Haberler>
 
 @{
+    /**/
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@{ Html.RenderAction("GündemPage");}
 

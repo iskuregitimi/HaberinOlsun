@@ -6,11 +6,15 @@
     {
         <div class="col-lg-4" style="border:thin;font-family:'Times New Roman'">
             <div class="news-box" style="border:hidden;background-color:aliceblue">
-                <span class="news-img"><img src="@item.ResimURL" class="lazyload" style="width:355px"></span>
+                <span class="news-img">
+                    <a href="Content/HaberIcerik/@item.HaberID">
+                        <img src="@item.ResimURL" class="lazyload" style="width:355px">
+                    </a>
+                </span>
                 <div class="news-meta clearfix">
                     <b style="color:dimgray;font-size:medium">@item.HaberTipi</b>
                 </div>
-                <div class="news-title medium-title" style="color:darkgrey;font-size:small"><p>@item.Ozet.Substring(0,100) ...</p></div>
+                <div class="news-title medium-title" style="color:darkgrey;font-size:small"><p>@item.Ozet.Substring(0, 100) ...</p></div>
             </div>
         </div>
     }

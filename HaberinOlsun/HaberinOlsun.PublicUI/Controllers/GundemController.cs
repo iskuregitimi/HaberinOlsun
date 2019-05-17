@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HaberinOlsun.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,11 @@ namespace HaberinOlsun.PublicUI.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult GündemPage()
+        {
+            var model = AnasayfaBLL.GetNews("Gündem");
+            return View(model);
         }
     }
 }

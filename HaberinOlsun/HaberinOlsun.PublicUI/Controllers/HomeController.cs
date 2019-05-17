@@ -55,5 +55,11 @@ namespace HaberinOlsun.PublicUI.Controllers
             var model = AnasayfaBLL.GetYazar();
             return View(model);
         }
+
+        public ActionResult SporGetir()
+        {
+            var model = AnasayfaBLL.GetNews("Spor");
+            return View(model);
+        }
     }
 }

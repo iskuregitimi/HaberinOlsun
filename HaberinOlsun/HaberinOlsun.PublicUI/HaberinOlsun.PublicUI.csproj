@@ -132,6 +132,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\DunyaController.cs" />
     <Compile Include="Controllers\EkonomiController.cs" />
     <Compile Include="Controllers\GundemController.cs" />
@@ -142,12 +143,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dunya.cs" />
-    <Compile Include="Models\Ekonomi.cs" />
-    <Compile Include="Models\Gundem.cs" />
-    <Compile Include="Models\Magazin.cs" />
-    <Compile Include="Models\Spor.cs" />
-    <Compile Include="Models\Teknoloji.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -183,8 +178,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Dunya\Index.cshtml" />
     <Content Include="Views\Ekonomi\Index.cshtml" />
@@ -197,9 +190,15 @@
     <Content Include="Views\Home\GündemGetir.cshtml" />
     <Content Include="Views\Home\AllNews.cshtml" />
     <Content Include="Views\Home\YazarGetir.cshtml" />
+    <Content Include="Views\Gundem\GündemPage.cshtml" />
+    <Content Include="Views\Ekonomi\EkonomiPage.cshtml" />
+    <Content Include="Views\Home\SporGetir.cshtml" />
+    <Content Include="Views\Spor\SporPage.cshtml" />
+    <Content Include="Views\Content\HaberIcerik.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

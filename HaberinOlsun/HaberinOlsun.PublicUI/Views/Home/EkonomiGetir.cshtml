@@ -17,16 +17,20 @@
                 if (sayac == 0)
                 {
                     <div class="item active">
-                        <img alt="@item.Baslik"
-                             src="@item.ResimURL">
+                        <a href="Content/HaberIcerik/@item.HaberID">
+                            <img alt="@item.Baslik"
+                                 src="@item.ResimURL">
+                        </a>
                     </div>
                     sayac++;
                 }
                 else
                 {
                     <div class="item">
-                        <img alt="@item.Baslik"
-                             src="@item.ResimURL">
+                        <a href="Content/HaberIcerik/@item.HaberID">
+                            <img alt="@item.Baslik"
+                                 src="@item.ResimURL">
+                        </a>
                     </div>
                 }
             }

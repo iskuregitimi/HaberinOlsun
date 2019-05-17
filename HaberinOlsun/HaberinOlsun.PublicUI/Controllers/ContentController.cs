@@ -7,12 +7,17 @@ using System.Web.Mvc;
 
 namespace HaberinOlsun.PublicUI.Controllers
 {
-    public class TeknolojiController : Controller
+    public class ContentController : Controller
     {
-        // GET: Teknoloji
+        // GET: Content
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult HaberIcerik(int id)
+        {
+            var model = AnasayfaBLL.GetNew(id);
+            return View(model);
         }
     }
 }

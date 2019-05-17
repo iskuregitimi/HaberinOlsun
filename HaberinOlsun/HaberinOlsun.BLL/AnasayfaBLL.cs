@@ -24,7 +24,7 @@ namespace HaberinOlsun.BLL
                 var haber = db.Haberler.OrderByDescending(x => x.Tarih);
                 return haber.ToList();
             }
-
+            
             else
             {
                 var haber = db.Haberler.Where(x => x.HaberTipi == tip).OrderByDescending(x => x.Tarih).Take(10);
@@ -36,6 +36,12 @@ namespace HaberinOlsun.BLL
         {
             var yazar = db.Yazarlar.OrderByDescending(x => x.AdiSoyadi);
             return yazar.ToList();
+        }
+
+        public static Haberler GetNew(int id)
+        {
+            var haber = db.Haberler.FirstOrDefault(x => x.HaberID == id);
+            return haber;
         }
     }
 }
