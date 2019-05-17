@@ -5,10 +5,24 @@
 
 <div class="newsletter-form">
     <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.</p>
-    <form action="/Yorum/Yorumyap/" method="post">
+
+    @if (Model.Tipi=="Haber")
+    {
+
+    <form action="/Yorum/Yorumyap/@Model.CommentID" method="post">
         <input type="text" name="Gönderen" placeholder="Lutfen Adınızı Giriniz">
         <input type="text" name="Yorum" placeholder="Yorum">
-
+       @Model.Tipi="Haber"---vievbagle yolla
         <button type="submit" class="btn mag-btn w-100">YORUM YAP</button>
     </form>
+    }
+    else
+    {
+        <form action="/Yorum/Yorumyap/@Model.CommentID" method="post">
+            <input type="text" name="Gönderen" placeholder="Lutfen Adınızı Giriniz">
+            <input type="text" name="Yorum" placeholder="Yorum">
+
+            <button type="submit" class="btn mag-btn w-100">YORUM YAP</button>
+        </form>
+    }
 </div>

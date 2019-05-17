@@ -7,6 +7,7 @@ namespace HaberinOlsun.PublicUI1.Models
 {
     public class YorumModel
     {
+        public string Tipi{ get; set; }
         public int CommentID { get; set; }
         public int YazıID { get; set; }
         public int HaberID { get; set; }

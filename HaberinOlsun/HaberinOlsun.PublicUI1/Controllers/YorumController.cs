@@ -17,7 +17,7 @@ namespace HaberinOlsun.PublicUI1.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Yorumyap(YorumModel model)
+        public ActionResult Yorumyap(YorumModel model,int id)
         {
             Comments comments = new Comments();
             comments.Gönderen = model.Gönderen;
