@@ -16,6 +16,13 @@ namespace HaberinOlsun.BLL
         {
             return repo.List();
         }
-
+        public List<Kategori> GetKategoriListesi(int id)
+        {
+            return repo.List(x => x.KategoriId == id);
+        }
+        public Kategori GetKategori(int id)
+        {
+            return repo.Find(x => x.KategoriId == id);
+        }
     }
 }

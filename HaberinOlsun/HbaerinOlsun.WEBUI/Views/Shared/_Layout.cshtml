@@ -11,8 +11,6 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
 
-
-
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,15 +26,14 @@
 
 </head>
 <body>
-    @{ 
+    @{
         KategoriBLL kategoribll = new KategoriBLL();
         List<Kategori> kategoriler = kategoribll.GetKategoriler();
     }
-    
+
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
-
         <!-- Navbar Area -->
         <div class="mag-main-menu" id="sticker">
             <div class="classy-nav-container breakpoint-off">
@@ -65,8 +62,12 @@
                                 <ul>
                                     @foreach (Kategori item in kategoriler)
                                     {
-                                        <li>@item.Adi</li>
+                                        <li><a href="#">@item.Adi </a></li>  
+                                        
                                     }
+                                </ul>
+                                <ul>
+                                    <li><a href="/Home/About">RSS Link</a></li>                                   
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -91,13 +92,9 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    @RenderBody()
+
+
 
 
     <!-- ##### Footer Area Start ##### -->

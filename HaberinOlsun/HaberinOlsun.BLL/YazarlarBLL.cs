@@ -16,5 +16,9 @@ namespace HaberinOlsun.BLL
         {
             return repo.List();
         }
+        public Yazarlar GetYazar(int id)
+        {
+            return repo.Find(x => x.YazarId == id);
+        }
     }
 }

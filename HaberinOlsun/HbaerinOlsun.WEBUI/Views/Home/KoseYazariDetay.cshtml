@@ -1,0 +1,38 @@
+﻿@using HaberinOlsun.BLL
+@using HaberinOlsun.Entity
+
+
+@{
+    ViewBag.Title = "KoseYazariDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    KoseyazilariBLL koseyazilariBLL = new KoseyazilariBLL();
+
+    List<KoseYazilari> koseyazilari = koseyazilariBLL.GetKoseYazilari();
+}
+
+@Html.Partial("~/Views/PartialView/BannerPartialView.cshtml")
+@*<section class="mag-posts-area d-flex flex-wrap">
+    @Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
+
+    <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
+        <div>
+            @foreach (KoseYazilari item in koseyazilari)
+            {
+                <div>
+                    <h1> @Html.DisplayFor(x => x.) </h1>
+                    <h4>@Html.DisplayFor(x => x.Ozet)</h4>
+                    <div>
+                        <span class="nav1">@Html.DisplayFor(x => x.Detay)</span>
+                    </div>
+                    <div>
+                        <img src=@Html.DisplayFor(x=> x.Yazarlar.ResimURL)>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @Html.Partial("~/Views/PartialView/KoseYazilariPartialView.cshtml")
+</section>*@

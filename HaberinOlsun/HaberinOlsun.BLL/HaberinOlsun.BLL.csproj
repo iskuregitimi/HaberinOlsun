@@ -48,9 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentsBLL.cs" />
     <Compile Include="HaberlerBLL.cs" />
     <Compile Include="KategoriBLL.cs" />
-    <Compile Include="Koseyazilalari.cs" />
+    <Compile Include="KoseyazilariBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YazarlarBLL.cs" />
   </ItemGroup>
@@ -64,7 +65,7 @@
       <Name>HaberinOlsun.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\HaberinOlsun.Entity\HaberinOlsun.Entity.csproj">
-      <Project>{4d372848-c6ca-4597-bce1-7de99470936e}</Project>
+      <Project>{ea72b4a2-b6d3-491c-9e8b-699991c5321a}</Project>
       <Name>HaberinOlsun.Entity</Name>
     </ProjectReference>
   </ItemGroup>

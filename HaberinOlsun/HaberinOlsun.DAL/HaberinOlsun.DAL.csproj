@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HaberinOlsun.Entity\HaberinOlsun.Entity.csproj">
-      <Project>{4d372848-c6ca-4597-bce1-7de99470936e}</Project>
+      <Project>{ea72b4a2-b6d3-491c-9e8b-699991c5321a}</Project>
       <Name>HaberinOlsun.Entity</Name>
     </ProjectReference>
   </ItemGroup>

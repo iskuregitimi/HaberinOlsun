@@ -17,10 +17,15 @@ namespace HaberinOlsun.BLL
             return repo.List();
         }
 
-        public Haberler GetHaber(string baslik)
+        public Haberler GetHaber(int id)
         {
-            return repo.Find(x => x.Baslik == baslik);
+            return repo.Find(x => x.HaberId == id);
         }
 
+        public List<Haberler> GetHaberlerListesi(int id)
+        {
+            return repo.List(x => x.HaberId == id);
+        }
+        
     }
 }

@@ -1,0 +1,34 @@
+﻿@using HaberinOlsun.WEBUI.Models
+@model HaberinOlsun.Entity.Haberler
+@{
+    ViewBag.Title = "HaberDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("~/Views/PartialView/BannerPartialView.cshtml")
+<section class="mag-posts-area d-flex flex-wrap">
+    @Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
+
+    <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
+        <div>
+            <div>
+                <h1> @Html.DisplayFor(x => x.Baslik) </h1>
+                <h4>@Html.DisplayFor(x => x.Ozet)</h4>
+                <div>
+                    <span class="nav1">@Html.DisplayFor(x => x.Tarih)</span>
+                </div>
+                <div>
+                    <img src=@Html.DisplayFor(x=> x.ResimURL)>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>@Html.DisplayFor(x => x.Detay)</p>
+                    <div><i>Kaynak: </i>@Html.DisplayFor(x => x.Kaynak)</div>
+                </div>
+            </div>
+        </div>
+        @Html.Partial("~/Views/PartialView/_commentsPartialView.cshtml", new YorumModel { Id = Model.HaberId, Tipi = "Haber" })
+    </div>
+
+    @Html.Partial("~/Views/PartialView/KoseYazilariPartialView.cshtml")
+</section>

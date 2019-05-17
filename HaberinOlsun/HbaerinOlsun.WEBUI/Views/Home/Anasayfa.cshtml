@@ -1,68 +1,14 @@
-﻿
+﻿@using HaberinOlsun.WEBUI.Models
+
+
 @{
     ViewBag.Title = "Anasayfa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!-- ##### Hero Area Start ##### -->
-<div class="hero-area owl-carousel">
-    <!-- Single Blog Post -->
-    <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/1.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <!-- Post Contetnt -->
-                    <div class="post-content text-center">
-                        <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                            <a href="#">MAY 8, 2018</a>
-                            <a href="archive.html">lifestyle</a>
-                        </div>
-                        <a href="video-post.html" class="post-title" data-animation="fadeInUp" data-delay="300ms">Party Jokes Startling But Unnecessary</a>
-                        <a href="video-post.html" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+@Html.Partial("~/Views/PartialView/BannerPartialView.cshtml")
 
-    <!-- Single Blog Post -->
-    <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/2.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <!-- Post Contetnt -->
-                    <div class="post-content text-center">
-                        <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                            <a href="#">MAY 8, 2018</a>
-                            <a href="archive.html">lifestyle</a>
-                        </div>
-                        <a href="video-post.html" class="post-title" data-animation="fadeInUp" data-delay="300ms">Party Jokes Startling But Unnecessary</a>
-                        <a href="video-post.html" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Single Blog Post -->
-    <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(img/bg-img/3.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <!-- Post Contetnt -->
-                    <div class="post-content text-center">
-                        <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                            <a href="#">MAY 8, 2018</a>
-                            <a href="archive.html">lifestyle</a>
-                        </div>
-                        <a href="video-post.html" class="post-title" data-animation="fadeInUp" data-delay="300ms">Party Jokes Startling But Unnecessary</a>
-                        <a href="video-post.html" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- ##### Hero Area End ##### -->
 <!-- ##### Mag Posts Area Start ##### -->
 <section class="mag-posts-area d-flex flex-wrap">
@@ -70,25 +16,7 @@
     <!-- >>>>>>>>>>>>>>>>>>>>
     Post Left Sidebar Area
     <<<<<<<<<<<<<<<<<<<<< -->
-    <div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-white box-shadow">
-        <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget p-30">
-            <!-- Section Title -->
-            <div class="section-heading">
-                <h5>Most Popular</h5>
-            </div>
-
-            <!-- Single Blog Post -->
-
-        </div>
-
-        <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget">
-            <a href="#" class="add-img"><img src="~/Content/img/bg-img/add.png" alt=""></a>
-        </div>
-
-    </div>
-
+    @Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
     <!-- >>>>>>>>>>>>>>>>>>>>
     Main Posts Area
     <<<<<<<<<<<<<<<<<<<<< -->
@@ -97,7 +25,7 @@
         <div class="trending-now-posts mb-30">
             <!-- Section Title -->
             <div class="section-heading">
-                <h5>TRENDING NOW</h5>
+                <h5>Haberler</h5>
             </div>
 
             <div class="trending-post-slides owl-carousel">
@@ -109,51 +37,6 @@
                         <a href="video-post.html" class="post-title">Big Savings On Gas While You Travel</a>
                     </div>
                 </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="~/Content/img/bg-img/20.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">TV Show</a>
-                        <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="~/Content/img/bg-img/21.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">Sports</a>
-                        <a href="video-post.html" class="post-title">The Health Benefits Of Sunglasses</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="~/Content/img/bg-img/19.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">Video</a>
-                        <a href="video-post.html" class="post-title">Big Savings On Gas While You Travel</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="~/Content/img/bg-img/20.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">TV Show</a>
-                        <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="~/Content/img/bg-img/21.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">Sports</a>
-                        <a href="video-post.html" class="post-title">The Health Benefits Of Sunglasses</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -161,25 +44,7 @@
     <!-- >>>>>>>>>>>>>>>>>>>>
     Post Right Sidebar Area
     <<<<<<<<<<<<<<<<<<<<< -->
-    <div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
-
-        <div class="single-sidebar-widget p-30">
-            <!-- Section Title -->
-            <div class="section-heading">
-                <h5>Categories</h5>
-            </div>
-
-            <!-- Catagory Widget -->
-            <ul class="catagory-widgets">
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Life Style</span> <span>35</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Travel</span> <span>30</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Foods</span> <span>13</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Game</span> <span>06</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Sports</span> <span>28</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Football</span> <span>08</span></a></li>
-                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> TV Show</span> <span>13</span></a></li>
-            </ul>
-        </div>
-    </div>
+    @Html.Partial("~/Views/PartialView/KoseYazilariPartialView.cshtml")
 </section>
 <!-- ##### Mag Posts Area End ##### -->
+

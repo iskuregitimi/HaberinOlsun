@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4D372848-C6CA-4597-BCE1-7DE99470936E}</ProjectGuid>
+    <ProjectGuid>{EA72B4A2-B6D3-491C-9E8B-699991C5321A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HaberinOlsun.Entity</RootNamespace>
@@ -50,13 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comment.cs" />
     <Compile Include="Gundem.cs" />
     <Compile Include="HaberKategori.cs" />
     <Compile Include="Haberler.cs" />
     <Compile Include="Kategori.cs" />
     <Compile Include="KoseYazilari.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagrams.cs" />
+    <Compile Include="sysdiagram.cs" />
     <Compile Include="Yazarlar.cs" />
   </ItemGroup>
   <ItemGroup>

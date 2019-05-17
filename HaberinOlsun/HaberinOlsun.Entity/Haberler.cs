@@ -12,8 +12,9 @@ namespace HaberinOlsun.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Haberler()
         {
-            Gundem = new HashSet<Gundem>();
-            HaberKategori = new HashSet<HaberKategori>();
+            Comments = new HashSet<Comment>();
+            Gundems = new HashSet<Gundem>();
+            HaberKategoris = new HashSet<HaberKategori>();
         }
 
         [Key]
@@ -38,9 +39,12 @@ namespace HaberinOlsun.Entity
         public string ResimURL { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Gundem> Gundem { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HaberKategori> HaberKategori { get; set; }
+        public virtual ICollection<Gundem> Gundems { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HaberKategori> HaberKategoris { get; set; }
     }
 }

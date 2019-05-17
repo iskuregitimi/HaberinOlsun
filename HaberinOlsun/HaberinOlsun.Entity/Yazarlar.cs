@@ -12,7 +12,7 @@ namespace HaberinOlsun.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Yazarlar()
         {
-            KoseYazilari = new HashSet<KoseYazilari>();
+            KoseYazilaris = new HashSet<KoseYazilari>();
         }
 
         [Key]
@@ -25,6 +25,6 @@ namespace HaberinOlsun.Entity
         public string ResimURL { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KoseYazilari> KoseYazilari { get; set; }
+        public virtual ICollection<KoseYazilari> KoseYazilaris { get; set; }
     }
 }

@@ -1,7 +1,6 @@
 namespace HaberinOlsun.DAL
 {
     using System;
-
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
@@ -14,33 +13,34 @@ namespace HaberinOlsun.DAL
         {
         }
 
-        public virtual DbSet<Gundem> Gundem { get; set; }
-        public virtual DbSet<HaberKategori> HaberKategori { get; set; }
-        public virtual DbSet<Haberler> Haberler { get; set; }
-        public virtual DbSet<Kategori> Kategori { get; set; }
-        public virtual DbSet<KoseYazilari> KoseYazilari { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Yazarlar> Yazarlar { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Gundem> Gundems { get; set; }
+        public virtual DbSet<HaberKategori> HaberKategoris { get; set; }
+        public virtual DbSet<Haberler> Haberlers { get; set; }
+        public virtual DbSet<Kategori> Kategoris { get; set; }
+        public virtual DbSet<KoseYazilari> KoseYazilaris { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Yazarlar> Yazarlars { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Haberler>()
-                .HasMany(e => e.Gundem)
+                .HasMany(e => e.Gundems)
                 .WithRequired(e => e.Haberler)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Haberler>()
-                .HasMany(e => e.HaberKategori)
+                .HasMany(e => e.HaberKategoris)
                 .WithRequired(e => e.Haberler)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Kategori>()
-                .HasMany(e => e.HaberKategori)
+                .HasMany(e => e.HaberKategoris)
                 .WithRequired(e => e.Kategori)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Yazarlar>()
-                .HasMany(e => e.KoseYazilari)
+                .HasMany(e => e.KoseYazilaris)
                 .WithRequired(e => e.Yazarlar)
                 .WillCascadeOnDelete(false);
         }

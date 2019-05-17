@@ -1,0 +1,123 @@
+﻿@using HaberinOlsun.WEBUI.Models
+@using HaberinOlsun.Entity
+@using HaberinOlsun.BLL
+@model YorumModel
+
+@{
+    HaberlerBLL haberlerBLL = new HaberlerBLL();
+    KoseyazilariBLL koseyazilariBLL = new KoseyazilariBLL();
+    List<Comment> yorumlar = new List<Comment>();
+    Haberler haber = null;
+    KoseYazilari koseyazisi = null;
+
+    if (Model.Tipi == "Haber")
+    {
+        haber = haberlerBLL.GetHaber(Model.Id);
+        foreach (Comment item in haber.Comments)
+        {
+            yorumlar.Add(item);
+        }
+    }
+    else
+    {
+        koseyazisi = koseyazilariBLL.GetKoseYazisi(Model.Id);
+        foreach (Comment item in koseyazisi.Comments)
+        {
+            yorumlar.Add(item);
+        }
+    }
+}
+
+@if (Model.Tipi == "Haber")
+{
+    <div class="comment_area clearfix bg-white mb-30 p-30 box-shadow">
+        <!-- Section Title -->
+        <div class="section-heading">
+            <h5>@haber.Comments.Count() COMMENTS</h5>
+        </div>
+
+        <ol>
+            @foreach (Comment item in yorumlar)
+            {
+                <li class="single_comment_area">
+                    <div class="comment-content d-flex">
+                        <div class="comment-meta">
+                            <a href="#" class="comment-date">@item.Tarih</a>
+                            <h6>@item.Gonderen</h6>
+                            <p>@item.Yorum</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+
+    <div class="post-a-comment-area bg-white mb-30 p-30 box-shadow clearfix">
+        <div class="section-heading">
+            <h5>Yorum Yap</h5>
+        </div>
+
+        <div class="contact-form-area">
+            @using (Html.BeginForm("HaberYorum", "Home", new { @id = Model.Id }, FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        @Html.TextBoxFor(x => x.Yorum.Gonderen, new { @class = "form-control", placeholder = "Adınız" })
+                    </div>
+                    <div class="col-12">
+                        @Html.TextAreaFor(x => x.Yorum.Yorum, new { @class = "form-control", placeholder = "Yorumunuz" })
+                    </div>
+                    <div class="col-12">
+                        <input class="btn mag-btn mt-30" type="submit" value="Yorum Yap" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="comment_area clearfix bg-white mb-30 p-30 box-shadow">
+        <!-- Section Title -->
+        <div class="section-heading">
+            <h5>@koseyazisi.Comments.Count() COMMENTS</h5>
+        </div>
+
+        <ol>
+            @foreach (Comment item in yorumlar)
+            {
+                <li class="single_comment_area">
+                    <div class="comment-content d-flex">
+                        <div class="comment-meta">
+                            <a href="#" class="comment-date">@item.Tarih</a>
+                            <h6>@item.Gonderen</h6>
+                            <p>@item.Yorum</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+
+    <div class="post-a-comment-area bg-white mb-30 p-30 box-shadow clearfix">
+        <div class="section-heading">
+            <h5>LEAVE A REPLY</h5>
+        </div>
+
+        <div class="contact-form-area">
+            <form action="#" method="post">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <input type="text" class="form-control" id="name" placeholder="Your Name*" required="">
+                    </div>
+                    <div class="col-12">
+                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message*" required=""></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn mag-btn mt-30" type="submit">Submit Comment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+}      

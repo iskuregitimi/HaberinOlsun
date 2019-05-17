@@ -206,6 +206,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogManager.cs" />
+    <Compile Include="Models\YorumModel.cs" />
+    <Compile Include="Models\RssHaberModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +221,15 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Anasayfa.cshtml" />
+    <Content Include="Views\PartialView\BannerPartialView.cshtml" />
+    <Content Include="Views\PartialView\KoseYazilariPartialView.cshtml" />
+    <Content Include="Views\PartialView\SonDakikaPartialView.cshtml" />
+    <Content Include="Views\Home\HaberDetay.cshtml" />
+    <Content Include="Views\Home\KoseYazariDetay.cshtml" />
+    <Content Include="Views\Home\YazarinKoseyazilariDetay.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\PartialView\_commentsPartialView.cshtml" />
+    <Content Include="Views\Home\KategorininHaberleriDetay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -227,7 +239,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HaberinOlsun.BLL\HaberinOlsun.BLL.csproj">
@@ -239,7 +250,7 @@
       <Name>HaberinOlsun.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\HaberinOlsun.Entity\HaberinOlsun.Entity.csproj">
-      <Project>{4d372848-c6ca-4597-bce1-7de99470936e}</Project>
+      <Project>{ea72b4a2-b6d3-491c-9e8b-699991c5321a}</Project>
       <Name>HaberinOlsun.Entity</Name>
     </ProjectReference>
   </ItemGroup>

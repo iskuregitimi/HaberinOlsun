@@ -1,0 +1,24 @@
+﻿@using HaberinOlsun.WEBUI.Models
+@model List<RssHaberModel>
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area for provide additional information</p>
+<hr/>
+
+@foreach (RssHaberModel haber in Model)
+{
+    @haber.Title
+    <br/>
+    <img src="@haber.ImageUrl" />
+    <br/>
+    @haber.Description
+    <a href="@haber.Link">Detay</a>
+    <hr/>
+}

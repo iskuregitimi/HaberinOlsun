@@ -1,0 +1,33 @@
+﻿@using HaberinOlsun.Entity
+
+@*buraya da model eklenecek model ekleyip aşağıda foreach içerisinde döndürülecek*@
+@{
+    ViewBag.Title = "KategorininHaberleriDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("~/Views/PartialView/BannerPartialView.cshtml")
+<section class="mag-posts-area d-flex flex-wrap">
+    @Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
+
+    <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
+        <div>
+            @*@foreach (Haberler item in Model)
+            {
+                <div>
+                    <div>
+                        <img src=@item.Yazarlar.ResimURL />
+                    </div>
+                    <h1>@item.Yazarlar.AdiSoyadi</h1>
+                    <h4>@item.Ozet</h4>
+                    <div>
+                        <span class="nav1">@item.Detay</span>
+                    </div>
+                </div>
+                <hr />
+            }*@
+        </div>
+    </div>
+    @Html.Partial("~/Views/PartialView/KoseYazilariPartialView.cshtml")
+</section>
+

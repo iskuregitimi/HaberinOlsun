@@ -30,6 +30,12 @@ namespace HaberinOlsun.DAL
         {
             db.SaveChanges();
         }
+
+        public void Insert(T obj)
+        {
+            db.Set<T>().Add(obj);
+            db.SaveChanges();
+        }
     }
 
 }

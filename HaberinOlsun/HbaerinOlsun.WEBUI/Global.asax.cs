@@ -13,6 +13,7 @@ namespace HbaerinOlsun.WEBUI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
         }
     }
 }
