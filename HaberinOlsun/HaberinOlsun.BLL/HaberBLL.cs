@@ -12,7 +12,7 @@ namespace HaberinOlsun.BLL
         static DataContext datacontext = new DataContext();
         public static List<Haberler> haber()
         {
-            return datacontext.Haberler.ToList();
+            return datacontext.Haberler.OrderByDescending(x=>x.Tarih.Value).ToList();
         }
         public static List<Haberler> getHaber(int categoriId )
         {
@@ -35,6 +35,10 @@ namespace HaberinOlsun.BLL
         public static HaberKategori katHaber(int id)
         {
             return datacontext.HaberKategori.Where(x => x.KategoriID == id).FirstOrDefault();
+        }
+        public static void haberGüncelle(Haberler haber)
+        {
+            datacontext.SaveChanges();
         }
     }
 }

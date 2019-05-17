@@ -1,0 +1,28 @@
+﻿
+@using HaberinOlsun.PublicUI1.Models
+@model  AnasayfaModel
+
+
+
+<div class="single-sidebar-widget p-30">
+    <!-- Section Title -->
+    <div class="section-heading">
+        <h5>TAZE HABERLER</h5>
+    </div>
+
+    <!-- Single YouTube Channel -->
+    @foreach (var item in Model.rssmodel.Take(5))
+    {
+        <div class="single-youtube-channel d-flex">
+
+            <div class="youtube-channel-thumbnail">
+                <img src="@item.ImageURL" alt="">
+            </div>
+            <div class="youtube-channel-content">
+                <a href="@item.Link" class="channel-title">@item.Title</a>
+                <a href="@item.Link" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> HABERE GİT</a>
+            </div>
+        </div>
+    }
+</div>
+

@@ -54,6 +54,7 @@
     <Compile Include="KöseYazilariBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YazarlarBLL.cs" />
+    <Compile Include="YorumBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HaberinOlsun.DAL\HaberinOlsun.DAL.csproj">

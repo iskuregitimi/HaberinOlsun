@@ -140,12 +140,16 @@
     <Compile Include="Controllers\HaberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\RSSController.cs" />
     <Compile Include="Controllers\YazarlarController.cs" />
+    <Compile Include="Controllers\YorumController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="LogManager.cs" />
     <Compile Include="Models\AnasayfaModel.cs" />
+    <Compile Include="Models\rssModel.cs" />
+    <Compile Include="Models\YorumModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +165,8 @@
     <Content Include="Views\Yazarlar\getKoseYazıDetay.cshtml" />
     <Content Include="Views\PartialView\Categori.cshtml" />
     <Content Include="Views\Kategori\kategoriHaberleri.cshtml" />
+    <Content Include="Views\PartialView\_rss.cshtml" />
+    <Content Include="Views\PartialView\_yorum.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -176,6 +182,8 @@
     <Folder Include="Content\img\" />
     <Folder Include="Content\js\" />
     <Folder Include="Content\scss\" />
+    <Folder Include="Views\RSS\" />
+    <Folder Include="Views\Yorum\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HaberinOlsun.BLL\HaberinOlsun.BLL.csproj">

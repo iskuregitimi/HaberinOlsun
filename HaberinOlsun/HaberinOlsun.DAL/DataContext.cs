@@ -1,4 +1,4 @@
-namespace HaberinOlsun.DAL
+﻿namespace HaberinOlsun.DAL
 {
     using System;
     using System.Data.Entity;
@@ -12,6 +12,7 @@ namespace HaberinOlsun.DAL
         {
         }
 
+        public virtual DbSet<Comments> Comments { get; set; }
         public virtual DbSet<Gundem> Gundem { get; set; }
         public virtual DbSet<HaberKategori> HaberKategori { get; set; }
         public virtual DbSet<Haberler> Haberler { get; set; }
@@ -21,6 +22,14 @@ namespace HaberinOlsun.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Comments>()
+                .Property(e => e.Gönderen)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Comments>()
+                .Property(e => e.Yorum)
+                .IsFixedLength();
+
             modelBuilder.Entity<Haberler>()
                 .Property(e => e.Ozet)
                 .IsFixedLength();
