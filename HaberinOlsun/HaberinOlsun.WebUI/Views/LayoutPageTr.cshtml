@@ -61,13 +61,10 @@
             <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
 
             <ul class="main-menu" id="main-menu">
-                <li><a href="02_archive-page.html">@list[0].Adi</a></li>
-                <li><a href="03_single-post.html">@list[1].Adi</a></li>
-                <li><a href="04_FAQS.html">@list[2].Adi</a></li>
-                <li><a href="05_FAQS-single.html">@list[3].Adi</a></li>
-                <li><a href="06_contact-us.html">@list[4].Adi</a></li>
-                <li><a href="06_contact-us.html">@list[5].Adi</a></li>
-                <li><a href="06_contact-us.html">@list[6].Adi</a></li>
+                @foreach (var item in list)
+                {
+                    <li><a href="/Category/getbyCategory/@item.KategoriID">@item.Adi</a></li>
+                }
             </ul>
             <div class="clearfix"></div>
         </div><!-- container -->

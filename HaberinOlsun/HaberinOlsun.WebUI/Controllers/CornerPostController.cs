@@ -29,8 +29,17 @@ namespace HaberinOlsun.WebUI.Controllers
             //model.Kategoriler = kategoriler;
 
             int yaziId = CornerPostBLL.getCornerPosts(id).FirstOrDefault().YaziId;
-            model.KoseYazisi = CornerPostBLL.getCornerPost(yaziId); 
+            model.KoseYazisi = CornerPostBLL.getCornerPost(yaziId);
+            model.DigerKoseYazilari = CornerPostBLL.getOtherCornerPosts(id,yaziId);
             return View(model);
+        }
+
+        public ActionResult getOtherCornerPost(int yazarId, int yaziId)
+        {
+            HomePageModel model = new HomePageModel();
+            model.KoseYazisi = CornerPostBLL.getOtherCornerPost(yazarId, yaziId);
+            model.DigerKoseYazilari = CornerPostBLL.getOtherCornerPosts(yazarId, yaziId);
+            return RedirectToAction("getCornerPost",model);
         }
     }
 }

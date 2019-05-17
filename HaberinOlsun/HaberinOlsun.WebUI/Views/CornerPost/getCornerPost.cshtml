@@ -27,7 +27,27 @@
         <div class="col-md-4"></div>
         <div class="d-none d-md-block d-lg-none col-md-3"></div>
     </div>
-</section>
+
+
+    <section>
+        <div class="container">
+            <h4 class="mb-50" style="color:seagreen"><b>YAZARIN DİĞER YAZILARI</b></h4>
+        </div><!-- container -->
+        <div class="container">
+            @foreach (var item in Model.DigerKoseYazilari)
+            {
+                <div class="accordian">
+                    <h6>
+                        <a data-accordian="#accordian-4" class="a-title" href="/CornerPost/getOtherCornerPost/@item.YazarId,@item.YaziId">
+                            @*<a class="oflow-hidden pos-relative mb-20 dplay-block" href="/CornerPost/getOtherCornerPost/@item.YazarId,@item.YaziId">*@
+                            <span><h4><b>@item.Ozet</b></h4></span><br />
+                            <span>Yayın Tarihi:@item.Tarih</span>
+                        </a>
+                    </h6>
+                </div><!-- accordian -->
+            }
+        </div><!-- container -->
+    </section>
 
 
 

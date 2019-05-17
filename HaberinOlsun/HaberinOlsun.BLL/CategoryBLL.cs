@@ -15,5 +15,11 @@ namespace HaberinOlsun.BLL
             List<Kategori> list = DataContext.GetKategoris();
             return list;
         }
+
+        public static Kategori getCategory(int id)
+        {
+            Kategori kategori = DataContext.GetKategori(id);
+            return kategori;
+        }
     }
 }

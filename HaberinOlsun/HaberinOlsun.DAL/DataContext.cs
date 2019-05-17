@@ -26,6 +26,11 @@ namespace HaberinOlsun.DAL
             return context.Kategoris.ToList();
         }
 
+        public static Kategori GetKategori(int categoryId)
+        {
+            return context.Kategoris.Where(x => x.KategoriID == categoryId).FirstOrDefault();
+        }
+
         public static List<Yazarlar> GetYazarlars()
         {
             return context.Yazarlars.ToList();
@@ -51,5 +56,26 @@ namespace HaberinOlsun.DAL
             haber.OkunmaSayisi = haber.OkunmaSayisi + 1;
             context.SaveChanges();
         }
+
+        public static List<KoseYazilari> getOtherKoseYazilari(int yazarId, int yaziId)
+        {
+            return context.KoseYazilaris.Where(x => x.YazarId == yazarId && x.YaziId != yaziId).ToList();
+        }
+
+        public static KoseYazilari getOtherKoseYazisi(int yazarId, int yaziId)
+        {
+            return context.KoseYazilaris.Where(x => x.YazarId == yazarId && x.YaziId == yaziId).FirstOrDefault();
+        }
+
+        public static List<Haberler> getNewsbyCategory(int categoryId)
+        {
+            var result = (from h in context.Haberlers
+                          join hk in context.HaberKategoris
+                          on h.HaberId equals hk.HaberID
+                          where hk.KategoriID == categoryId
+                          select h).ToList();
+            return result;
+        }
     }
 }
+

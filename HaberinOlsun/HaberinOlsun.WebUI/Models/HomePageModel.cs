@@ -13,7 +13,10 @@ namespace HaberinOlsun.WebUI.Models
         public List<Yazarlar> Yazarlar { get; set; }
         public List<Gundem> Gundemler { get; set; }
         public List<KoseYazilari> KoseYazilari { get; set; }
+        public List<KoseYazilari> DigerKoseYazilari { get; set; }
         public Haberler Haber { get; set; }
         public KoseYazilari KoseYazisi { get; set; }
+        public KoseYazilari DigerKoseYazisi { get; set; }
+        public Kategori Kategori { get; set; }
     }
 }

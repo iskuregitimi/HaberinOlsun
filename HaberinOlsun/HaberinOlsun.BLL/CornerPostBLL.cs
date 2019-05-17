@@ -20,5 +20,17 @@ namespace HaberinOlsun.BLL
             List<KoseYazilari> list = DataContext.getKoseYazilari(id);
             return list;
         }
+
+        public static List<KoseYazilari> getOtherCornerPosts(int writerId, int writingId)
+        {
+            List<KoseYazilari> list = DataContext.getOtherKoseYazilari(writerId,writingId);
+            return list;
+        }
+
+        public static KoseYazilari getOtherCornerPost(int writerId, int writingId)
+        {
+            KoseYazilari post = DataContext.getOtherKoseYazisi(writerId, writingId);
+            return post;
+        }
     }
 }

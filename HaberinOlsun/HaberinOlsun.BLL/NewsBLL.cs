@@ -33,5 +33,11 @@ namespace HaberinOlsun.BLL
             Haberler haber = DataContext.GetHaber(id);
             DataContext.increaseNumberOfReading(haber);
         }
+
+        public static List<Haberler> getNewsbyCategory(int id)
+        {
+            List<Haberler> list = DataContext.getNewsbyCategory(id);
+            return list;
+        }
     }
 }
