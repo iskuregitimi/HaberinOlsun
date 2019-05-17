@@ -143,6 +143,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dunya.cs" />
+    <Compile Include="Models\Ekonomi.cs" />
+    <Compile Include="Models\Gundem.cs" />
+    <Compile Include="Models\Magazin.cs" />
+    <Compile Include="Models\Spor.cs" />
+    <Compile Include="Models\Teknoloji.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,10 +201,10 @@
     <Content Include="Views\Home\SporGetir.cshtml" />
     <Content Include="Views\Spor\SporPage.cshtml" />
     <Content Include="Views\Content\HaberIcerik.cshtml" />
+    <Content Include="Views\Content\ContentR.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

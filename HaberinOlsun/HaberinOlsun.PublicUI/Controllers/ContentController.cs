@@ -19,5 +19,10 @@ namespace HaberinOlsun.PublicUI.Controllers
             var model = AnasayfaBLL.GetNew(id);
             return View(model);
         }
+        public ActionResult ContentR()
+        {
+            var model = AnasayfaBLL.GetNews("Gündem");
+            return View(model);
+        }
     }
 }

@@ -3,19 +3,18 @@
     ViewBag.Title = "HaberIcerik";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row">
+<div class="row" style="text-align:left">
     <div class="col-sm-8">
         <div class="page-header">
             <h1>@Model.Baslik</h1>
             <div class="media-body">
-                <img src="@Model.ResimURL" />
+                <img itemprop="image" src="@Model.ResimURL" style="width:100%"/>
             </div>
             <h3>@Model.Ozet</h3>
         </div>
-
-        <div class="text-center">@Model.Detay</div>
+        <div class="text-left">@Model.Detay</div>
     </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4">@{ Html.RenderAction("ContentR");}</div>
 </div>
 
 
