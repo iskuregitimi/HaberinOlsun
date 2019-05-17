@@ -62,10 +62,10 @@
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="/Home/Index">Anasayfa</a></li>
-                                    <li><a href="archive.html">Gündem</a></li>
+                                    <li><a href="#">Gündem</a></li>
                                     @foreach (var item in categories)
                                     {
-                                        <li><a href="archive.html">@item.Adi</a></li>
+                                        <li><a href="/Category/GetCategoryPosts/@item.KategoriID">@item.Adi</a></li>
                                     }
                                 </ul>
                             </div>
