@@ -12,7 +12,7 @@ namespace HaberinOlsun.BLL
     {
         DataContext dc = new DataContext();
         public List<Haberler> GetHaberler()
-        {
+        {   
            return dc.Haberlers.ToList();
         }
     }

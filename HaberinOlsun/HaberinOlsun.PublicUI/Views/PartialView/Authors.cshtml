@@ -1,0 +1,37 @@
+﻿@using HaberinOlsun.BLL
+@using HaberinOlsun.Entities
+@{ 
+    YazarManager yazar = new YazarManager();
+    List<Yazarlar> yazarlar = yazar.GetYazarlar();
+}
+<div class="col-lg-4 sidebar-widgets">
+    <div class="widget-wrap">   
+        <div class="single-sidebar-widget popular-post-widget">
+            <h4 class="single-sidebar-widget__title">Yazarlar</h4>
+            <div class="popular-post-list">
+                @foreach (Yazarlar item in yazarlar)
+                {
+                    <div class="single-post-list">
+                        <div class="thumb">
+                            <img class="card-img rounded-0" src="@item.ResimUrl" alt="">
+                            <ul class="thumb-info">
+                                <li><a href="#">@item.Adi</a></li>
+                                <li><a href="#">@item.Soyadi</a></li>
+                            </ul>
+                        </div>
+                        <div class="details mt-20">
+                            <a href="blog-single.html">
+                                <h6>Accused of assaulting flight attendant miktake alaways</h6>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+
+   
+    </div>
+</div>

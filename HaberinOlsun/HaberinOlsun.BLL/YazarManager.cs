@@ -8,16 +8,12 @@ using System.Threading.Tasks;
 
 namespace HaberinOlsun.BLL
 {
-   public class KategoriManager
+   public class YazarManager
     {
         DataContext dc = new DataContext();
-        public List<Kategori> GetKategories()
+        public List<Yazarlar> GetYazarlar()
         {
-           return dc.Kategoris.ToList();
+            return dc.Yazarlars.ToList();
         }
-
-
-
-
     }
 }

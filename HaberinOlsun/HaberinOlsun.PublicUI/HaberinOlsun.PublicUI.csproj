@@ -132,10 +132,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HaberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -802,10 +804,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\PartialView\Banner.cshtml" />
     <Content Include="Views\PartialView\Slider.cshtml" />
+    <Content Include="Views\Haber\HaberDetay.cshtml" />
+    <Content Include="Views\PartialView\Newspost.cshtml" />
+    <Content Include="Views\PartialView\Authors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Kategori\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

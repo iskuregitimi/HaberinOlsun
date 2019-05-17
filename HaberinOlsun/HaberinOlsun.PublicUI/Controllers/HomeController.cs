@@ -13,13 +13,16 @@ namespace HaberinOlsun.PublicUI.Controllers
         // GET: Home
         public ActionResult Index() 
         {
+            LogManager.Information("Index sayfası açıldı");
             return View();
+           
         }
 
         public ActionResult Kat(int id)
         {
+            LogManager.Information("Kategori Id alındı");
             return View();
         }
-       
+     
     }
 }

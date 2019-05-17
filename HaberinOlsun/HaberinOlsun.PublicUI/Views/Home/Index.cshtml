@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 <main class="site-main">
-@Html.Partial("~/Views/PartialView/Banner.cshtml")
-@Html.Partial("/Views/PartialView/Slider.cshtml")
+    @Html.Partial("~/Views/PartialView/Banner.cshtml")
+    @Html.Partial("/Views/PartialView/Slider.cshtml")
+    <section class="blog-post-area section-margin mt-4">
+        <div class="container">
+            <div class="row">
+                @Html.Partial("/Views/PartialView/Newspost.cshtml")
+                @Html.Partial("/Views/PartialView/Authors.cshtml")
+            </div>
+            </div>
+    </section>
 </main>
