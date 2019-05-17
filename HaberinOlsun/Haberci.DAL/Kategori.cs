@@ -16,7 +16,6 @@ namespace Haberci.DAL
         }
 
         public int KategoriId { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Adi { get; set; }

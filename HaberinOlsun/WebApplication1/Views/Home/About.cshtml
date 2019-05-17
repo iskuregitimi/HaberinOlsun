@@ -1,0 +1,19 @@
+﻿@using WebApplication1.Models
+@model List<RssHaberModel>
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/shared/_LayoutPageHome.cshtml";
+}
+@foreach(RssHaberModel haber in Model)
+{
+    @haber.Description
+    <br />
+    <img src="@haber.ImageUrl" height="200"/>
+    <br />
+    <p> haber link :@haber.Link </p>
+    <br />
+    @haber.Title
+}
+
+<h2>About</h2>
+

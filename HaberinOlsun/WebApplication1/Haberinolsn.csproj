@@ -181,7 +181,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogManager.cs" />
     <Compile Include="Models\AnasayfaModeller.cs" />
+    <Compile Include="Models\RssHaberModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +261,7 @@
     <Content Include="Views\Home\HaberDetails.cshtml" />
     <Content Include="Views\koseyazıilaripartialView.cshtml" />
     <Content Include="Views\KategoriHaber\HaberKategori.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

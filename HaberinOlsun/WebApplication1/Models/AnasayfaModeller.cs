@@ -13,6 +13,8 @@ namespace WebApplication1.Models
         public List<Gundem> Gundem { get; set; }
         public List<KoseYazilari> KoseYazilari { get; set; }
         public List<Haberler> Haberler { get; set; }
+        public List<RssHaberModel> RssHaber { get; set; }
+
 
     }
 }

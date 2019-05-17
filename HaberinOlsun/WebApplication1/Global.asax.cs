@@ -11,6 +11,7 @@ namespace WebApplication1
     {
         protected void Application_Start()
         {
+            LogManager.Write("Rahman ve rahim olan Allahın adi ile");
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
