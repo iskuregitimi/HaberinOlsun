@@ -18,7 +18,7 @@ namespace HaberinOlsun.BLL
 		{
 			return repo.List(x => x.KategoriId == id);
 		}
-		public List<Kategori> GetKategori()
+		public List<Kategori> GetKategoriler()
 		{
 			return repo.List();
 		}
@@ -27,7 +27,20 @@ namespace HaberinOlsun.BLL
 			return repo.Find(x => x.KategoriId == id);
 		}
 
-	
+
+
+
+		//public  List<HaberKategoriDTO> HaberKategorileriGetir(int id)
+		//{
+		//	var sorgu = from h in db.Haberlers
+		//				join hk in db.HaberKategoris on h.HaberId equals hk.HaberId
+		//				join ka in
+		//				db.Kategoris on hk.KategoriId equals ka.KategoriId
+		//				where ka.KategoriId == id
+		//				select new HaberKategoriDTO {Baslik= h.Baslik };
+		//	return sorgu.ToList();
+
+		//}
 
 
 	}

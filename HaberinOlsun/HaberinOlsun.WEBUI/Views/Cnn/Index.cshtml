@@ -1,0 +1,29 @@
+﻿
+@using HaberinOlsun.WEBUI.Models
+@model List<RssModel>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+CNN XML HABERLERİ
+
+
+<h2>Index</h2>
+
+@foreach (RssModel haber in Model)
+{
+	@haber.Title
+	<br />
+	<img src="@haber.ImageURL" style="width:250px;height:250px" />
+	<br />
+	@haber.Description
+	<a href="@haber.Link">Detay</a>
+	<hr />
+
+}
+

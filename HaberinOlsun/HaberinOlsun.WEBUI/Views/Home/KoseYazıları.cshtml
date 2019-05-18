@@ -16,15 +16,28 @@
 
 		@foreach (KoseYazilari item in Model)
 		{
-			
+
+			<div>
 				<div>
+					<h1>@item.Ozet</h1>
+					<h4>@item.Yazarlar.AdiSoyadi</h4>
+					
 					<div>
-						<span>@item.Ozet</span>
+						<img src=@item.Yazarlar.ResimURL>
 					</div>
 				</div>
-				
-		
+				<div>
+					<div>
+						<p>@item.Detay</p>
+						
+					</div>
+					<hr />
+				</div>
+			</div>
+			
 		}
+		@Html.Partial("~/Views/PartialView/CommentPartialView.cshtml")
+
 	</div>
 	@Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
 </section>

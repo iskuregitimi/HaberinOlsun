@@ -1,0 +1,50 @@
+﻿@using  HaberinOlsun.BLL
+@using  HaberinOlsun.Entity
+@using HaberinOlsun.WEBUI.Models
+@model CommentModel
+@{ 
+	HaberlerBLL haberlerbll = new HaberlerBLL();
+	List<Yorumlar> yorumlar = new List<Yorumlar>();
+	if (Model.Tipi=="Haber" )
+	{
+		Haberler haber = haberlerbll.HaberDetayGetir(Model.Id);
+
+		foreach(Yorumlar item in haber.Yorumlars)
+		{
+
+
+		}
+	}
+}
+
+
+<br />
+<br />
+<div class="comments-box">
+	<div class="widget widget-comments type1">
+		<div class="head"><h3>YORUMLAR</h3><div><span>Yorum kurallarını okumak için <span class="more-modal">tıklayınız!</span></span><i class="ion-minus-round"></i></div></div><form id="main-form2465218">
+			<input type="hidden" name="ci_csrf_token" value=""><textarea class="comment-textbox" name="ozet" id="ozet" placeholder="Sende düşüncelerini paylaş!"></textarea><button class="comment-send" onclick="HTGlobal.Comment.send(2465218, 'main-form')" type="button">
+				GÖNDER
+			</button>
+		</form>
+	</div>
+</div>
+
+<hr />
+<div style="display: inline-block;">
+	<div><h4>aysu çilingir</h4></div><div>17 Mayıs 2019</div>
+	<div>
+		<form>
+			<div class="flex-text-wrap">
+				<div class="comment-wrt 2">
+					<div>
+						<pre><span>Yorum Buraya GELECEK.......................................</span><br></pre>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+

@@ -20,6 +20,7 @@ namespace HaberinOlsun.DAL
 		public virtual DbSet<KoseYazilari> KoseYazilaris { get; set; }
 		public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 		public virtual DbSet<Yazarlar> Yazarlars { get; set; }
+		public virtual DbSet<Yorumlar> Yorumlars { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{

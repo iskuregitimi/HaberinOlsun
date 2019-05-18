@@ -2,7 +2,7 @@
 @using HaberinOlsun.BLL
 
 @{YazarlarBLL yazarlarbll = new YazarlarBLL();
-	List<Yazarlar> yazarlars = yazarlarbll.GetYazar();
+	List<Yazarlar> yazarlars = yazarlarbll.GetYazarlar();
 }
 
 
@@ -18,7 +18,7 @@
 					<img src=@item.ResimURL>
 					@foreach (KoseYazilari item1 in item.KoseYazilaris.Take(1))
 					{
-						<div class="author" style="text-align:center"><a href="/Home/KoseYazıları/@item1.YaziId"><h2>@item.AdiSoyadi</h2></a></div>
+						<div class="author" style="text-align:center"><a href="/Home/KoseYazıları/@item1.YazarId"><h2>@item.AdiSoyadi</h2></a></div>
 						<div class="article" style="text-align:center">
 							<a href="/Home/KoseYazıları/@item1.YazarId">
 								@item1.Ozet

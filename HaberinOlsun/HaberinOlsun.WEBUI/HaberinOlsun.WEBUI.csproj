@@ -207,12 +207,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CnnController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="LogManager.cs" />
+    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\RssModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +234,8 @@
     <Content Include="Views\Home\HaberDetay.cshtml" />
     <Content Include="Views\Home\KoseYazıları.cshtml" />
     <Content Include="Views\Kategori\Kategori.cshtml" />
+    <Content Include="Views\Cnn\Index.cshtml" />
+    <Content Include="Views\PartialView\CommentPartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -240,7 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HaberinOlsun.BLL\HaberinOlsun.BLL.csproj">
@@ -252,7 +256,7 @@
       <Name>HaberinOlsun.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\HaberinOlsun.Entity\HaberinOlsun.Entity.csproj">
-      <Project>{4f9178c7-72f5-41e0-801a-6a80ad5151cf}</Project>
+      <Project>{59ac782b-a97d-42a9-bd24-dd738695a264}</Project>
       <Name>HaberinOlsun.Entity</Name>
     </ProjectReference>
   </ItemGroup>
