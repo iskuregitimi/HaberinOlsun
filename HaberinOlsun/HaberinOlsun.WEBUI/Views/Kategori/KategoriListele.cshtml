@@ -1,0 +1,42 @@
+﻿@using HaberinOlsun.Entity
+@model List<Haberler>
+@{
+	ViewBag.Title = "KategoriListele";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Partial("~/Views/PartialView/BannerPartialView.cshtml")
+<section class="mag-posts-area d-flex flex-wrap">
+	@Html.Partial("~/Views/PartialView/KoseYazilarPartialView.cshtml")
+
+
+	<div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
+		<ul>
+			@foreach (Haberler item in Model)
+			{
+				<li style="border:solid;color:antiquewhite">
+					<a href="/Home/HaberDetay/@item.HaberId" title="@item.Baslik">
+						<span class="gradient"></span>
+
+						<img src=@item.ResimURL width="300" height="170">
+
+						<span>@item.Baslik</span>
+					</a>
+
+				</li>
+			}
+			@*@Html.Partial("~/Views/PartialView/CommentPartialView.cshtml")*@
+		</ul>
+	</div>
+	@Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
+</section>
+
+
+
+
+
+
+
+
+

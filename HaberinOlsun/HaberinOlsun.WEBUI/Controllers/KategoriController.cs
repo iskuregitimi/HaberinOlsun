@@ -11,6 +11,7 @@ namespace HaberinOlsun.WEBUI.Controllers
     public class KategoriController : Controller
     {
 		KategoriBLL kategoribll = new KategoriBLL();
+		HaberlerBLL haberlerbll = new HaberlerBLL();
         // GET: Kategori
         public ActionResult Kategori(int id)
         {
@@ -26,10 +27,11 @@ namespace HaberinOlsun.WEBUI.Controllers
 		public ActionResult KategoriListele(int id)
 		{
 			Kategori kategori = kategoribll.KategorileriGetir(id);
-			List<HaberKategori> haber = new List<HaberKategori>();
+			List<Haberler> haber = new List<Haberler>();
 			foreach ( HaberKategori item in kategori.HaberKategoris)
 			{
-				haber.Add(item);
+				Haberler haberler = haberlerbll.HaberDetayGetir(item.HaberId);
+			   	haber.Add(haberler);
 			}
 			return View(haber);
 

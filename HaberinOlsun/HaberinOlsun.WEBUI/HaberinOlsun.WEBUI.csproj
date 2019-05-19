@@ -233,9 +233,9 @@
     <Content Include="Views\PartialView\SonDakikaPartialView.cshtml" />
     <Content Include="Views\Home\HaberDetay.cshtml" />
     <Content Include="Views\Home\KoseYazıları.cshtml" />
-    <Content Include="Views\Kategori\Kategori.cshtml" />
     <Content Include="Views\Cnn\Index.cshtml" />
     <Content Include="Views\PartialView\CommentPartialView.cshtml" />
+    <Content Include="Views\Kategori\KategoriListele.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
