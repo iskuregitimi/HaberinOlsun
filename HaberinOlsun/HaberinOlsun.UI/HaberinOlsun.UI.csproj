@@ -217,6 +217,7 @@
     <Content Include="Views\News\GetPost.cshtml" />
     <Content Include="Views\Home\Authors.cshtml" />
     <Content Include="Views\Category\GetCategoryPosts.cshtml" />
+    <Content Include="Views\News\GetRandomPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

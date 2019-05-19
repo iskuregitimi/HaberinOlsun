@@ -6,3 +6,14 @@ INFO  2019-05-17 14:29:15,338 29208ms NewsController         GetPost            
 ERROR 2019-05-17 14:29:15,461 29331ms NewsController         GetPost            -  Haber verisi Almada Hata=> : Nesne başvurusu bir nesnenin örneğine ayarlanmadı. 
 INFO  2019-05-17 14:29:15,583 29453ms HomeController         Index              - Anasayfa Çalışıyor ve Veriler Getiriliyor
 INFO  2019-05-17 14:29:15,648 29518ms HomeController         Index              - Anasayfa Veri Alımı Başarılı
+INFO  2019-05-18 20:51:39,783  1863ms HomeController         Index              - Anasayfa Çalışıyor ve Veriler Getiriliyor
+INFO  2019-05-18 20:51:48,060 10140ms HomeController         Index              - Anasayfa Veri Alımı Başarılı
+INFO  2019-05-18 20:52:24,156 46236ms HomeController         Index              - Anasayfa Çalışıyor ve Veriler Getiriliyor
+INFO  2019-05-18 20:52:24,484 46564ms HomeController         Index              - Anasayfa Veri Alımı Başarılı
+INFO  2019-05-18 20:53:47,311 129391ms NewsController         GetPost            -  1 nolu Haber Verisi Alınıyor
+INFO  2019-05-18 20:56:06,411  1547ms HomeController         Index              - Anasayfa Çalışıyor ve Veriler Getiriliyor
+INFO  2019-05-18 20:56:14,831  9967ms HomeController         Index              - Anasayfa Veri Alımı Başarılı
+INFO  2019-05-18 20:57:15,569  1055ms HomeController         Index              - Anasayfa Çalışıyor ve Veriler Getiriliyor
+INFO  2019-05-18 20:57:21,317  6802ms HomeController         Index              - Anasayfa Veri Alımı Başarılı
+INFO  2019-05-18 21:40:08,864  1072ms HomeController         Index              - Anasayfa Çalışıyor ve Veriler Getiriliyor
+INFO  2019-05-18 21:40:17,107  9314ms HomeController         Index              - Anasayfa Veri Alımı Başarılı

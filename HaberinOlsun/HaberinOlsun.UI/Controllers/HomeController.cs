@@ -27,6 +27,6 @@ namespace HaberinOlsun.UI.Controllers
 
             return View(model);
         }
-
+       
     }
 }

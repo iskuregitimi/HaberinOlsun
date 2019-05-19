@@ -23,7 +23,19 @@ namespace HaberinOlsun.BLL
             return (getpostdata);
         }
 
-
+        public static List<Haberler> GetRandomPost()
+        {
+            Random r = new Random();
+            List<Haberler> haber = new List<Haberler>();
+            for (int i = 1; i < 10; i++)
+            {
+                int haberid = r.Next(1, 10);
+                var haberler = db.Haberlers.Where(x => x.HaberID == haberid);
+                haber.Add(haberler.FirstOrDefault());
+            }
+            
+            return (haber);
+        }
 
         public static List<Yazarlar> getAuthors()
         {

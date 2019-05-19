@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using HaberinOlsun.BLL;
 using HaberinOlsun.Entities;
+using HaberinOlsun.UI.Models;
 using log4net;
 
 namespace HaberinOlsun.UI.Controllers
@@ -38,6 +39,14 @@ namespace HaberinOlsun.UI.Controllers
         public ActionResult CornerPost(int id)
         {
             return View();
+        }
+
+        public ActionResult GetRandomPost()
+        {
+            HomePageModel model = new HomePageModel();
+            List<Haberler> haber = PostsBLL.GetRandomPost();
+            model.Haberler = haber;
+            return View(model);
         }
 
     }
