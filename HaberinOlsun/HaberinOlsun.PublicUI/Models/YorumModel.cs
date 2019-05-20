@@ -10,7 +10,6 @@ namespace HaberinOlsun.PublicUI.Models
     {
         public string Tip { get; set; }
         public int Id { get; set; }
-        public List<Yorum> Yorumlar { get; set; }
         public Yorum Yorum { get; set; }
     }
 }
