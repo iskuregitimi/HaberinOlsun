@@ -36,6 +36,10 @@
         <div class="row">
             <div class="col-sm-12 col-md-8">
                 <h5 class="p-title">@haber.Yorum.Count() Comments</h5>
+                @if (@haber.Yorum.Count()==0)
+                {
+                    <p class="p-15">Bu haber için yorum yapılmamış.</p>
+                }
                 @foreach (Yorum item in yorumlar)
                 {
                     <div class="col-sm-12">
@@ -83,6 +87,10 @@ else
     <div class="row">
         <div class="col-sm-12 col-md-8">
             <h5 class="p-title">@koseYazilari.Yorum.Count() Comments</h5>
+            @if (koseYazilari.Yorum.Count() == 0)
+            {
+                <p class="p-15">Bu yazı için yorum yapılmamış.</p>
+            }
             @foreach (Yorum item in yorumlar)
             {
                 <div class="col-sm-12">

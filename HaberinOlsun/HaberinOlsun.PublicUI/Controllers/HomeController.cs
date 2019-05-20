@@ -17,19 +17,7 @@ namespace HaberinOlsun.PublicUI.Controllers
 
         public ActionResult Index()
         {
-
-          List<Haber> habers=  haberBLL.GetHabers();
-          List<Yazar> yazars = yazarBLL.GetYazars();
-          List<KoseYazilari> koseyazi= koseYazisiBLL.GetKoseYazilaris();
-
-            HaberYazarModel models = new HaberYazarModel()
-            {
-                Habers = habers,
-                KoseYazilaris = koseyazi,
-                Yazars = yazars       
-            };
-
-            return View(models);
+            return View();
         }    
     }
 }
