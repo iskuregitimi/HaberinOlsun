@@ -77,13 +77,7 @@ namespace HbaerinOlsun.WEBUI.Controllers
 
         public ActionResult KoseYazariDetay(int id)
         {
-            KoseYazilari koseyazilari = koseyazilariBLL.GetKoseYazisi(id);
-            return View(koseyazilari);
-        }
-
-        public ActionResult YazarinKoseyazilariDetay(int Id)
-        {
-            Yazarlar yazarlar = yazarlarBLL.GetYazar(Id);
+            Yazarlar yazarlar = yazarlarBLL.GetYazar(id);
             List<KoseYazilari> koseyazilari = new List<KoseYazilari>();
 
             foreach (KoseYazilari item in yazarlar.KoseYazilaris)
@@ -93,7 +87,7 @@ namespace HbaerinOlsun.WEBUI.Controllers
             return View(koseyazilari);
         }
 
-        public ActionResult KategoriDetay(int id)
+        public ActionResult KategorininHaberleriDetay(int id)
         {
             Kategori kategori = kategoriBLL.GetKategori(id);
             List<Haberler> haberler = new List<Haberler>();

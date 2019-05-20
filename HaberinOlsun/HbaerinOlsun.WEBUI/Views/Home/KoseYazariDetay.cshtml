@@ -1,38 +1,41 @@
-﻿@using HaberinOlsun.BLL
-@using HaberinOlsun.Entity
-
+﻿@using HaberinOlsun.Entity
+@model List<KoseYazilari>
 
 @{
     ViewBag.Title = "KoseYazariDetay";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    KoseyazilariBLL koseyazilariBLL = new KoseyazilariBLL();
 
-    List<KoseYazilari> koseyazilari = koseyazilariBLL.GetKoseYazilari();
-}
 
 @Html.Partial("~/Views/PartialView/BannerPartialView.cshtml")
-@*<section class="mag-posts-area d-flex flex-wrap">
-    @Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
+<section class="mag-posts-area d-flex flex-wrap">
+    @Html.Partial("~/Views/PartialView/KoseYazilariPartialView.cshtml")
 
     <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
-        <div>
-            @foreach (KoseYazilari item in koseyazilari)
-            {
+        @foreach (KoseYazilari item in Model)
+        {
+
+            <div>
                 <div>
-                    <h1> @Html.DisplayFor(x => x.) </h1>
-                    <h4>@Html.DisplayFor(x => x.Ozet)</h4>
+                    <h1>@item.Ozet</h1>
+                    <h4>@item.Yazarlar.AdiSoyadi</h4>
+
                     <div>
-                        <span class="nav1">@Html.DisplayFor(x => x.Detay)</span>
-                    </div>
-                    <div>
-                        <img src=@Html.DisplayFor(x=> x.Yazarlar.ResimURL)>
+                        <img src=@item.Yazarlar.ResimURL>
                     </div>
                 </div>
-            }
-        </div>
+                <div>
+                    <div>
+                        <p>@item.Detay</p>
+
+                    </div>
+                    <hr />
+                </div>
+            </div>
+
+        }
+      
     </div>
-    @Html.Partial("~/Views/PartialView/KoseYazilariPartialView.cshtml")
-</section>*@
+    @Html.Partial("~/Views/PartialView/SonDakikaPartialView.cshtml")
+</section>

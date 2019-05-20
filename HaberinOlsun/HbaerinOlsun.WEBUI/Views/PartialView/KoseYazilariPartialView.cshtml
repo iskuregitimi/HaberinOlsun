@@ -8,50 +8,28 @@
     List<Yazarlar> yazarlar = yazarlarBLL.GetYazarlar();
 }
 
-@*<div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-white box-shadow">
-        <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget p-30">
-            <!-- Section Title -->
-            <div class="section-heading">
-                <h5>Köşe Yazıları</h5>
-            </div>
-        </div>
-
-        @foreach (KoseYazilari item in koseyazilari)
-        {
-            <div class="single-sidebar-widget">
-                <div class="single-trending-post">
-                    <img src="@item.Yazarlar.ResimURL" style="animation-fill-mode" />
-                    <div class="post-content">
-                        <a href="#">@item.Yazarlar.AdiSoyadi</a>
-                        <a href="archive.html">@item.Ozet</a>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>*@
-
 <div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-gray box-shadow">
     <div class="single-sidebar-widget p-30">
-        <h4 style="background-color:#451057;color:white;text-align:center">KÖŞE YAZARLARI</h4>
+        <h1 style="background-color:#451057;color:white">KÖŞE YAZILARI</h1>
         <ul>
             @foreach (Yazarlar item in yazarlar)
             {
                 <li style="border:groove; color:antiquewhite">
-                    <img src=@item.ResimURL style="text-align:center">
-                    <h5>@item.AdiSoyadi</h5>
+                    <img src=@item.ResimURL>
                     @foreach (KoseYazilari item1 in item.KoseYazilaris.Take(1))
                     {
-                        <div class="author" style="text-align:center"><a href="@item1.Detay"></a></div>
+                        <div class="author" style="text-align:center"><a href="/Home/KoseYazariDetay/@item1.YazarId"><h2>@item.AdiSoyadi</h2></a></div>
                         <div class="article" style="text-align:center">
-                            <a href="/Home/YazarinKoseyazilariDetay/@item1.YazarId">
+                            <a href="/Home/KoseYazariDetay/@item1.YazarId">
                                 @item1.Ozet
                             </a>
                         </div>
                     }
                 </li>
+
             }
         </ul>
     </div>
 </div>
+
 

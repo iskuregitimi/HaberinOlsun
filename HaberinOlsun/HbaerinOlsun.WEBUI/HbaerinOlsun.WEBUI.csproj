@@ -225,11 +225,10 @@
     <Content Include="Views\PartialView\KoseYazilariPartialView.cshtml" />
     <Content Include="Views\PartialView\SonDakikaPartialView.cshtml" />
     <Content Include="Views\Home\HaberDetay.cshtml" />
-    <Content Include="Views\Home\KoseYazariDetay.cshtml" />
-    <Content Include="Views\Home\YazarinKoseyazilariDetay.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\PartialView\_commentsPartialView.cshtml" />
     <Content Include="Views\Home\KategorininHaberleriDetay.cshtml" />
+    <Content Include="Views\Home\KoseYazariDetay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
