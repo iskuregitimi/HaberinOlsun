@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -126,34 +134,178 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HaberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\YazarController.cs" />
+    <Compile Include="Controllers\YorumController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HaberYorumModel.cs" />
+    <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\classy-nav.min.css" />
+    <Content Include="css\custom-icon.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\nice-select.min.css" />
+    <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\classy.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\icomoon.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\bg-img\1.jpg" />
+    <Content Include="img\bg-img\10.jpg" />
+    <Content Include="img\bg-img\11.jpg" />
+    <Content Include="img\bg-img\12.jpg" />
+    <Content Include="img\bg-img\13.jpg" />
+    <Content Include="img\bg-img\14.jpg" />
+    <Content Include="img\bg-img\15.jpg" />
+    <Content Include="img\bg-img\16.jpg" />
+    <Content Include="img\bg-img\17.jpg" />
+    <Content Include="img\bg-img\18.jpg" />
+    <Content Include="img\bg-img\19.jpg" />
+    <Content Include="img\bg-img\2.jpg" />
+    <Content Include="img\bg-img\20.jpg" />
+    <Content Include="img\bg-img\21.jpg" />
+    <Content Include="img\bg-img\22.jpg" />
+    <Content Include="img\bg-img\23.jpg" />
+    <Content Include="img\bg-img\24.jpg" />
+    <Content Include="img\bg-img\25.jpg" />
+    <Content Include="img\bg-img\26.jpg" />
+    <Content Include="img\bg-img\27.jpg" />
+    <Content Include="img\bg-img\28.jpg" />
+    <Content Include="img\bg-img\29.jpg" />
+    <Content Include="img\bg-img\3.jpg" />
+    <Content Include="img\bg-img\30.jpg" />
+    <Content Include="img\bg-img\31.jpg" />
+    <Content Include="img\bg-img\32.jpg" />
+    <Content Include="img\bg-img\4.jpg" />
+    <Content Include="img\bg-img\5.jpg" />
+    <Content Include="img\bg-img\6.jpg" />
+    <Content Include="img\bg-img\7.jpg" />
+    <Content Include="img\bg-img\8.jpg" />
+    <Content Include="img\bg-img\9.jpg" />
+    <Content Include="img\bg-img\bg1.jpg" />
+    <Content Include="img\bg-img\footer-add.gif" />
+    <Content Include="img\bg-img\hero-add.gif" />
+    <Content Include="img\bg-img\t1.jpg" />
+    <Content Include="img\bg-img\t2.jpg" />
+    <Content Include="img\bg-img\t3.jpg" />
+    <Content Include="img\bg-img\t4.jpg" />
+    <Content Include="img\bg-img\t5.jpg" />
+    <Content Include="img\bg-img\t6.jpg" />
+    <Content Include="img\bg-img\t7.jpg" />
+    <Content Include="img\bg-img\t8.jpg" />
+    <Content Include="img\bg-img\video1.jpg" />
+    <Content Include="img\bg-img\video2.jpg" />
+    <Content Include="img\bg-img\video3.jpg" />
+    <Content Include="img\core-img\chat.png" />
+    <Content Include="img\core-img\favicon.ico" />
+    <Content Include="img\core-img\like.png" />
+    <Content Include="img\core-img\logo.png" />
+    <Content Include="js\active.js" />
+    <Content Include="js\bootstrap\bootstrap.min.js" />
+    <Content Include="js\bootstrap\popper.min.js" />
+    <Content Include="js\google-map\map-active.js" />
+    <Content Include="js\jquery\jquery-2.2.4.min.js" />
+    <Content Include="js\plugins\plugins.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include=".sass-cache\9dcd260a98b05df5e2bbaebb993f2e918e16ad1d\style.scssc" />
+    <Content Include=".sass-cache\9dcd260a98b05df5e2bbaebb993f2e918e16ad1d\_fonts.scssc" />
+    <Content Include=".sass-cache\9dcd260a98b05df5e2bbaebb993f2e918e16ad1d\_mixin.scssc" />
+    <Content Include=".sass-cache\9dcd260a98b05df5e2bbaebb993f2e918e16ad1d\_responsive.scssc" />
+    <Content Include=".sass-cache\9dcd260a98b05df5e2bbaebb993f2e918e16ad1d\_theme_color.scssc" />
+    <Content Include=".sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\style.scssc" />
+    <Content Include=".sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_mixin.scssc" />
+    <Content Include=".sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_responsive.scssc" />
+    <Content Include=".sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_theme_color.scssc" />
+    <Content Include=".sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_variables.scssc" />
+    <Content Include=".sass-cache\cd34cfe2239c57be653ecbef896fb3750f9e6f5b\style.scssc" />
+    <Content Include=".sass-cache\cd34cfe2239c57be653ecbef896fb3750f9e6f5b\_fonts.scssc" />
+    <Content Include=".sass-cache\cd34cfe2239c57be653ecbef896fb3750f9e6f5b\_mixin.scssc" />
+    <Content Include=".sass-cache\cd34cfe2239c57be653ecbef896fb3750f9e6f5b\_responsive.scssc" />
+    <Content Include=".sass-cache\cd34cfe2239c57be653ecbef896fb3750f9e6f5b\_theme_color.scssc" />
+    <Content Include=".sass-cache\cd34cfe2239c57be653ecbef896fb3750f9e6f5b\_variables.scssc" />
+    <Content Include=".sass-cache\eb65a9acf275cb72706472a84a7409ec6f3ac36a\style.scssc" />
+    <Content Include=".sass-cache\eb65a9acf275cb72706472a84a7409ec6f3ac36a\_mixin.scssc" />
+    <Content Include=".sass-cache\eb65a9acf275cb72706472a84a7409ec6f3ac36a\_responsive.scssc" />
+    <Content Include=".sass-cache\eb65a9acf275cb72706472a84a7409ec6f3ac36a\_theme_color.scssc" />
+    <Content Include=".sass-cache\eb65a9acf275cb72706472a84a7409ec6f3ac36a\_variables.scssc" />
+    <Content Include=".sass-cache\f8ae1aaaaa28c76535223f26d46c4b367f4bf351\style.scssc" />
+    <Content Include=".sass-cache\f8ae1aaaaa28c76535223f26d46c4b367f4bf351\_fonts.scssc" />
+    <Content Include=".sass-cache\f8ae1aaaaa28c76535223f26d46c4b367f4bf351\_mixin.scssc" />
+    <Content Include=".sass-cache\f8ae1aaaaa28c76535223f26d46c4b367f4bf351\_responsive.scssc" />
+    <Content Include=".sass-cache\f8ae1aaaaa28c76535223f26d46c4b367f4bf351\_theme_color.scssc" />
+    <Content Include="fonts\classy.eot" />
+    <Content Include="fonts\classy.ttf" />
+    <Content Include="fonts\classy.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
+    <Content Include="css\style.css.map" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="single-post.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -162,35 +314,61 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Haber\Detay.cshtml" />
+    <Content Include="Views\Kategori\Haber.cshtml" />
+    <Content Include="scss\style.scss" />
+    <Content Include="scss\_fonts.scss" />
+    <Content Include="scss\_mixin.scss" />
+    <Content Include="scss\_responsive.scss" />
+    <Content Include="scss\_theme_color.scss" />
+    <Content Include="Views\Yazar\Detay.cshtml" />
+    <Content Include="Views\Shared\_yorum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Yorum\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HaberinOlsun.BusinessLayer\HaberinOlsun.BusinessLayer.csproj">
+      <Project>{2766f274-c788-4400-a39b-d9778367f5e5}</Project>
+      <Name>HaberinOlsun.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaberinOlsun.DataAccessLayer\HaberinOlsun.DataAccessLayer.csproj">
+      <Project>{e0604d32-8cd2-4bde-a0c3-3cb86f055567}</Project>
+      <Name>HaberinOlsun.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaberinOlsun.Entity\HaberinOlsun.Entity.csproj">
+      <Project>{e34574db-37d7-471f-9a42-e6f781967f29}</Project>
+      <Name>HaberinOlsun.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HaberinOlsun.BusinessLayer;
+using HaberinOlsun.Entity;
+using HaberinOlsun.PublicUI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +11,17 @@ namespace HaberinOlsun.PublicUI.Controllers
 {
     public class HomeController : Controller
     {
+        HaberManager haberManager = new HaberManager();
+        YazarManager yazarManager = new YazarManager();
+
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            IndexModel model = new IndexModel();
+            List<Haber> haberler = haberManager.GetHabers();
+            List<Yazarlar> yazarlar = yazarManager.GetYazars();
+            model.Haberler = haberler;
+            model.Yazarlar = yazarlar;
+            return View(model);
         }
     }
 }

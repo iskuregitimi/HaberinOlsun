@@ -1,0 +1,93 @@
+﻿@using HaberinOlsun.PublicUI.Models
+@using HaberinOlsun.BusinessLayer
+@using HaberinOlsun.Entity
+@model HaberYorumModel
+
+@{
+    List<Yorum> yorumlar = new List<Yorum>();
+    HaberManager haberManager = new HaberManager();
+    KoseYazilariManager koseYazilariManager = new KoseYazilariManager();
+    Haber haber = null;
+    KoseYazilari koseYazilari = null;
+    if (Model.Tipi == "Haber")
+    {
+        haber = haberManager.GetHaber(Model.ID);
+        foreach (Yorum item in haber.Yorum)
+        {
+            yorumlar.Add(item);
+        }
+    }
+    else
+    {
+        koseYazilari = koseYazilariManager.GetKoseYazisi(Model.ID);
+        foreach (Yorum item in koseYazilari.Yorum)
+        {
+            yorumlar.Add(item);
+        }
+    }
+}
+
+@if (Model.Tipi == "Haber")
+{
+    <div class="comment_area clearfix">
+        <h5 class="title">@haber.Yorum.Count() Comments</h5>
+        <ol>
+            @foreach (Yorum item in yorumlar)
+            {
+                <li class="single_comment_area">
+                    <div class="comment-content d-flex">
+                        <div class="comment-meta">
+                            <a href="#" class="post-author">@item.AdSoyad</a>
+                            <a href="#" class="post-date">@item.Tarih</a>
+                            <p>@item.Yorumyazisi</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+    <br />
+
+    <h4>Yorum Yapın</h4>
+    <br />
+    using (Html.BeginForm("YorumYap", "Yorum", new { @id = Model.ID }))
+    {
+        <div class="contact-form-area">
+            @Html.TextBoxFor(x => x.Yorum.AdSoyad, new { @class = "form-control", placeholder = "Adınız ve Soyadınız" })
+            @Html.TextAreaFor(x => x.Yorum.Yorumyazisi, new { @class = "form-control mt-30 w-100", placeholder = "Yorum" })
+            <input class="btn newspaper-btn" type="submit" value="Yorum Yap" />
+        </div>
+    }
+}
+else
+{
+    <div class="comment_area clearfix">
+        <h5 class="title">@koseYazilari.Yorum.Count() Comments</h5>
+        <ol>
+            @foreach (Yorum item in yorumlar)
+            {
+                <li class="single_comment_area">
+                    <div class="comment-content d-flex">
+                        <div class="comment-meta">
+                            <a href="#" class="post-author">@item.AdSoyad</a>
+                            <a href="#" class="post-date">@item.Tarih</a>
+                            <p>@item.Yorumyazisi</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+    <br />
+
+    <h4>Yorum Yapın</h4>
+    <br />
+    using (Html.BeginForm("KoseYazisi", "Yorum", new { @id = Model.ID }))
+    {
+        <div class="contact-form-area">
+            @Html.TextBoxFor(x => x.Yorum.AdSoyad, new { @class = "form-control", placeholder = "Adınız ve Soyadınız" })
+            @Html.TextAreaFor(x => x.Yorum.Yorumyazisi, new { @class = "form-control mt-30 w-100", placeholder = "Yorum" })
+            <input class="btn newspaper-btn" type="submit" value="Yorum Yap" />
+        </div>
+    }
+}

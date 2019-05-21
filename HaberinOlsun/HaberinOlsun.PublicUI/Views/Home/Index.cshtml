@@ -1,31 +1,114 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@using HaberinOlsun.PublicUI.Models
+@model IndexModel
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="img/core-img/favicon.ico">
+    <link href="~/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="featured-post-area">
+        <div class="container">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach (var item in Model.Haberler.OrderByDescending(x => x.OkunmaSayisi).Take(10))
+                    {
+                        if (item.OkunmaSayisi == Model.Haberler.Max(x => x.OkunmaSayisi))
+                        {
+                            <div class="carousel-item active">
+                                <a href="/Haber/Detay/@item.ID"><img class="d-block w-100" style="height:300px;" src="@item.ResimURL" alt=""></a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 style="color:white;">@item.Baslik</h5>
+                                    <p style="color:white;">@item.Ozet</p>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="carousel-item">
+                                <a href="/Haber/Detay/@item.ID"><img class="d-block w-100" style="height:300px;" src="@item.ResimURL" alt=""></a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 style="color:white;">@item.Baslik</h5>
+                                    <p style="color:white;">@item.Ozet</p>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-8">
+                    <div class="row">
+                        @foreach (var item in Model.Haberler)
+                        {
+                            <div class="col-12 col-lg-5">
+                                <div class="single-blog-post featured-post-2">
+                                    <div class="post-thumb">
+                                        <a href="/Haber/Detay/@item.ID"><img src="@item.ResimURL" style="height:300px;width:300px;" alt=""></a>
+                                    </div>
+                                    <div class="post-data">
+                                        <a href="/Haber/Detay/@item.ID" class="post-catagory">@item.Baslik</a>
+                                        <div class="post-meta">
+                                            <a href="/Haber/Detay/@item.ID" class="post-title">
+                                                <h6>@item.Ozet</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    @foreach (var item in Model.Yazarlar)
+                    {
+                        <div class="single-blog-post small-featured-post d-flex">
+                            <div class="post-thumb">
+                                <a href="/Yazar/Detay/@item.ID"><img src="@item.ResimURL" style="height:75px;width:90px;" alt=""></a>
+                            </div>
+                            <div class="post-data">
+                                <a href="/Yazar/Detay/@item.ID" class="post-catagory">@item.AdiSoyadi</a>
+                                <div class="post-meta">
+                                    @foreach (var kose in item.KoseYazilari.Take(1))
+                                    {
+                                        <a href="/Yazar/Detay/@item.ID" class="post-title">
+                                            <h6>
+                                                @kose.Ozet
+                                            </h6>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+
+    <script src="~/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="~/js/bootstrap/popper.min.js"></script>
+    <script src="~/js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/js/plugins/plugins.js"></script>
+    <script src="~/js/active.js"></script>
+</body>
+</html>
