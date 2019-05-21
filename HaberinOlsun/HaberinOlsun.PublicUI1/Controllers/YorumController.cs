@@ -17,13 +17,21 @@ namespace HaberinOlsun.PublicUI1.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Yorumyap(YorumModel model,int id)
+        public ActionResult Yorumyap(YorumModel model, int id)
         {
             Comments comments = new Comments();
-            comments.Gönderen = model.Gönderen;
-            comments.HaberID = model.HaberID;
-            comments.YazıID = model.YazıID;
-            comments.Yorum = model.Yorum;
+            comments.Gönderen = model.Comment.Gönderen;
+            if (ViewBag.tipi == "Haber")
+            {
+                comments.HaberID = model.Comment.HaberID;
+            }
+            else
+            {
+                comments.YazıID = model.Comment.YazıID;
+            }
+
+
+            comments.Yorum = model.Comment.Yorum;
 
             YorumBLL.YorumYap(comments);
 
@@ -34,10 +42,10 @@ namespace HaberinOlsun.PublicUI1.Controllers
         {
 
             Comments comment = new Comments();
-            comment.YazıID = model.YazıID;
-            comment.HaberID = model.HaberID;
-           List< Comments> com = new List<Comments>();
-           com= YorumBLL.getYorum(comment);
+            comment.YazıID = model.Comment.YazıID;
+            comment.HaberID = model.Comment.HaberID;
+            List<Comments> com = new List<Comments>();
+            com = YorumBLL.getYorum(comment);
 
             return View(com);
         }

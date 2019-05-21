@@ -18,5 +18,6 @@ namespace HaberinOlsun.PublicUI1.Models
         public List<Haberler> kathaber { get; set; }
         public List<rssModel> rssmodel { get; set; }
         public List<YorumModel> yorumModel { get; set; }
+        public YorumModel ymodel{ get; set; }
     }
 }

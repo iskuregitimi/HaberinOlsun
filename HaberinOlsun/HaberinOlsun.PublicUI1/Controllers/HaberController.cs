@@ -23,41 +23,34 @@ namespace HaberinOlsun.PublicUI1.Controllers
         {
             LogManager.Write("Haberler Yüklendi");
             
-            AnasayfaModel model = new AnasayfaModel();
-            
-            model.haber = HaberBLL.haberdetay(id);
-            List<Haberler> haberler = HaberBLL.haber();
-            List<Kategori> kategoriler = KategoriBLL.GetKAtegori();
-            List<KoseYazilari> Koseyazarlar = KöseYazilariBLL.GetKöseYazilaris();
-            
-            model.haber.OkunmaSayisi += 1;
-            model.KoseYazilari = Koseyazarlar;
-            model.Haberler = haberler;
-            model.Kategoriler = kategoriler;
-            HaberBLL.haberGüncelle(model.haber);
+            Haberler haber = HaberBLL.haberdetay(id);
+            haber.OkunmaSayisi += 1;
 
-            WebRequest request = WebRequest.Create("https://www.cnnturk.com/feed/rss/bilim-teknoloji/news");
-            WebResponse response = request.GetResponse();
-            Stream rssStream = response.GetResponseStream();
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(rssStream);
-            XmlNodeList xmlnodeList = xmlDoc.SelectSingleNode("rss").SelectSingleNode("channel").SelectNodes("item");
-            List<rssModel> vievModel = new List<rssModel>();
+            HaberBLL.haberGüncelle(haber);
 
-            for (int i = 0; i < xmlnodeList.Count; i++)
-            {
-                rssModel rssmodel = new rssModel();
+            //WebRequest request = WebRequest.Create("https://www.cnnturk.com/feed/rss/bilim-teknoloji/news");
+            //WebResponse response = request.GetResponse();
+            //Stream rssStream = response.GetResponseStream();
+            //XmlDocument xmlDoc = new XmlDocument();
+            //xmlDoc.Load(rssStream);
+            //XmlNodeList xmlnodeList = xmlDoc.SelectSingleNode("rss").SelectSingleNode("channel").SelectNodes("item");
+            //List<rssModel> vievModel = new List<rssModel>();
 
-                rssmodel.Description = xmlnodeList.Item(i).SelectSingleNode("description").InnerText;
-                rssmodel.Title = xmlnodeList.Item(i).SelectSingleNode("title").InnerText;
-                rssmodel.ImageURL = xmlnodeList.Item(i).SelectSingleNode("image").InnerText;
-                rssmodel.PubDate = xmlnodeList.Item(i).SelectSingleNode("pubDate").InnerText;
-                rssmodel.Link = xmlnodeList.Item(i).SelectSingleNode("link").InnerText;
-                vievModel.Add(rssmodel);
+            //for (int i = 0; i < xmlnodeList.Count; i++)
+            //{
+            //    rssModel rssmodel = new rssModel();
 
-            }
-            model.rssmodel = vievModel;
-            return View(model);
+            //    rssmodel.Description = xmlnodeList.Item(i).SelectSingleNode("description").InnerText;
+            //    rssmodel.Title = xmlnodeList.Item(i).SelectSingleNode("title").InnerText;
+            //    rssmodel.ImageURL = xmlnodeList.Item(i).SelectSingleNode("image").InnerText;
+            //    rssmodel.PubDate = xmlnodeList.Item(i).SelectSingleNode("pubDate").InnerText;
+            //    rssmodel.Link = xmlnodeList.Item(i).SelectSingleNode("link").InnerText;
+            //    vievModel.Add(rssmodel);
+
+            //}
+            //model.rssmodel = vievModel;
+
+            return View(haber);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿
 @using HaberinOlsun.PublicUI1.Models
-@model  AnasayfaModel
+@using HaberinOlsun.DAL
+@model  Haberler
 
 @{
     ViewBag.Title = "HaberDetay";
@@ -17,7 +18,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>@Model.haber.Baslik DETAYI</h2>
+                        <h2>@Model.Baslik DETAYI</h2>
                     </div>
                 </div>
             </div>
@@ -49,17 +50,17 @@
                     <div class="about-us-content bg-white mb-30 p-30 box-shadow">
                         <!-- Section Title -->
                         <div class="section-heading">
-                            <h5>@Model.haber.Baslik</h5>
+                            <h5>@Model.Baslik</h5>
                         </div>
-                        <p>@Model.haber.Ozet</p>
-                        <p>@Model.haber.Detay</p>
+                        <p>@Model.Ozet</p>
+                        <p>@Model.Detay</p>
                         @*<ul>
-                                <li><i class="fa fa-check"></i> Vivamus starlord finibus, dictum massa eget, suscipit metus nami at tristique elit started.</li>
-                                <li><i class="fa fa-check"></i> Cras ipsum libero, suscipit vitamin tellus vitae, feugiat ultricies purus praesent gamora.</li>
-                                <li><i class="fa fa-check"></i> Proin ex sem, ultrices drax the sit amet, facilisis destroyer et odio profession risusest.</li>
-                                <li><i class="fa fa-check"></i> Morbi maximus mauris eget groot dignissim, in laoreet justo facilisis.</li>
-                            </ul>*@
-                        <img class="mt-15" src="@Model.haber.ResimURL" alt="">
+                    <li><i class="fa fa-check"></i> Vivamus starlord finibus, dictum massa eget, suscipit metus nami at tristique elit started.</li>
+                    <li><i class="fa fa-check"></i> Cras ipsum libero, suscipit vitamin tellus vitae, feugiat ultricies purus praesent gamora.</li>
+                    <li><i class="fa fa-check"></i> Proin ex sem, ultrices drax the sit amet, facilisis destroyer et odio profession risusest.</li>
+                    <li><i class="fa fa-check"></i> Morbi maximus mauris eget groot dignissim, in laoreet justo facilisis.</li>
+                </ul>*@
+                        <img class="mt-15" src="@Model.ResimURL" alt="">
 
                         <!-- Team Member Area -->
                         <div class="section-heading mt-30">
@@ -142,26 +143,32 @@
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4">
 
                     @Html.Partial("~/Views/PartialView/Categori.cshtml")
+                    @Html.Partial("~/Views/PartialView/_yorum.cshtml", new YorumModel { ID = Model.HaberID, Tipi = "Haber" })
+
+
                 </div>
 
+                
                 <!-- Sidebar Widget -->
                 <!-- Sidebar Widget -->
-
                 <div class="single-sidebar-widget">
-                    <a href="#" class="add-img"><img src="img/bg-img/add2.png" alt=""></a>
-                </div>
-
-                <!-- Sidebar Widget -->
-                <div class="single-sidebar-widget p-30">
-                    <!-- Section Title -->
-                    <div class="section-heading">
-                        <h5>Yeni Yorum</h5>
+                        <a href="#" class="add-img"><img src="img/bg-img/add2.png" alt=""></a>
                     </div>
 
-                 
+                    <!-- Sidebar Widget -->
+                    <div class="single-sidebar-widget p-30">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>Yeni Yorum</h5>
+                        </div>
+     
 
-                </div>
+
+                    </div>
             </div>
+         
+
+           
         </div>
 
     </section>
