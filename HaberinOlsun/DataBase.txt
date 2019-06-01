@@ -1,0 +1,388 @@
+USE [master]
+GO
+/****** Object:  Database [HaberinOlsun]    Script Date: 01.06.2019 02:44:39 ******/
+CREATE DATABASE [HaberinOlsun]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'HaberinOlsun', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\HaberinOlsun.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'HaberinOlsun_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\HaberinOlsun_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [HaberinOlsun] SET COMPATIBILITY_LEVEL = 110
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [HaberinOlsun].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [HaberinOlsun] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [HaberinOlsun] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [HaberinOlsun] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [HaberinOlsun] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [HaberinOlsun] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [HaberinOlsun] SET  MULTI_USER 
+GO
+ALTER DATABASE [HaberinOlsun] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [HaberinOlsun] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [HaberinOlsun] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [HaberinOlsun] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+USE [HaberinOlsun]
+GO
+/****** Object:  Table [dbo].[Gundem]    Script Date: 01.06.2019 02:44:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Gundem](
+	[GundemId] [int] IDENTITY(1,1) NOT NULL,
+	[HaberId] [int] NULL,
+	[Sýra] [int] NULL,
+ CONSTRAINT [PK_Gundem] PRIMARY KEY CLUSTERED 
+(
+	[GundemId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[HaberKategori]    Script Date: 01.06.2019 02:44:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HaberKategori](
+	[HaberKategoriId] [int] IDENTITY(1,1) NOT NULL,
+	[KategoriId] [int] NOT NULL,
+	[HaberId] [int] NOT NULL,
+ CONSTRAINT [PK_HaberKategori_1] PRIMARY KEY CLUSTERED 
+(
+	[HaberKategoriId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Haberler]    Script Date: 01.06.2019 02:44:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Haberler](
+	[HaberId] [int] IDENTITY(1,1) NOT NULL,
+	[Baslik] [nvarchar](100) NOT NULL,
+	[Tarih] [datetime] NOT NULL,
+	[Ozet] [nvarchar](max) NOT NULL,
+	[Detay] [nvarchar](max) NOT NULL,
+	[Kaynak] [nvarchar](50) NOT NULL,
+	[OkumaSayisi] [int] NOT NULL,
+	[ResimURL] [nvarchar](250) NOT NULL,
+ CONSTRAINT [PK_Haberler] PRIMARY KEY CLUSTERED 
+(
+	[HaberId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Kategori]    Script Date: 01.06.2019 02:44:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Kategori](
+	[KategoriId] [int] IDENTITY(1,1) NOT NULL,
+	[Adi] [nvarchar](50) NULL,
+	[Aciklama] [nvarchar](100) NULL,
+ CONSTRAINT [PK_Kategori] PRIMARY KEY CLUSTERED 
+(
+	[KategoriId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[KoseYazilari]    Script Date: 01.06.2019 02:44:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[KoseYazilari](
+	[YaziId] [int] IDENTITY(1,1) NOT NULL,
+	[YazarId] [int] NOT NULL,
+	[Ozet] [nvarchar](100) NOT NULL,
+	[Detay] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_KoseYazilari] PRIMARY KEY CLUSTERED 
+(
+	[YaziId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Yazarlar]    Script Date: 01.06.2019 02:44:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Yazarlar](
+	[YazarId] [int] IDENTITY(1,1) NOT NULL,
+	[AdiSoyadi] [nvarchar](50) NOT NULL,
+	[ResimURL] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Yazarlar] PRIMARY KEY CLUSTERED 
+(
+	[YazarId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Yorumlar]    Script Date: 01.06.2019 02:44:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Yorumlar](
+	[commentID] [int] IDENTITY(1,1) NOT NULL,
+	[yaziID] [int] NULL,
+	[haberID] [int] NULL,
+	[gonderen] [nvarchar](50) NOT NULL,
+	[yorum] [nvarchar](500) NOT NULL,
+	[tarih] [datetime] NOT NULL,
+ CONSTRAINT [PK_Yorumlar] PRIMARY KEY CLUSTERED 
+(
+	[commentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET IDENTITY_INSERT [dbo].[Gundem] ON 
+
+GO
+INSERT [dbo].[Gundem] ([GundemId], [HaberId], [Sýra]) VALUES (1, 1, 1)
+GO
+INSERT [dbo].[Gundem] ([GundemId], [HaberId], [Sýra]) VALUES (2, 2, 2)
+GO
+SET IDENTITY_INSERT [dbo].[Gundem] OFF
+GO
+SET IDENTITY_INSERT [dbo].[HaberKategori] ON 
+
+GO
+INSERT [dbo].[HaberKategori] ([HaberKategoriId], [KategoriId], [HaberId]) VALUES (1, 1, 1)
+GO
+INSERT [dbo].[HaberKategori] ([HaberKategoriId], [KategoriId], [HaberId]) VALUES (2, 2, 2)
+GO
+INSERT [dbo].[HaberKategori] ([HaberKategoriId], [KategoriId], [HaberId]) VALUES (3, 3, 5)
+GO
+INSERT [dbo].[HaberKategori] ([HaberKategoriId], [KategoriId], [HaberId]) VALUES (4, 5, 7)
+GO
+INSERT [dbo].[HaberKategori] ([HaberKategoriId], [KategoriId], [HaberId]) VALUES (5, 1, 8)
+GO
+SET IDENTITY_INSERT [dbo].[HaberKategori] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Haberler] ON 
+
+GO
+INSERT [dbo].[Haberler] ([HaberId], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkumaSayisi], [ResimURL]) VALUES (1, N'Beþiktaþ''ta son karar Sergen Yalçýn', CAST(0x0000AA4D00000000 AS DateTime), N'Aytemiz Alanyaspor maçýnda siyah beyazlý taraftarlarýn Sergen Yalçýn''a gösterdiði sevgiden etkilenen Beþiktaþ yönetimi teknik direktör olarak Abdullah Avcý isminden vazgeçti. Beþiktaþ''ta yönetimin teknik direktör olarak rotasýný Sergen Yalçýn''a çevirdiði bildirildi.', N'eþiktaþ yönetiminin bir süredir Alanyaspor maçýnda tribünlerin Sergen Yalçýn’a olan yaklaþýmýný takip edeceði konuþuluyordu... öyle ki son düzlükte Mircea Lucescu ve Guti arasýnda kalan yönetimin Sergen’e gösterilecek ilgiye göre kararýný deðiþtirebileceði iddia ediliyordu. Pazartesi akþam tam da bu yönde bir geliþme oldu. Siyah-beyazlý tribünler, eski yýldýzlarý Alanyaspor’un hocasý Sergen Yalçýn’ý soyunma odasýndan çaðýrarak alkýþladý. Maçta tribünlerin bir bölümünden tepki alan Fikret Oman’ýn ise ''''iç barýþ'''' için Sergen’i takýmýn baþýna getireceði konuþulmaya baþlandý. Bu arada Sergen’in röportajýnda ''''bir gün kavuþacaðýz'''' sözleri dikkat çekti. Ama basýn toplantýsýnda Beþiktaþ’tan teklif almadýðýný açýkladý.', N'Fotospor', 0, N'http://i3.haber7.net/haber/haber7/bigmanset/2019/20/besiktasta_son_karar_sergen_yalcin_1557912708_4601.jpg')
+GO
+INSERT [dbo].[Haberler] ([HaberId], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkumaSayisi], [ResimURL]) VALUES (2, N'Yurtdýþýndan cep telefonu getirecekler dikkat! Deðiþtirildi', CAST(0x0000AA4D00000000 AS DateTime), N'Yurtdýþýndan cep telefonu getirmesi süresi Resmi Gazete kararýyla 2 yýlda bir yerine 3 yýlda bir olarak yeniden düzenlendi. Resmi Gazete''de yayýmlanan karara göre bedeli gönderi baþýna 150 euro üzerine olmayan kiþisel kullanýma mahsus kitap veya benzeri basýlý yayýna ise muafiyet tanýndý', N'urtdýþýndan yolcu beraberinde getirilip kayýt ettirilebilen cep telefonlarý için süre, misyon görevlileri hariç 2 yýldan 3 yýla çýkarýldý.
+
+Gümrük kanununun bazý maddelerinde deðiþikliðe göre, Türkiye Gümrük Bölgesindeki bir kiþiye posta ya da hýzlý kargo taþýmacýlýðý yoluyla gelen ve bedeli gönderi baþýna 150 euro üzerine olmayan kiþisel kullanýma mahsus kitap veya benzeri basýlý yayýna ise muafiyet tanýndý.
+
+Kanunda yapýlan diðer deðiþikliðe göre de posta ücretleri de getirildikleri ülke ve birimlerine oranla artýrýldý.
+
+Buna göre, kýymeti 1500 euro üzerinde olmamak kaydýyla posta veya hýzlý kargo taþýmacýlýðý yoluyla gelen eþyanýn deðeri ile kiþisel kullanýma mahsus kitap veya benzeri basýlý yayýn için 45. maddede yolcu beraberinde gelen eþya için 59. maddede belirtilen limitleri aþan eþyanýn deðeri üzerinden;
+
+- Avrupa Birliði ülkelerinden doðrudan gelmesi durumunda yüzde 18,
+- Diðer ülkelerden gelmesi durumunda yüzde 20,
+- Kitap veya benzeri basýlý yayýn için yüzde 0,
+- 4760 sayýlý ÖTV kanununa ekli sayýlý listede yer alan eþya olmasý durumunda ise bu oranlara ek olarak yüzde 20 oranýnda tek ve maktu vergi tahsil edilecek,', N'Dunyadan', 0, N'http://i3.haber7.net/haber/haber7/bigmanset/2019/20/yurtdisindan_cep_telefonu_getirecekler_dikkat_degistirildi_1557900267_4793.jpg')
+GO
+INSERT [dbo].[Haberler] ([HaberId], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkumaSayisi], [ResimURL]) VALUES (5, N'Elçin Sangu yalaný sonrasý kývýrdý! Yine rezil oldu', CAST(0x0000AA4E00000000 AS DateTime), N'Ýstanbul''da 23 Haziran''da yenilenecek seçimlere iliþkin CHP''liler yeni bir provokatif söylem içerisine girerek seçmen listelerindeki adreslerin silindiði yalanýna baþvurdu. Oyuncu Elçin Sangu da önce bu yalaný dillendirdi sonra "1 yýl önce taþýnmýþ olduðum evin iskan alýmý geç olduðu için adres deðiþikliði muhasebecim tarafýndan 29 Mart ta yapýlmýþ" ifadeleriyle kendi yalanýna kýlýf uydurdu.', N'stanbul''da 23 Haziran''da yenilenecek seçimlere iliþkin CHP''liler yeni bir provokatif söylem içerisine girdi. Öyle ki geçen seçimlerde uçan mürekkep yalanýný dillendiren CHP''liler bu sefer de seçmenlere ait adreslerin silindiði yalanýna baþvurdu.
+
+Bu yalana Oyuncu Elçin Sangu''da alet olarak sosyal medya hesabýndan takipçilerine uyarýlarda bulundu. Elçin, yaptýðý ilk paylaþýmýnda "Herkes adreslerini kontrol etsin mesela þuan geçen seçimde ayný adreste olmama raðmen bugün yaptýðým kontrol sonucu adresimde yokum" ifadelerine yer verdi.
+
+ELÇÝN SANGU REZÝL OLDU
+
+Söz konusu iddiaya yine Nüfus ve Vatandaþlýk Ýþleri Genel Müdürlüðü sosyal medya hesabýndan yanýt vererek þunlarý aktardý:
+
+"29.03.2019 tarihinde elektronik imza ile adres deðiþikliði yaptýðýnýz anlaþýlmýþ olup, adres kayýtlarýnýzda herhangi bir sorun bulunmamaktadýr. Ayrýca adres bilgilerinizi https://adres.nvi.gov.trüzerinden de kontrol edebilirsiniz."', N'Haber7', 0, N'http://i3.haber7.net/haber/haber7/bigmanset/2019/20/elcin_sangu_yalani_sonrasi_kivirdi_yine_rezil_oldu_1557909347_9769.jpg')
+GO
+INSERT [dbo].[Haberler] ([HaberId], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkumaSayisi], [ResimURL]) VALUES (7, N'23 Haziran seçimi için seçmen sorgulama sistemi açýldý', CAST(0x0000AA4E00000000 AS DateTime), N'Yüksek Seçim Kurulunca (YSK), 23 Haziran''da yapýlacak Ýstanbul Büyükþehir Belediye Baþkanlýðý yenileme seçiminde, Ýstanbul seçmeninin nerede oy kullanacaðýna iliþkin sorgu ekraný faaliyete geçirildi.', N'YSK''nin 31 Mart 2019 Pazar günü yapýlan Mahalli Ýdareler Genel Seçimlerinde Ýstanbul Büyükþehir Belediye Baþkanlýðý Seçimini iptal etmesi nedeniyle 23 Haziran 2019''da yapýlacak Ýstanbul Büyükþehir Belediye Baþkanlýðý Yenileme Seçiminde, 31 Mart 2019 tarihinde yapýlan Mahalli Ýdareler Genel Seçimlerinde kullanýlan sandýk seçmen listeleri geçerli olacak.
+
+YSK internet sitesinde, yenileme seçiminde oy kullanacak seçmenin, hangi sandýkta, nerede oy kullanacaklarýna iliþkin bilgilere ulaþmasý için sorgu ekraný açýldý.', N'Haber7', 0, N'http://i3.haber7.net/haber/haber7/bigmanset/2019/20/23_haziran_secimi_icin_secmen_sorgulama_sistemi_acildi_1557930196_0132.jpg')
+GO
+INSERT [dbo].[Haberler] ([HaberId], [Baslik], [Tarih], [Ozet], [Detay], [Kaynak], [OkumaSayisi], [ResimURL]) VALUES (8, N'Terim onay vermiþti! G.Saray''dan sürpriz transfer', CAST(0x0000AA5100000000 AS DateTime), N'Süper Lig''de þampiyonluða koþan Galatasaray''ýn ilk transferini yaptýðý öne sürüldü! Sarý-kýrmýzýlýlarýn bir süredir izledikleri Nijeryalý stoper Valentine Ozornwafor''u transfer ettiði belirtildi.', N'spor Toto Süper Lig''de üst üste ikinci þampiyonluða çok yakýn olan Galatasaray, bir yandan Baþakþehir maçýna hazýrlanýrken diðer yandan da gelecek sezonun kadrosu üzerinde çalýþýyor. Bu doðrultuda hareket eden sarý-kýrmýzýlýlarýn ilk transferini yaptýðý da öne sürüldü.
+
+BiP Spor''da yer alan habere göre Galatasaray, 19 yaþýndaki Nijeryalý stoper Ozornwafor''u 250 bin dolara kadrosuna kattý.
+
+Sarý-kýrmýzýlý ekibin scout''larý bir süredir Nijeryalý oyuncuyu izlemekteydi. Fatih Terim''in de Ozornwafor''u beðendiði, ancak henüz genç olduðu için süreye ihtiyacý olabilir þeklinde görüþ verdiði de belirtilmiþti.', N'haber7', 0, N'http://i3.haber7.net/haber/haber7/bigmanset/2019/20/y2G4m_1558166239_2799.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[Haberler] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Kategori] ON 
+
+GO
+INSERT [dbo].[Kategori] ([KategoriId], [Adi], [Aciklama]) VALUES (1, N'Spor', N'Sporla Ýlgili Haberler')
+GO
+INSERT [dbo].[Kategori] ([KategoriId], [Adi], [Aciklama]) VALUES (2, N'Gundem', N'Gundem ile ilgili Haberler')
+GO
+INSERT [dbo].[Kategori] ([KategoriId], [Adi], [Aciklama]) VALUES (3, N'Magazin', N'Magazin ile ilgili Haberler')
+GO
+INSERT [dbo].[Kategori] ([KategoriId], [Adi], [Aciklama]) VALUES (4, N'Ekonomi ', N'Ekonomi ile ilgili Haberler')
+GO
+INSERT [dbo].[Kategori] ([KategoriId], [Adi], [Aciklama]) VALUES (5, N'Siyaset', N'Siyaset ile ilgil Haberler')
+GO
+SET IDENTITY_INSERT [dbo].[Kategori] OFF
+GO
+SET IDENTITY_INSERT [dbo].[KoseYazilari] ON 
+
+GO
+INSERT [dbo].[KoseYazilari] ([YaziId], [YazarId], [Ozet], [Detay]) VALUES (1, 1, N'Acun''dan eþi benzeri görülmemiþ destek...', N'Acun Ilýcalý, Fenerbahçe''ye düzenlediði iki geceyle büyük katký saðlanmasýna ön ayak olurken, kendisi de yaptýðý baðýþlarla sarý lacivertli taraftarlarýn övgüsünü aldý.')
+GO
+INSERT [dbo].[KoseYazilari] ([YaziId], [YazarId], [Ozet], [Detay]) VALUES (2, 2, N'Denizkurdu Tatbikatý Yunan basýnýnda...', N'Mavi Vatan tatbikatýnýn korkusunu yeni atlatan Yunanistan''ýn hemen peþine Denizkurdu 2019 ile karþýlaþmasý Atina''yý yeniden endiþelere sevk ederken, tatbikatýn büyüklüðüne vurgu yapýldý.
+
+Genelkurmay''ýn açýkladýðý "Cumhuriyet tarihinin planlý en büyük tatbikatý" notunu da düþen Yunan medyasý, tatbikata 131 savaþ gemisi, 57 uçak ve 33 helikopterin katýlmasýna deðindi.')
+GO
+INSERT [dbo].[KoseYazilari] ([YaziId], [YazarId], [Ozet], [Detay]) VALUES (3, 3, N'‘Þimdi hayalinde Ýstanbul’u göreceksin!’...', N'Her yýl bir coðrafyayý gezme, görme, yazma planý çerçevesinde Yemen’e gittiðimde yarým günümü “gat meclisine” ayýrdým. Gat, nar aðacýnýn yapraklarýný andýran, yaz kýþ sürgün veren çalýmsý bir bitki. Ucu filizli taze yapraklarý aðzýnýzýn yan tarafý þiþecek þekilde çiðniyorsunuz. Yapraðý yutmadan sadece yeþil suyunu midenize indiriyorsunuz. 
+Büyük keyif veren gat meclisleri tüm Yemenliler için o kadar vazgeçilmez ki, Kuzey Yemen’le Güney Yemen’in iç savaþ yaþadýðý günlerde öðleden sonra gat saati geldiðinde iki taraf da elini tetikten çekerdi. 
+Baþkent Sana yakýnlarýndaki 13 asýrlýk Tula’da bir gat meclisine katýldým. Duvar dibinde yer minderlerinde oturan insanlarýn hemen tümünün sol yanaðý þiþ. Keyfin yükseldiði anlar. Ben de denemeye çalýþtým. Gat yapraklarýný çiðneyip yanaðýma yerleþtirdim, çiðnemeye koyuldum. 
+Yer yer altýn diþleri dikkati çeken meclis üyelerinden biri, o an zevkin büyüklüðünü anlatmak için seslendi: 
+“Þimdi hayalinde Ýstanbul’u göreceksin...” 
+Hiç Ýstanbul’u görüp görmediðini sordum. Gitmemiþti, ama onun için zevk dolu bir hayalin doruðu Ýstanbul’du.
+Balkanlar’ý gezerken de karþýlaþtýðým insanlarýn hemen tümü bulunduðu kentle Ýstanbul arasýndaki mesafeyi bildiði gibi Avrupa þehirlerinin uzaklýðýný da Ýstanbul’la karþýlaþtýrýyordu; “Ýstanbul’dan daha yakýn”, “Ýstanbul’un yolunun iki katý”... ')
+GO
+INSERT [dbo].[KoseYazilari] ([YaziId], [YazarId], [Ozet], [Detay]) VALUES (6, 4, N'Rusya ve ABD arasýnda kalmanýn maliyeti ne?', N'Türkiye, Rusya’dan aldýðý S-400 hava savunma sisteminin teslimatýna kýsa zaman kaldýðý halde, henüz bu konuda ulusal bir uzlaþýya varamadý. Sistemin fayda - maliyet analizini yapan uzmanlar farklý fikirler dillendiriyorlar. Sadece uçaklara karþý etkili olduðunu, balistik füzelere karþý iþe yaramadýðýný belirtenler var. ABD’nin Patriot füze savunma sisteminden çok daha etkili olduðuna dikkat çekenler var. S-400 füzeleri NATO sistemiyle uyumlu olmadýðýndan, iþe yaramayacaðýný, onca paranýn çöpe gideceðini söyleyenler var. ')
+GO
+INSERT [dbo].[KoseYazilari] ([YaziId], [YazarId], [Ozet], [Detay]) VALUES (8, 5, N'Bunlar bizi öldürürler', N'"Büyüyünce AK Partili olacaksa beþ yaþýndaki kýz çocuðunun ýrzýna geçilmesi iyidir" gibi... Bunu söyleyen de bir kadýn üstelik.
+Sýkýþýnca da "sonradan sildim ama" diyor. Yerseniz, piþmanmýþ.
+Anadolu Ajansý''nýn bir muhabiri, ayda üç otuz paraya emek harcayan bir çocuk, haber peþinde, yani görev sýrasýnda uçurumdan düþtü. Bugüne kadar yalnýzca ayakkabýsýnýn teki bulunabildi.
+Sosyopatlar çok sevindiler.
+Sosyal medya adý verilen zevzeklik ve pislik ortamýna gene bozuk ruhlarýnýn çöp tenekesini döktüler.
+"Üzülmedim kiii... Üzülmedim kiii..." diyen çýktý.
+"Düþtüðü yerdeki topraðýn caný acýmamýþtýr umarým" diyen çýktý.
+"Ölmediyse gömün gitsin" diyen çýktý.
+"Millete yanlýþ bilgi verdiyse gebersin" diyen de çýktý.')
+GO
+INSERT [dbo].[KoseYazilari] ([YaziId], [YazarId], [Ozet], [Detay]) VALUES (9, 5, N'Ýsmet’in sureti', N'Nazlý Haným''la "özgür günlerinde" sohbet ediyorduk... Yýl 2008 olmalý... Henüz "Tayyip düþmanlýðý" gözlerini karartýp onu yanlýþtan yanlýþa sürüklememiþti...
+Bana bir soru sordu.
+Dedi ki, "1950 yýlýnda ya da daha sonra, Celal Bayar paralardan Ýnönü''nün resmini kaldýrýp yerine kendi resmini koysaydý ne olurdu?" "Kýyamet kopardý" dedim.
+Oysa Ýnönü bunu yaptýðýnda, banknotlardan Atatürk''ün resmini kaldýrýp kendi resmini koyduðunda kimsenin gýký çýkmamýþtý.
+Çýkamazdý, çýkaranýn ensesinde boza piþirirlerdi.
+Ben de Nazlý Haným''a bir soru sordum.
+"Þimdi," dedim, "Abdullah Gül -o zamanki cumhurbaþkaný- ayný þeyi yapsa, paralardan Atatürk''ün resmini kaldýrýp kendi resmini koydursa ne olur?" 
+"Kýyamet kopar" dedi.')
+GO
+INSERT [dbo].[KoseYazilari] ([YaziId], [YazarId], [Ozet], [Detay]) VALUES (10, 5, N'Muhtaç olduðun belediye', N'Genel baþkan yardýmcýlarýndan biri... Bildiðiniz gibi CHP''de bir genel baþkan yardýmcýsý "enflasyonu" var. ("Baþkan yardýmcýsý" yerine "genel baþkan yardýmcýsý" deyince daha fiyakalý oluyor. Genel baþkan yardýmcýlarýndan biri...
+Bildiðiniz gibi CHP''de bir genel baþkan yardýmcýsý "enflasyonu" var. ("Baþkan yardýmcýsý" yerine "genel baþkan yardýmcýsý" deyince daha fiyakalý oluyor. Sýfatý ne kadar kalabalýk olursa o kadar iyi.)
+Böyle giderse, herhangi bir CHP üyesinden sözederken "genel baþkan yardýmcýsý olmayan falanca" diye belirtmek gerekecek. Çünkü azýnlýkta kalacaklar.
+Ýsmi önemli deðil, baþkan yardýmcýlarýndan biri, Erzurum''da konuþmuþ.
+Laf kýtlýðýnda asma budama, memur gazetesi haber diye veriyor.
+Ne yapsýnlar, onlarýn da iþi zor. Emekliler kahvesine ýhlamurun yanýna geyik malzemesi yetiþtirmek zorundalar.
+Önce, Erzurum''un "Atatürk''ün kenti" olduðunu iddia etmiþ.
+Biz Selanik sanýyorduk.
+Ama her kent Atatürk''ün kenti ve hepimiz onun askerleri deðil miyiz? (CHP''li Canan Haným hariç, o asker olmayý sevmiyor.)
+"Yerel yaðcýlýk" faslýndan sonra sadede gelmiþ.')
+GO
+SET IDENTITY_INSERT [dbo].[KoseYazilari] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Yazarlar] ON 
+
+GO
+INSERT [dbo].[Yazarlar] ([YazarId], [AdiSoyadi], [ResimURL]) VALUES (1, N'Fatih Altaylý', N'https://i.gazeteoku.com/2/72/72/storage/old/files/authors/2015/03/09/14/14-iFPClGWUeG.jpg')
+GO
+INSERT [dbo].[Yazarlar] ([YazarId], [AdiSoyadi], [ResimURL]) VALUES (2, N'Deniz Zeyrek', N'https://i.gazeteoku.com/2/72/72/storage/old/files/authors/2015/03/09/397/397-O5VheROJfg.jpg')
+GO
+INSERT [dbo].[Yazarlar] ([YazarId], [AdiSoyadi], [ResimURL]) VALUES (3, N'Mustafa Balbay', N'http://www.cumhuriyet.com.tr/ext/images/yazarlar/yazar61.png?v=51')
+GO
+INSERT [dbo].[Yazarlar] ([YazarId], [AdiSoyadi], [ResimURL]) VALUES (4, N'Barýþ Doster', N'http://www.cumhuriyet.com.tr/ext/images/yazarlar/yazar386.png?v=51')
+GO
+INSERT [dbo].[Yazarlar] ([YazarId], [AdiSoyadi], [ResimURL]) VALUES (5, N'Erdinç Ardýç', N'https://i.gazeteoku.com/2/72/72/storage/old/files/authors/2015/03/09/5/5-4ZtKOr9uYT.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[Yazarlar] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Yorumlar] ON 
+
+GO
+INSERT [dbo].[Yorumlar] ([commentID], [yaziID], [haberID], [gonderen], [yorum], [tarih]) VALUES (1, 1, NULL, N'Fadile Avcý', N'yeýweýhwejk', CAST(0x0000AA5000000000 AS DateTime))
+GO
+INSERT [dbo].[Yorumlar] ([commentID], [yaziID], [haberID], [gonderen], [yorum], [tarih]) VALUES (3, NULL, 1, N'Büsra Basaran', N'fkjhvbn nb', CAST(0x0000A65D00000000 AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Yorumlar] OFF
+GO
+ALTER TABLE [dbo].[Haberler] ADD  CONSTRAINT [DF_Haberler_OkumaSayisi]  DEFAULT ((0)) FOR [OkumaSayisi]
+GO
+ALTER TABLE [dbo].[Gundem]  WITH CHECK ADD  CONSTRAINT [FK_Gundem_Haberler] FOREIGN KEY([HaberId])
+REFERENCES [dbo].[Haberler] ([HaberId])
+GO
+ALTER TABLE [dbo].[Gundem] CHECK CONSTRAINT [FK_Gundem_Haberler]
+GO
+ALTER TABLE [dbo].[HaberKategori]  WITH CHECK ADD  CONSTRAINT [FK_HaberKategori_Haberler] FOREIGN KEY([HaberId])
+REFERENCES [dbo].[Haberler] ([HaberId])
+GO
+ALTER TABLE [dbo].[HaberKategori] CHECK CONSTRAINT [FK_HaberKategori_Haberler]
+GO
+ALTER TABLE [dbo].[HaberKategori]  WITH CHECK ADD  CONSTRAINT [FK_HaberKategori_Kategori] FOREIGN KEY([KategoriId])
+REFERENCES [dbo].[Kategori] ([KategoriId])
+GO
+ALTER TABLE [dbo].[HaberKategori] CHECK CONSTRAINT [FK_HaberKategori_Kategori]
+GO
+ALTER TABLE [dbo].[KoseYazilari]  WITH CHECK ADD  CONSTRAINT [FK_KoseYazilari_Yazarlar] FOREIGN KEY([YazarId])
+REFERENCES [dbo].[Yazarlar] ([YazarId])
+GO
+ALTER TABLE [dbo].[KoseYazilari] CHECK CONSTRAINT [FK_KoseYazilari_Yazarlar]
+GO
+ALTER TABLE [dbo].[Yorumlar]  WITH CHECK ADD  CONSTRAINT [FK_Yorumlar_Haberler] FOREIGN KEY([haberID])
+REFERENCES [dbo].[Haberler] ([HaberId])
+GO
+ALTER TABLE [dbo].[Yorumlar] CHECK CONSTRAINT [FK_Yorumlar_Haberler]
+GO
+ALTER TABLE [dbo].[Yorumlar]  WITH CHECK ADD  CONSTRAINT [FK_Yorumlar_KoseYazilari] FOREIGN KEY([yaziID])
+REFERENCES [dbo].[KoseYazilari] ([YaziId])
+GO
+ALTER TABLE [dbo].[Yorumlar] CHECK CONSTRAINT [FK_Yorumlar_KoseYazilari]
+GO
+USE [master]
+GO
+ALTER DATABASE [HaberinOlsun] SET  READ_WRITE 
+GO
